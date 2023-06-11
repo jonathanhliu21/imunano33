@@ -140,9 +140,11 @@ public:
     return Quaternion{newW, newVec};
   }
 
-  static Vector3D
-  Rotate(const Vector3D &vec, const Vector3D &axis,
-         const double ang); // defined later, where operators are defined
+  // defined later, where operators are defined
+  Quaternion &operator*=(const Quaternion &other);
+  Vector3D Rotate(const Vector3D &vec);
+  static Vector3D Rotate(const Vector3D &vec, const Vector3D &axis,
+                         const double ang);
 
 private:
   double m_w;
@@ -207,6 +209,35 @@ inline Vector3D Quaternion::Rotate(const Vector3D &vec, const Vector3D &axis,
   Quaternion rotationQuat{axis.normalize(), ang};
   Quaternion vecQuat{0, vec};
   Quaternion res = rotationQuat * vecQuat * rotationQuat.Conjugate();
+
+  return res.GetVec();
+}
+
+/**
+ * @brief Multiplies a quaternion in place
+ *
+ * @param other quaternion
+ *
+ * @returns Quaternion multiplied in place
+ */
+inline Quaternion &Quaternion::operator*=(const Quaternion &other) {
+  Quaternion res = (*this) * other;
+  m_w = res.GetW();
+  m_vec = res.GetVec();
+
+  return *this;
+}
+
+/**
+ * @brief Rotates a vector with current quaternion object
+ *
+ * @param vec The vector to rotate
+ *
+ * @returns The rotated vector.
+ */
+inline Vector3D Quaternion::Rotate(const Vector3D &vec) {
+  Quaternion vecQ = {0, vec};
+  Quaternion res = (*this) * vecQ * Inverse();
 
   return res.GetVec();
 }

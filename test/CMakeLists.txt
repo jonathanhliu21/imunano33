@@ -20,7 +20,7 @@ include_directories(../include/)
 
 add_executable(
   test_all
-  test_all.cpp
+  test_quat.cpp
 )
 target_link_libraries(
   test_all
