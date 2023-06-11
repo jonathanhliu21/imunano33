@@ -85,32 +85,32 @@ public:
    *
    * @returns The scalar component
    */
-  double GetW() const { return m_w; }
+  double w() const { return m_w; }
 
   /**
    * @brief Gets the vector component of the quaternion
    *
    * @returns The vector component
    */
-  Vector3D GetVec() const { return m_vec; }
+  Vector3D vec() const { return m_vec; }
 
   /**
    * @brief Gets the quaternion conjugate
    *
    * @returns The quaternion conjugate
    */
-  Quaternion Conjugate() const { return Quaternion{m_w, -m_vec}; }
+  Quaternion conj() const { return Quaternion{m_w, -m_vec}; }
 
   /**
    * @brief Gets quaternion inverse
    *
    * @returns Quaternion inverse
    */
-  Quaternion Inverse() const {
-    Quaternion conj = Conjugate();
-    double magn = Magn();
-    double newW = conj.GetW() / (magn * magn);
-    Vector3D newVec = conj.GetVec() / (magn * magn);
+  Quaternion inv() const {
+    Quaternion conju = conj();
+    double mag = magn();
+    double newW = conju.w() / (mag * mag);
+    Vector3D newVec = conju.vec() / (mag * mag);
 
     return Quaternion{newW, newVec};
   }
@@ -120,7 +120,7 @@ public:
    *
    * @returns Quaternion magnitude
    */
-  double Magn() const {
+  double magn() const {
     return std::sqrt(m_w * m_w + m_vec.x() * m_vec.x() + m_vec.y() * m_vec.y() +
                      m_vec.z() * m_vec.z());
   }
@@ -132,18 +132,18 @@ public:
    *
    * @returns Normalized quaternion
    */
-  Quaternion Normalize() const {
-    double magn = Magn();
-    double newW = m_w / magn;
-    Vector3D newVec = m_vec / magn;
+  Quaternion norm() const {
+    double mag = magn();
+    double newW = m_w / mag;
+    Vector3D newVec = m_vec / mag;
 
     return Quaternion{newW, newVec};
   }
 
   // defined later, where operators are defined
   Quaternion &operator*=(const Quaternion &other);
-  Vector3D Rotate(const Vector3D &vec);
-  static Vector3D Rotate(const Vector3D &vec, const Vector3D &axis,
+  Vector3D rotate(const Vector3D &vec);
+  static Vector3D rotate(const Vector3D &vec, const Vector3D &axis,
                          const double ang);
 
 private:
@@ -162,11 +162,11 @@ private:
 inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
   using svector::Vector3D;
 
-  double wl = lhs.GetW();
-  double wr = rhs.GetW();
+  double wl = lhs.w();
+  double wr = rhs.w();
 
-  Vector3D vl = lhs.GetVec();
-  Vector3D vr = rhs.GetVec();
+  Vector3D vl = lhs.vec();
+  Vector3D vr = rhs.vec();
 
   return Quaternion(wl * wr - vl.dot(vr), vr * wl + vl * wr + vl.cross(vr));
 }
@@ -180,7 +180,7 @@ inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
  * @returns Whether the quaternions are equal
  */
 inline bool operator==(const Quaternion &lhs, const Quaternion &rhs) {
-  return lhs.GetW() == rhs.GetW() && lhs.GetVec() == rhs.GetVec();
+  return lhs.w() == rhs.w() && lhs.vec() == rhs.vec();
 }
 
 /**
@@ -204,13 +204,13 @@ inline bool operator!=(const Quaternion &lhs, const Quaternion &rhs) {
  *
  * @returns The rotated vector.
  */
-inline Vector3D Quaternion::Rotate(const Vector3D &vec, const Vector3D &axis,
+inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
                                    const double ang) {
-  Quaternion rotationQuat{axis.normalize(), ang};
-  Quaternion vecQuat{0, vec};
-  Quaternion res = rotationQuat * vecQuat * rotationQuat.Conjugate();
+  Quaternion rotQ{axis.normalize(), ang};
+  Quaternion vecQ{0, vec};
+  Quaternion res = rotQ * vecQ * rotQ.inv();
 
-  return res.GetVec();
+  return res.vec();
 }
 
 /**
@@ -222,8 +222,8 @@ inline Vector3D Quaternion::Rotate(const Vector3D &vec, const Vector3D &axis,
  */
 inline Quaternion &Quaternion::operator*=(const Quaternion &other) {
   Quaternion res = (*this) * other;
-  m_w = res.GetW();
-  m_vec = res.GetVec();
+  m_w = res.w();
+  m_vec = res.vec();
 
   return *this;
 }
@@ -235,11 +235,11 @@ inline Quaternion &Quaternion::operator*=(const Quaternion &other) {
  *
  * @returns The rotated vector.
  */
-inline Vector3D Quaternion::Rotate(const Vector3D &vec) {
+inline Vector3D Quaternion::rotate(const Vector3D &vec) {
   Quaternion vecQ = {0, vec};
-  Quaternion res = (*this) * vecQ * Inverse();
+  Quaternion res = (*this) * vecQ * inv();
 
-  return res.GetVec();
+  return res.vec();
 }
 } // namespace imunano33
 
