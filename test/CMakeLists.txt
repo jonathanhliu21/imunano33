@@ -21,6 +21,7 @@ include_directories(../include/)
 add_executable(
   test_all
   test_quat.cpp
+  test_mathutil.cpp
 )
 target_link_libraries(
   test_all
