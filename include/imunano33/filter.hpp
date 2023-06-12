@@ -108,7 +108,7 @@ public:
    *
    * @note The xyz value definitions used in this method are the same as the
    * definitions in the following link:
-   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-accelerometer
+   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time,
               const double favoring) {
@@ -164,7 +164,7 @@ public:
    *
    * @note The xyz value definitions used in this method are the same as the
    * definitions in the following link:
-   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-accelerometer
+   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time) {
     update(accel, gyro, time, m_gyroFavoring);
