@@ -23,6 +23,7 @@ add_executable(
   test_quat.cpp
   test_mathutil.cpp
   test_filter.cpp
+  test_climate.cpp
 )
 target_link_libraries(
   test_all
