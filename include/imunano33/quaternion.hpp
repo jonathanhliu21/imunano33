@@ -1,7 +1,7 @@
 /**
  * @file
  *
- * @brief File containing Quaternion class
+ * @brief File containing the Quaternion class
  */
 
 #ifndef INCLUDE_IMUNANO33_QUATERNION_HPP_
