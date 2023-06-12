@@ -1,14 +1,10 @@
 #include <gtest/gtest.h>
 #include <imunano33/quaternion.hpp>
 
+#include "testutil.hpp"
+
 using namespace imunano33;
 using namespace svector;
-
-void nearCheck(Vector3D a, Vector3D b, double tol = 0.0001) {
-  for (int i = 0; i < 3; i++) {
-    EXPECT_NEAR(a[i], b[i], tol);
-  }
-}
 
 // if rotate works, then rotation constructor, w(), vec(), magn(), conj(),
 // inv() works
