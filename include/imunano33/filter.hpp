@@ -97,8 +97,8 @@ public:
   /**
    * @brief Updates filter
    *
-   * @param accel Accelerometer reading, in <x, y, z>, where x is side to side,
-   * y is back and forth, z is up and down
+   * @param accel Accelerometer reading, in <x, y, z>, where z is up and down
+   * (important for gravity corrections), and xy is translational motion.
    * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
    * @param time The time it took for the reading to happen (in s)
    * @param favoring Determines how much gravity should correct, in the range
@@ -107,13 +107,14 @@ public:
    * does not correct error at all.
    *
    * @note The xyz value definitions used in this method are the same as the
-   * definitions in the following link:
+   * definitions in the following link, where the direction with the label
+   * marked on top of it is in the positive direction for each axis:
    * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time,
               const double favoring) {
-    if (MathUtil::nearZero(gyro.magn(), 0.001)) {
-      // do not update rotation quaternion if ang vel is near zero
+    if (MathUtil::nearZero(gyro.magn())) {
+      // do not update rotation quaternion if ang vel is basically zero
       return;
     } else {
       // math from:
@@ -124,8 +125,9 @@ public:
       Quaternion qGyroDelta(gyro.normalize(), time * gyro.magn());
       Quaternion qGyroCur = m_qRot * qGyroDelta;
 
-      // don't bother with acceleration correction if acceleration is near 0
-      if (MathUtil::nearZero(accel, 0.001)) {
+      // don't bother with acceleration correction if acceleration is basically
+      // 0
+      if (MathUtil::nearZero(accel)) {
         m_qRot = qGyroCur;
         return;
       }
@@ -163,7 +165,8 @@ public:
    * @param time The time it took for the reading to happen (in s)
    *
    * @note The xyz value definitions used in this method are the same as the
-   * definitions in the following link:
+   * definitions in the following link, where the direction with the label
+   * marked on top of it is in the positive direction for each axis:
    * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time) {
