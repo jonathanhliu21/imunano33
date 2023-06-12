@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief File containing the MathUtil class
+ * @brief File containing the imunano33::MathUtil class
  */
 
 #ifndef INCLUDE_IMUNANO33_MATHUTIL_HPP_

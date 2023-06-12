@@ -1,5 +1,6 @@
 /**
  * @file simplevectors.hpp
+ * @brief Vector math utility file
  *
  * @internal
  * The MIT License (MIT)

@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief File containing the Filter class
+ * @brief File containing the imunano33::Filter class
  */
 
 #ifndef INCLUDE_IMUNANO33_FILTER_HPP_

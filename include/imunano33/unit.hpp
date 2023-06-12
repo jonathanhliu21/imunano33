@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief Contains TempUnit and PressureUnit enums
+ * @brief Contains imunano33::TempUnit and imunano33::PressureUnit enums
  */
 
 #ifndef INCLUDE_IMUNANO33_UNIT_HPP_
