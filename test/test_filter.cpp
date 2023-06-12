@@ -1,3 +1,10 @@
+#include <cmath>
+#include <iostream>
+
+#ifndef M_PI
+#define M_PI 3.1415926535897932384626433
+#endif
+
 #include <gtest/gtest.h>
 #include <imunano33/filter.hpp>
 
@@ -124,3 +131,88 @@ TEST(Filter, SetGyroFavoring) {
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);
 }
+
+TEST(Filter, UpdateGyroXPos90) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  // rotate +90
+  Filter f{1};
+  f.update({}, {M_PI / 2, 0, 0}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, 0, 1}, 0.0001);
+  nearCheck(kRes, {0, -1, 0}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroXPos180) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  // rotate +90
+  Filter f{1};
+  f.update({}, {M_PI, 0, 0}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, -1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, -1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroXPos270) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  // rotate +90
+  Filter f{1};
+  f.update({}, {3 * M_PI / 2, 0, 0}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  // std::cout << "one" << std::endl;
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  // std::cout << "two" << std::endl;
+  nearCheck(jRes, {0, 0, -1}, 0.0001);
+  // std::cout << "three" << std::endl;
+  nearCheck(kRes, {0, 1, 0}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroXPos360) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  // rotate +90
+  Filter f{1};
+  f.update({}, {M_PI * 2, 0, 0}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+// TEST(Filter, UpdateGyroY) { Filter f{1}; }
+
+// TEST(Filter, UpdateGyroZ) { Filter f{1}; }
+
+// TEST(Filter, UpdateAccel) {}
