@@ -20,7 +20,7 @@ enum TempUnit {
  * @brief An enumerator describing units of pressure values
  */
 enum PressureUnit {
-  PASCAL, //!< Converts pressure to pascal
+  KPA,  //!< Converts pressure to kilopascal
   ATM,  //!< Converts pressure to standard atmospheric pressure, the pressure at
         //!< sea level and at 0°C
   MMHG, //!< Converts pressure to millimeters of mercury
