@@ -142,6 +142,7 @@ public:
    * @param pressure Pressure, in kPa
    */
   void update(const double temp, const double humid, const double pressure) {
+    m_dataExists = true;
     m_temp = temp;
     m_humid = humid;
     m_pressure = pressure;
