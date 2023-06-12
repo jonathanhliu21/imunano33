@@ -113,7 +113,7 @@ public:
       res = m_pressure * 0.00986923266716;
       break;
     case MMHG:
-      res = m_pressure * 7.50062;
+      res = m_pressure * 7.500617;
       break;
     case PSI:
       res = m_pressure * 0.1450377377;
