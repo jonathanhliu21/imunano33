@@ -136,3 +136,67 @@ TEST(Climate, TempK) {
   res = c.getTemp<KELVIN>();
   EXPECT_NEAR(res, 233.15, 0.0001);
 }
+
+TEST(Climate, PresKPa) {
+  Climate c;
+
+  c.update(0, 0, 0);
+  double res = c.getPressure<KPA>();
+  EXPECT_NEAR(res, 0, 0.0001);
+
+  c.update(0, 0, 20);
+  res = c.getPressure<KPA>();
+  EXPECT_NEAR(res, 20, 0.0001);
+
+  c.update(0, 0, 46.5);
+  res = c.getPressure<KPA>();
+  EXPECT_NEAR(res, 46.5, 0.0001);
+}
+
+TEST(Climate, PresAtm) {
+  Climate c;
+
+  c.update(0, 0, 0);
+  double res = c.getPressure<ATM>();
+  EXPECT_NEAR(res, 0, 0.0001);
+
+  c.update(0, 0, 20);
+  res = c.getPressure<ATM>();
+  EXPECT_NEAR(res, 0.197384653, 0.0001);
+
+  c.update(0, 0, 46.5);
+  res = c.getPressure<ATM>();
+  EXPECT_NEAR(res, 0.458919319, 0.0001);
+}
+
+TEST(Climate, PresMmHg) {
+  Climate c;
+
+  c.update(0, 0, 0);
+  double res = c.getPressure<MMHG>();
+  EXPECT_NEAR(res, 0, 0.0001);
+
+  c.update(0, 0, 20);
+  res = c.getPressure<MMHG>();
+  EXPECT_NEAR(res, 150.012337, 0.0001);
+
+  c.update(0, 0, 46.5);
+  res = c.getPressure<MMHG>();
+  EXPECT_NEAR(res, 348.778682, 0.0001);
+}
+
+TEST(Climate, PresPsi) {
+  Climate c;
+
+  c.update(0, 0, 0);
+  double res = c.getPressure<PSI>();
+  EXPECT_NEAR(res, 0, 0.0001);
+
+  c.update(0, 0, 20);
+  res = c.getPressure<PSI>();
+  EXPECT_NEAR(res, 2.90075475, 0.0001);
+
+  c.update(0, 0, 46.5);
+  res = c.getPressure<PSI>();
+  EXPECT_NEAR(res, 6.7442548, 0.0001);
+}
