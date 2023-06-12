@@ -1,3 +1,8 @@
+/**
+ * @file
+ * @brief File containing the MathUtil class
+ */
+
 #ifndef INCLUDE_IMUNANO33_MATHUTIL_HPP_
 #define INCLUDE_IMUNANO33_MATHUTIL_HPP_
 
