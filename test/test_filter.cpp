@@ -583,7 +583,7 @@ TEST(Filter, UpdateAccelPosZ) {
   Vector3D k{0, 0, 1};
 
   Filter f{0.98};
-  f.update({0, 0, -1}, {0, 0, M_PI * 2}, 1);
+  f.update({0, 0, -1}, {0, 0, M_PI}, 1);
 
   Quaternion q = f.getRotQ();
 
@@ -591,8 +591,8 @@ TEST(Filter, UpdateAccelPosZ) {
   Vector3D jRes = q.rotate(j);
   Vector3D kRes = q.rotate(k);
 
-  nearCheck(iRes, {1, 0, 0}, 0.0001);
-  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(iRes, {-1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, -1, 0}, 0.0001);
   nearCheck(kRes, {0, 0, 1}, 0.0001);
 }
 
