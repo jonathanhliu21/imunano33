@@ -427,6 +427,151 @@ TEST(Filter, UpdateGyroYNeg360) {
   nearCheck(kRes, {0, 0, 1}, 0.0001);
 }
 
+TEST(Filter, UpdateGyroZPos270) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, 3 * M_PI / 2}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {0, -1, 0}, 0.0001);
+  nearCheck(jRes, {1, 0, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZPos180) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, M_PI / 2}, 2);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {-1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, -1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZPos90) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, M_PI / 6}, 3);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {0, 1, 0}, 0.0001);
+  nearCheck(jRes, {-1, 0, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZPos360) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  // rotate +90
+  Filter f{1};
+  f.update({}, {0, M_PI * 4, 0}, 0.5);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZNeg90) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, -M_PI / 2}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {0, -1, 0}, 0.0001);
+  nearCheck(jRes, {1, 0, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZNeg180) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, -M_PI}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {-1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, -1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZNeg270) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, -3 * M_PI / 2}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {0, 1, 0}, 0.0001);
+  nearCheck(jRes, {-1, 0, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateGyroZNeg360) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{1};
+  f.update({}, {0, 0, -M_PI * 2}, 1);
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
 // TEST(Filter, UpdateGyroY) { Filter f{1}; }
 
 // TEST(Filter, UpdateGyroZ) { Filter f{1}; }
