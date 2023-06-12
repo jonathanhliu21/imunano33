@@ -106,10 +106,9 @@ public:
    * that orientation is solely determined by gravity), and 1 means that gravity
    * does not correct error at all.
    *
-   * @note The xyz value definitions used in this method are the same as the
-   * definitions in the following link, where the direction with the label
-   * marked on top of it is in the positive direction for each axis:
-   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
+   * @note With the opening of the USB port facing front and the Arduino's
+   * sensors facing up, the positive x axis is to the front, the positive y axis
+   * is to the left, and the positive z axis is to the top.
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time,
               const double favoring) {
@@ -140,14 +139,16 @@ public:
 
       // correcting gyro drift with accelerometer
       Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
-      Vector3D vecAccelGravity{0, 0, 1};
+      Vector3D vecAccelGravity{0, 0, -1};
       Vector3D vecRotAxis =
           cross(vecAccelWorldNorm,
                 vecAccelGravity); // rotation axis for correction rotation from
                                   // estimated gravity vector (from gyro
                                   // readings) to true gravity vector
       double rotAngle = std::acos(MathUtil::clamp(
-          z(vecAccelWorldNorm), -1.0,
+          dot(vecAccelGravity, vecAccelWorldNorm) /
+              (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
+          -1.0,
           1.0)); // angle to rotate to correct acceleration vector
 
       // complementary filter
@@ -165,10 +166,9 @@ public:
    * @param gyro Gyroscope reading (in rad/s)
    * @param time The time it took for the reading to happen (in s)
    *
-   * @note The xyz value definitions used in this method are the same as the
-   * definitions in the following link, where the direction with the label
-   * marked on top of it is in the positive direction for each axis:
-   * https://docs.arduino.cc/tutorials/nano-33-ble-sense/imu-gyroscope
+   * @note With the opening of the USB port facing front and the Arduino's
+   * sensors facing up, the positive x axis is to the front, the positive y axis
+   * is to the left, and the positive z axis is to the top.
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time) {
     update(accel, gyro, time, m_gyroFavoring);
