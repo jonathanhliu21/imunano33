@@ -112,50 +112,58 @@ public:
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const double time,
               const double favoring) {
-    if (MathUtil::nearZero(magn(gyro))) {
-      // do not update rotation quaternion if ang vel is basically zero
-      return;
+    // math from:
+    // https://stanford.edu/class/ee267/lectures/lecture10.pdf
+    // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
+
+    // rotation quaternion from gyroscope readings
+    Quaternion qGyroCur;
+    if (MathUtil::nearZero(gyro)) {
+      // if gyro reading is 0, take current quaternion to be corrected
+      qGyroCur = m_qRot;
     } else {
-      // math from:
-      // https://stanford.edu/class/ee267/lectures/lecture10.pdf
-      // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
-
-      // rotation quaternion from gyroscope readings
+      // otherwise integrate quaternion reading
       Quaternion qGyroDelta{normalize(gyro), time * magn(gyro)};
-      Quaternion qGyroCur = m_qRot * qGyroDelta;
-
-      // don't bother with acceleration correction if acceleration is basically
-      // 0
-      if (MathUtil::nearZero(accel)) {
-        m_qRot = qGyroCur;
-        return;
-      }
-
-      // gravity vector rotation
-      Quaternion qAccelBody{0, accel};
-      Quaternion qAccelWorld =
-          qGyroCur * qAccelBody *
-          qGyroCur.inv(); // rotates body acceleration by gyro measurements
-
-      // correcting gyro drift with accelerometer
-      Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
-      Vector3D vecAccelGravity{0, 0, -1};
-      Vector3D vecRotAxis =
-          cross(vecAccelWorldNorm,
-                vecAccelGravity); // rotation axis for correction rotation from
-                                  // estimated gravity vector (from gyro
-                                  // readings) to true gravity vector
-      double rotAngle = std::acos(MathUtil::clamp(
-          dot(vecAccelGravity, vecAccelWorldNorm) /
-              (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
-          -1.0,
-          1.0)); // angle to rotate to correct acceleration vector
-
-      // complementary filter
-      Quaternion qAccelCur =
-          Quaternion{normalize(vecRotAxis), (1 - favoring) * rotAngle};
-      m_qRot = qAccelCur * qGyroCur;
+      qGyroCur = m_qRot * qGyroDelta;
     }
+
+    // don't bother with acceleration correction if acceleration is basically
+    // 0
+    if (MathUtil::nearZero(accel)) {
+      m_qRot = qGyroCur;
+      return;
+    }
+
+    // gravity vector rotation
+    Quaternion qAccelBody{0, accel};
+    Quaternion qAccelWorld =
+        qGyroCur * qAccelBody *
+        qGyroCur.inv(); // rotates body acceleration by gyro measurements
+
+    // correcting gyro drift with accelerometer
+    Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
+    Vector3D vecAccelGravity{0, 0, -1};
+    Vector3D vecRotAxis =
+        cross(vecAccelWorldNorm,
+              vecAccelGravity); // rotation axis for correction rotation from
+                                // estimated gravity vector (from gyro
+                                // readings) to true gravity vector
+    double rotAngle = std::acos(
+        MathUtil::clamp(dot(vecAccelGravity, vecAccelWorldNorm) /
+                            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
+                        -1.0,
+                        1.0)); // angle to rotate to correct acceleration vector
+
+    // if angle needed to rotate is 0 or the axis to rotate around is 0, then
+    // don't bother correcting
+    if (MathUtil::nearZero(rotAngle) || MathUtil::nearZero(vecRotAxis)) {
+      m_qRot = qGyroCur;
+      return;
+    }
+
+    // complementary filter
+    Quaternion qAccelCur{normalize(vecRotAxis), (1 - favoring) * rotAngle};
+    m_qRot = qAccelCur * qGyroCur;
   }
 
   /**
