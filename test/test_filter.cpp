@@ -306,7 +306,7 @@ TEST(Filter, UpdateGyroYPos180) {
   Vector3D k{0, 0, 1};
 
   Filter f{1};
-  f.update({}, {0, M_PI, 0}, 1);
+  f.update({2, 0.3, 11}, {0, M_PI, 0}, 1);
   Quaternion q = f.getRotQ();
 
   Vector3D iRes = q.rotate(i);
@@ -343,7 +343,7 @@ TEST(Filter, UpdateGyroYPos360) {
 
   // rotate +90
   Filter f{1};
-  f.update({}, {0, M_PI * 2, 0}, 1);
+  f.update({-55, 1, 3}, {0, M_PI * 2, 0}, 1);
   Quaternion q = f.getRotQ();
 
   Vector3D iRes = q.rotate(i);
@@ -397,15 +397,18 @@ TEST(Filter, UpdateGyroYNeg270) {
   Vector3D k{0, 0, 1};
 
   Filter f{1};
-  f.update({}, {0, -3 * M_PI / 2, 0}, 1);
+  f.update({20}, {0, -3 * M_PI / 2, 0}, 1);
   Quaternion q = f.getRotQ();
 
   Vector3D iRes = q.rotate(i);
   Vector3D jRes = q.rotate(j);
   Vector3D kRes = q.rotate(k);
 
+  std::cout << "one" << std::endl;
   nearCheck(iRes, {0, 0, -1}, 0.0001);
+  std::cout << "two" << std::endl;
   nearCheck(jRes, {0, 1, 0}, 0.0001);
+  std::cout << "three" << std::endl;
   nearCheck(kRes, {1, 0, 0}, 0.0001);
 }
 
@@ -451,7 +454,7 @@ TEST(Filter, UpdateGyroZPos180) {
   Vector3D k{0, 0, 1};
 
   Filter f{1};
-  f.update({}, {0, 0, M_PI / 2}, 2);
+  f.update({-3, 22, 1}, {0, 0, M_PI / 2}, 2);
   Quaternion q = f.getRotQ();
 
   Vector3D iRes = q.rotate(i);
@@ -560,7 +563,7 @@ TEST(Filter, UpdateGyroZNeg360) {
   Vector3D k{0, 0, 1};
 
   Filter f{1};
-  f.update({}, {0, 0, -M_PI * 2}, 1);
+  f.update({45, 23, 0}, {0, 0, -M_PI * 2}, 1);
   Quaternion q = f.getRotQ();
 
   Vector3D iRes = q.rotate(i);
@@ -572,8 +575,64 @@ TEST(Filter, UpdateGyroZNeg360) {
   nearCheck(kRes, {0, 0, 1}, 0.0001);
 }
 
-// TEST(Filter, UpdateGyroY) { Filter f{1}; }
+TEST(Filter, UpdateAccelPosZ) {
+  // any change in rotation on z-axis should not be corrected
 
-// TEST(Filter, UpdateGyroZ) { Filter f{1}; }
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
 
-// TEST(Filter, UpdateAccel) {}
+  Filter f{0.98};
+  f.update({0, 0, -1}, {0, 0, M_PI * 2}, 1);
+
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(kRes, {0, 0, 1}, 0.0001);
+}
+
+TEST(Filter, UpdateAccelPosX) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{0};
+  f.update({1, 0, 0}, {0, M_PI / 2 + 5, 0}, 1);
+
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  nearCheck(iRes, {0, 0, -1}, 0.0001);
+  nearCheck(jRes, {0, 1, 0}, 0.0001);
+  nearCheck(kRes, {1, 0, 0}, 0.0001);
+}
+
+TEST(Filter, UpdateAccelPosY) {
+  Vector3D i{1, 0, 0};
+  Vector3D j{0, 1, 0};
+  Vector3D k{0, 0, 1};
+
+  Filter f{0};
+  f.update({0, -1, 0}, {M_PI / 2 - 0.5, 0, 0}, 1);
+
+  Quaternion q = f.getRotQ();
+
+  Vector3D iRes = q.rotate(i);
+  Vector3D jRes = q.rotate(j);
+  Vector3D kRes = q.rotate(k);
+
+  std::cout << "one" << std::endl;
+  nearCheck(iRes, {1, 0, 0}, 0.0001);
+  std::cout << "two" << std::endl;
+  nearCheck(jRes, {0, 0, 1}, 0.0001);
+  std::cout << "three" << std::endl;
+  nearCheck(kRes, {0, -1, 0}, 0.0001);
+}
