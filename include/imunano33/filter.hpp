@@ -97,8 +97,9 @@ public:
   /**
    * @brief Updates filter
    *
-   * @param accel Accelerometer reading, in <x, y, z>, where z is up and down
-   * (important for gravity corrections), and xy is translational motion.
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
    * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
    * @param time The time it took for the reading to happen (in s)
    * @param favoring Determines how much gravity should correct, in the range
@@ -169,8 +170,9 @@ public:
   /**
    * @brief Updates filter
    *
-   * @param accel Accelerometer reading, in <x, y, z>, where x is side to side,
-   * y is back and forth, z is up and down
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
    * @param gyro Gyroscope reading (in rad/s)
    * @param time The time it took for the reading to happen (in s)
    *
