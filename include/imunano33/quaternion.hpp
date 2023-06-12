@@ -16,6 +16,9 @@ using svector::Vector3D;
 
 /**
  * @brief A simple quaternion class for rotations
+ *
+ * The quaternion operations and math are mainly based on this paper:
+ * https://jerabaul29.github.io/assets/quaternions/quaternions.pdf
  */
 class Quaternion {
 public:
