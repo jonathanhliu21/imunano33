@@ -54,12 +54,12 @@ public:
    * @note A zero vector passed into vec will result in undefined behavior
    */
   Quaternion(Vector3D vec, const double ang) {
-    Vector3D norm = vec.normalize();
+    Vector3D norm = normalize(vec);
     m_w = std::cos(ang / 2);
 
-    m_vec.x(norm.x() * std::sin(ang / 2));
-    m_vec.y(norm.y() * std::sin(ang / 2));
-    m_vec.z(norm.z() * std::sin(ang / 2));
+    x(m_vec, x(norm) * std::sin(ang / 2));
+    y(m_vec, y(norm) * std::sin(ang / 2));
+    z(m_vec, z(norm) * std::sin(ang / 2));
   }
 
   /**
@@ -124,8 +124,8 @@ public:
    * @returns Quaternion magnitude
    */
   double magn() const {
-    return std::sqrt(m_w * m_w + m_vec.x() * m_vec.x() + m_vec.y() * m_vec.y() +
-                     m_vec.z() * m_vec.z());
+    return std::sqrt(m_w * m_w + x(m_vec) * x(m_vec) + y(m_vec) * y(m_vec) +
+                     z(m_vec) * z(m_vec));
   }
 
   /**
@@ -171,7 +171,7 @@ inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
   Vector3D vl = lhs.vec();
   Vector3D vr = rhs.vec();
 
-  return Quaternion(wl * wr - vl.dot(vr), vr * wl + vl * wr + vl.cross(vr));
+  return Quaternion(wl * wr - dot(vl, vr), vr * wl + vl * wr + cross(vl, vr));
 }
 
 /**
@@ -209,7 +209,7 @@ inline bool operator!=(const Quaternion &lhs, const Quaternion &rhs) {
  */
 inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
                                    const double ang) {
-  Quaternion rotQ{axis.normalize(), ang};
+  Quaternion rotQ{normalize(axis), ang};
   Quaternion vecQ{0, vec};
   Quaternion res = rotQ * vecQ * rotQ.inv();
 
