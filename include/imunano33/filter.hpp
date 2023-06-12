@@ -121,7 +121,7 @@ public:
       // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
 
       // rotation quaternion from gyroscope readings
-      Quaternion qGyroDelta(gyro.normalize(), -time * gyro.magn());
+      Quaternion qGyroDelta(gyro.normalize(), time * gyro.magn());
       Quaternion qGyroCur = m_qRot * qGyroDelta;
 
       // don't bother with acceleration correction if acceleration is near 0
