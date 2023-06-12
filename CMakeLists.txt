@@ -13,8 +13,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
 # Compilation options
-option(IMUNANO33_BUILD_DOCS "Enable building of documentation" ON)
-option(IMUNANO33_BUILD_TESTING "Enable building tests" ON)
+option(IMUNANO33_BUILD_DOCS "Enable building of documentation" OFF)
+option(IMUNANO33_BUILD_TESTING "Enable building tests" OFF)
 
 # Add an interface target for our header-only library
 add_library(imunano33 INTERFACE)
