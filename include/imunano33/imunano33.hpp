@@ -53,28 +53,250 @@ using svector::Vector3D;
  */
 class IMUNano33 {
 public:
-  IMUNano33();
-  IMUNano33(const double favoring);
-  IMUNano33(const double favoring, const Quaternion &initialQ);
+  /**
+   * @brief Default constructor
+   *
+   * Sets filter gyro favoring to 0.98 and initial orientation to be pointing in
+   * the positive x-direction.
+   */
+  IMUNano33() = default;
 
+  /**
+   * @brief Constructor
+   *
+   * Sets initial orientation to be pointing in the positive x-direction.
+   *
+   * @param gyroFavoring Determines how much gravity should correct, in the
+   * range [0, 1]. 0 means that gravity should fully correct the error (does not
+   * mean that orientation is solely determined by gravity), and 1 means that
+   * gravity does not correct error at all.
+   *
+   * @note If gyroFavoring is less than 0 or greater than 1, it gets clamped to
+   * 0 or 1.
+   * @note If favoring is too high (> 0.99), then there might be latency in
+   * gravity correction.
+   */
+  IMUNano33(const double gyroFavoring) : m_filter{gyroFavoring} {}
+
+  /**
+   * @brief Constructor
+   *
+   * @param gyroFavoring Determines how much gravity should correct, in the
+   * range [0, 1]. 0 means that gravity should fully correct the error (does not
+   * mean that orientation is solely determined by gravity), and 1 means that
+   * gravity does not correct error at all.
+   * @param initialQ The initial rotation quaternion. When resetIMU() is called,
+   * the orientation quaternion will be set to this value.
+   *
+   * @note If gyroFavoring is less than 0 or greater than 1, it gets clamped to
+   * 0 or 1.
+   * @note If initialQ is unnormalized, then the method will normalize it. If
+   * initialQ is set to be zeroes, this will result in undefined behavior.
+   * @note If favoring is too high (> 0.99), then there might be latency in
+   * gravity correction.
+   */
+  IMUNano33(const double gyroFavoring, const Quaternion &initialQ)
+      : m_initialQ{initialQ}, m_filter{gyroFavoring, initialQ} {}
+
+  /**
+   * @brief Copy constructor
+   */
+  IMUNano33(const IMUNano33 &other)
+      : m_initialQ{other.m_initialQ}, m_filter{other.m_filter},
+        m_climate{other.m_climate} {}
+
+  /**
+   * @brief Assignment operator
+   */
+  IMUNano33 &operator=(const IMUNano33 &other) {
+    if (this == &other) {
+      return *this;
+    }
+
+    m_initialQ = other.m_initialQ;
+    m_filter = other.m_filter;
+    m_climate = other.m_climate;
+
+    return *this;
+  }
+
+  /**
+   * @brief Updates climate data
+   *
+   * It is important that you retrieve the data in the units listed below, or
+   * the units will not be accurate.
+   *
+   * @param temperature Temperature, in C
+   * @param humidity Relative humidity, in percent
+   * @param pressure Pressure, in kPa
+   */
   void updateClimate(const double temperature, const double humidity,
-                     const double pressure);
-  void updateIMU(const Vector3D &gyro, const Vector3D &accel,
-                 const double deltaT);
-  void update(const Vector3D &gyro, const Vector3D &accel, const double deltaT,
-              const double temperature, const double humidity,
-              const double pressure);
-  void resetIMU();
-  void zeroIMU();
-  void resetClimate();
-  void setRotQ(const Quaternion &rot);
-  void setGyroFavoring(const double favoring);
+                     const double pressure) {
+    m_climate.update(temperature, humidity, pressure);
+  }
 
-  Quaternion getRotQ() const;
-  double getGyroFavoring() const;
-  template <TempUnit U> double getTemp();
-  template <PressureUnit U> double getPressure();
-  double getHumidity();
+  /**
+   * @brief Updates IMU data
+   *
+   * It is important that the gyroscope is given in radians per second, or the
+   * orientation data will be inaccurate. The accelerometer measurement can be
+   * in any unit, but m / s^2 is preferred as it is SI.
+   *
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
+   * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
+   * @param deltaT The time between this measurement and the previous
+   * measurement. If this is the first measurement, deltaT would refer to the
+   * time since startup (when initialQ was measured).
+   */
+  void updateIMU(const Vector3D &accel, const Vector3D &gyro,
+                 const double deltaT) {
+    m_filter.update(accel, gyro, deltaT);
+  }
+
+  /**
+   * @brief Updates both IMU and climate data
+   *
+   * It is important that the gyroscope is given in radians per second, or the
+   * orientation data will be inaccurate. The accelerometer measurement can be
+   * in any unit, but m / s^2 is preferred as it is SI.
+   *
+   * It is important that you retrieve the data in the units listed below, or
+   * the units will not be accurate.
+   *
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
+   * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
+   * @param deltaT The time between this measurement and the previous
+   * measurement. If this is the first measurement, deltaT would refer to the
+   * time since startup (when initialQ was measured).
+   * @param temperature Temperature, in C
+   * @param humidity Relative humidity, in percent
+   * @param pressure Pressure, in kPa
+   */
+  void update(const Vector3D &accel, const Vector3D &gyro, const double deltaT,
+              const double temperature, const double humidity,
+              const double pressure) {
+    updateIMU(accel, gyro, deltaT);
+    updateClimate(temperature, humidity, pressure);
+  }
+
+  /**
+   * @brief Resets IMU orientation to the initialQ argument provided in the
+   * constructor.
+   *
+   * All measurements from this point on will be in the frame of reference of
+   * the initial quaternion.
+   */
+  void resetIMU() { m_filter.setRotQ(m_initialQ); }
+
+  /**
+   * @brief Sets current IMU orientation to be facing the positive X-axis..
+   *
+   * All measurements from this point on will be relative to where you set the
+   * orientation to be the positive X-axis.
+   */
+  void zeroIMU() { m_filter.reset(); }
+
+  /**
+   * @brief Resets climate data
+   *
+   * climateDataExists() will be false after this is called.
+   */
+  void resetClimate() { m_climate.reset(); }
+
+  /**
+   * @brief Sets rotation quaternion for the filter
+   *
+   * All measurements from this point on will be relative to this quaternion.
+   *
+   * @param q The rotation quaternion
+   *
+   * @note If q is unnormalized, then this method will normalize it. If q is set
+   * to be zeros, this will result in undefined behavior.
+   */
+  void setRotQ(const Quaternion &q) { m_filter.setRotQ(q); }
+
+  /**
+   * @brief Sets gyro favoring
+   *
+   * @param favoring Determines how much gravity should correct, in the
+   * range [0, 1]. 0 means that gravity should fully correct the error (does not
+   * mean that orientation is solely determined by gravity), and 1 means that
+   * gravity does not correct error at all.
+   *
+   * @note If favoring is less than 0 or greater than 1, it will be clamped to 0
+   * or 1.
+   */
+  void setGyroFavoring(const double favoring) {
+    m_filter.setGyroFavoring(favoring);
+  }
+
+  /**
+   * @brief Gets rotation quaternion of the complementary filter
+   *
+   * @returns rotation quaternion
+   */
+  Quaternion getRotQ() const { return m_filter.getRotQ(); }
+
+  /**
+   * @brief Gets gyroscope favoring
+   *
+   * @returns gyro favoring
+   */
+  double getGyroFavoring() const { return m_filter.getGyroFavoring(); }
+
+  /**
+   * @brief Gets temperature
+   *
+   * Check that this temperature measurement is valid with climateDataExists()
+   * first.
+   *
+   * Specify the unit in the template argument.
+   *
+   * @returns Temperature in given unit.
+   */
+  template <TempUnit U> double getTemperature() const {
+    return m_climate.getTemp<U>();
+  }
+
+  /**
+   * @brief Gets pressure
+   *
+   * Check that this pressure measurement is valid with climateDataExists()
+   * first.
+   *
+   * Specify the unit in the template argument.
+   *
+   * @returns Pressure in given unit.
+   */
+  template <PressureUnit U> double getPressure() const {
+    return m_climate.getPressure<U>();
+  }
+
+  /**
+   * @brief Gets relative humidity
+   *
+   * Check that this humidity measurement is valid with climateDataExists()
+   * first.
+   *
+   * Unit is percent humidity.
+   *
+   * @returns Relative humidity
+   */
+  double getHumidity() const { return m_climate.getHumidity(); }
+
+  /**
+   * @brief Determines if climate data exists.
+   *
+   * This only returns false if the object is initialized but none of update()
+   * or updateClimate() have not been called yet.
+   *
+   * @returns If data exists.
+   */
+  bool climateDataExists() const { return m_climate.dataExists(); }
 
 private:
   Quaternion m_initialQ;
