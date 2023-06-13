@@ -24,6 +24,7 @@ add_executable(
   test_mathutil.cpp
   test_filter.cpp
   test_climate.cpp
+  test_imunano33.cpp
 )
 target_link_libraries(
   test_all
