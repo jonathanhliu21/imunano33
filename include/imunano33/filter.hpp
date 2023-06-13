@@ -60,7 +60,7 @@ public:
    * range [0, 1]. 0 means that gravity should fully correct the error (does not
    * mean that orientation is solely determined by gravity), and 1 means that
    * gravity does not correct error at all.
-   * @param initialQ The initial rotation quaternion, other than {1, 0, 0, 0}
+   * @param initialQ The initial rotation quaternion.
    *
    * @note If gyroFavoring is less than 0 or greater than 1, it gets clamped to
    * 0 or 1.
