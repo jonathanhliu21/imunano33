@@ -97,6 +97,10 @@ public:
   /**
    * @brief Updates filter
    *
+   * If you plan on only using the gyroscope measurements, then pass in
+   * a zero vector for the acceleration, as accelerometer corrections will not
+   * be performed if the acceleration vector is zero.
+   *
    * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
    * (important for gravity corrections), and xy is translational motion. The
    * note comes with more details specific to the Arduino Nano 33.
@@ -169,6 +173,10 @@ public:
 
   /**
    * @brief Updates filter
+   *
+   * If you plan on only using the gyroscope measurements, then pass in
+   * a zero vector for the acceleration, as accelerometer corrections will not
+   * be performed if the acceleration vector is zero.
    *
    * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
    * (important for gravity corrections), and xy is translational motion. The
