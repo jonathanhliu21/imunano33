@@ -200,3 +200,19 @@ TEST(Climate, PresPsi) {
   res = c.getPressure<PSI>();
   EXPECT_NEAR(res, 6.7442548, 0.0001);
 }
+
+TEST(Climate, Humid) {
+  Climate c;
+
+  c.update(0, 0, 0);
+  double res = c.getHumidity();
+  EXPECT_NEAR(res, 0, 0.0001);
+
+  c.update(0, 20, 0);
+  res = c.getHumidity();
+  EXPECT_NEAR(res, 20, 0.0001);
+
+  c.update(0, 46.5, 0);
+  res = c.getHumidity();
+  EXPECT_NEAR(res, 46.5, 0.0001);
+}
