@@ -1,4 +1,7 @@
 @mainpage
+@tableofcontents
+
+# Overview
 
 IMUNano33 is a data processor library for the sensors on an Arduino Nano 33 BLE Sense, namely the:
 
@@ -12,11 +15,8 @@ This library only processes the data and does not read in any data. It expects t
 
 This library can also be used with an Arduino connected to an MPU-9250 or MPU-6050 IMU along with a DHT22 temperature/humidity sensor and a BMP390 pressure sensor. However, the axes mentioned in the documentation will not match. Additionally, as mentioned above, this library can be used as a standalone orientation calculator or a standalone climate data processor, so it can be used with just a MPU-9250/MPU-6050 or just a DHT22 + BMP390.
 
-# Quickstart
 
-A quick way to jump in.
-
-## Installation
+# Installation
 
 The most convenient way to install this library is to clone the repository, and copy the `include/imunano33` directory directly into your project directory, or in a folder designated for third party libraries. This way, you can include the main file, `imunano33/imunano33.hpp`, anywhere in your project.
 
@@ -51,6 +51,11 @@ target_link_libraries(your_target PUBLIC imunano33::imunano33)
 
 The include path will be `imunano33/imunano33.hpp`.
 
-## Basic Usage
+# Theory
 
-# Table of Contents
+@todo this page
+
+# Usage
+
+@todo this page
+
