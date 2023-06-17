@@ -18,7 +18,13 @@ This library can also be used with an Arduino connected to an MPU-9250 or MPU-60
 
 # Installation
 
+There are three main ways to install this library
+
+## Copying folder
+
 The most convenient way to install this library is to clone the repository, and copy the `include/imunano33` directory directly into your project directory, or in a folder designated for third party libraries. This way, you can include the main file, `imunano33/imunano33.hpp`, anywhere in your project.
+
+## CMake Submodule
 
 Alternatively, you can use CMake to install this library. The include path would be `imunano33/imunano33.hpp` for this option. Clone the repository or add it as a submodule, and then type in the following in your CMakeLists.txt:
 
@@ -30,6 +36,8 @@ target_link_libraries(your_target PUBLIC imunano33::imunano33)
 
 # other build code
 ```
+
+## CMake Global Install
 
 Another alternative is installing the library to the system. First, type in this script:
 
@@ -52,6 +60,48 @@ target_link_libraries(your_target PUBLIC imunano33::imunano33)
 The include path will be `imunano33/imunano33.hpp`.
 
 # Theory
+
+This section explains the math behind how this library works. Most of the math for the quaternions and the complementary filter are from these resources:
+
+* https://jerabaul29.github.io/assets/quaternions/quaternions.pdf
+* https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
+* https://stanford.edu/class/ee267/lectures/lecture10.pdf
+
+In case these links go down, below contains a brief explanation of the math in the links above.
+
+## Quaternions
+
+A quaternion consists of 4 components, one of which is the scalar component and the other three are which are the vector component.
+
+@f[
+q = [q_0, q_1, q_2, q_3] \\
+q = [q_0, \vec{v}] \\
+\vec{v} = [q_1, q_2, q_3]
+@f]
+
+### Definitions
+
+The **norm** of a quaternion is defined as @f$l = \sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^3}@f$. A unit quaternion has a norm of 1. 
+
+The **conjugate** of a quaternion is defined as @f$\overline{q} = [q_0,-q_1,-q_2,-q_3]@f$.
+
+The **inverse** of a quaternion is defined as @f$q^{-1}=\frac{\overline{q}}{l^2}@f$. For a unit quaternion, the inverse equals the conjugate.
+
+The **product** of two quaternions (important for rotations):
+
+@f[
+[w_1, \vec{v_1}]\cdot[w_2, \vec{v_2}]=[w_1w_2-\vec{v_1} \cdot \vec{v_2}, w_1 \vec{v_2}+w_2 \vec{v_1}+ \vec{v_1}\times \vec{v_2}]
+@f]
+
+### Rotating vectors
+
+A 3D rotation can be described as a unit quaternion. If @f$\vec{v}@f$ is the axis of rotation, and @f$l@f$ is the norm, and the angle of rotation around this axis is @f$\theta@f$, then the quaternion that can describe this rotation is:
+
+@f[
+q = [\cos(\frac{\theta}{2}), \sin(\frac{\theta}{2})\frac{\vec{v}}{l}]
+@f]
+
+## Complementary Filter
 
 @todo this page
 
