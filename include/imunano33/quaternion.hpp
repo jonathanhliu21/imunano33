@@ -111,7 +111,7 @@ public:
    */
   Quaternion inv() const {
     Quaternion conju = conj();
-    double mag = magn();
+    double mag = norm();
     double newW = conju.w() / (mag * mag);
     Vector3D newVec = conju.vec() / (mag * mag);
 
@@ -119,11 +119,13 @@ public:
   }
 
   /**
-   * @brief Gets quaternion magnitude
+   * @brief Gets quaternion norm
    *
-   * @returns Quaternion magnitude
+   * This behaves the same as a "magnitude" in 4-dimensional vector terms.
+   *
+   * @returns Quaternion norm
    */
-  double magn() const {
+  double norm() const {
     return std::sqrt(m_w * m_w + x(m_vec) * x(m_vec) + y(m_vec) * y(m_vec) +
                      z(m_vec) * z(m_vec));
   }
@@ -131,12 +133,14 @@ public:
   /**
    * @brief Gets equivalent unit quaternion
    *
+   * This behaves the same as a "normalized" 4-dimensional vector.
+   *
    * @note If the quaternion is zero, then results in undefined behavior.
    *
    * @returns Equivalent unit quaternion
    */
   Quaternion unit() const {
-    double mag = magn();
+    double mag = norm();
     double newW = m_w / mag;
     Vector3D newVec = m_vec / mag;
 

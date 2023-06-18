@@ -6,7 +6,7 @@
 using namespace imunano33;
 using namespace svector;
 
-// if rotate works, then rotation constructor, w(), vec(), magn(), conj(),
+// if rotate works, then rotation constructor, w(), vec(), norm(), conj(),
 // inv() works
 TEST(Quaternion, RotateTest) {
   // 90 around x-axis
@@ -45,7 +45,7 @@ TEST(Quaternion, RotateVecNonZeroTest) {
   nearCheck(res, expect);
 }
 
-TEST(Quaternion, NormTest) {
+TEST(Quaternion, UnitTest) {
   Quaternion q{3, {4.4, 1, 5.1}};
   q = q.unit();
 
