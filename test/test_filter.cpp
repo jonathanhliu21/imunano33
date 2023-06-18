@@ -46,7 +46,7 @@ TEST(Filter, FullConstructorNoClamp) {
   Filter f{0.5, q};
   EXPECT_NEAR(f.getGyroFavoring(), 0.5, 0.0001);
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);
 }
@@ -56,7 +56,7 @@ TEST(Filter, FullConstructorClampHi) {
   Filter f{5, q};
   EXPECT_NEAR(f.getGyroFavoring(), 1.0, 0.0001);
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);
 }
@@ -66,7 +66,7 @@ TEST(Filter, FullConstructorClampLo) {
   Filter f{-5, q};
   EXPECT_NEAR(f.getGyroFavoring(), 0.0, 0.0001);
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);
 }
@@ -76,7 +76,7 @@ TEST(Filter, CopyConstructor) {
   Filter f{-5, q};
   Filter f2{f};
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f2.getGyroFavoring(), 0.0, 0.0001);
   EXPECT_NEAR(f2.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f2.getRotQ().vec(), qN.vec(), 0.0001);
@@ -89,7 +89,7 @@ TEST(Filter, AssignOperator) {
 
   f2 = f;
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f2.getGyroFavoring(), 0.89, 0.0001);
   EXPECT_NEAR(f2.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f2.getRotQ().vec(), qN.vec(), 0.0001);
@@ -114,7 +114,7 @@ TEST(Filter, SetRotQ) {
   Quaternion q2{3, Vector3D{0, 3, 2}};
   f.setRotQ(q2);
 
-  Quaternion qN = q2.norm();
+  Quaternion qN = q2.unit();
   EXPECT_NEAR(f.getGyroFavoring(), 0.89, 0.0001);
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);
@@ -126,7 +126,7 @@ TEST(Filter, SetGyroFavoring) {
 
   f.setGyroFavoring(0.98);
 
-  Quaternion qN = q.norm();
+  Quaternion qN = q.unit();
   EXPECT_NEAR(f.getGyroFavoring(), 0.98, 0.0001);
   EXPECT_NEAR(f.getRotQ().w(), qN.w(), 0.0001);
   nearCheck(f.getRotQ().vec(), qN.vec(), 0.0001);

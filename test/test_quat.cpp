@@ -47,7 +47,7 @@ TEST(Quaternion, RotateVecNonZeroTest) {
 
 TEST(Quaternion, NormTest) {
   Quaternion q{3, {4.4, 1, 5.1}};
-  q = q.norm();
+  q = q.unit();
 
   EXPECT_NEAR(q.w(), 0.403166, 0.0001);
   nearCheck(q.vec(), {0.59131, 0.134389, 0.685382});

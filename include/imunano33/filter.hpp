@@ -70,7 +70,7 @@ public:
    * gravity correction.
    */
   Filter(const double gyroFavoring, const Quaternion &initialQ)
-      : m_qRot{initialQ.norm()} {
+      : m_qRot{initialQ.unit()} {
     m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0, 1.0);
   }
 
@@ -220,7 +220,7 @@ public:
    * @note If q is unnormalized, then this method will normalize it. If q is set
    * to be zeros, this will result in undefined behavior.
    */
-  void setRotQ(const Quaternion &q) { m_qRot = q.norm(); }
+  void setRotQ(const Quaternion &q) { m_qRot = q.unit(); }
 
   /**
    * @brief Sets gyro favoring

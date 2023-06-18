@@ -129,13 +129,13 @@ public:
   }
 
   /**
-   * @brief Gets normalized quaternion
+   * @brief Gets equivalent unit quaternion
    *
    * @note If the quaternion is zero, then results in undefined behavior.
    *
-   * @returns Normalized quaternion
+   * @returns Equivalent unit quaternion
    */
-  Quaternion norm() const {
+  Quaternion unit() const {
     double mag = magn();
     double newW = m_w / mag;
     Vector3D newVec = m_vec / mag;

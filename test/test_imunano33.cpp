@@ -91,7 +91,7 @@ TEST(IMUNano33, TestResetIMU) {
 
   proc.resetIMU();
 
-  Quaternion qN = initQ.norm();
+  Quaternion qN = initQ.unit();
   Quaternion res = proc.getRotQ();
   EXPECT_NEAR(res.w(), qN.w(), 0.0001);
   nearCheck(qN.vec(), res.vec());
