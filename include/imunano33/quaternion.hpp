@@ -56,10 +56,7 @@ public:
   Quaternion(Vector3D vec, const double ang) {
     Vector3D norm = normalize(vec);
     m_w = std::cos(ang / 2);
-
-    x(m_vec, x(norm) * std::sin(ang / 2));
-    y(m_vec, y(norm) * std::sin(ang / 2));
-    z(m_vec, z(norm) * std::sin(ang / 2));
+    m_vec = normalize(vec) * std::sin(ang / 2);
   }
 
   /**
