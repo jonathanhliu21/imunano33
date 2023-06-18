@@ -212,7 +212,7 @@ inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
                                    const double ang) {
   Quaternion rotQ{normalize(axis), ang};
   Quaternion vecQ{0, vec};
-  Quaternion res = rotQ * vecQ * rotQ.inv();
+  Quaternion res = rotQ * vecQ * rotQ.conj();
 
   return res.vec();
 }
