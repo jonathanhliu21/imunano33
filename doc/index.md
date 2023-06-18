@@ -83,9 +83,9 @@ q = [q_0, \vec{v}] \\
 
 The **norm** of a quaternion is defined as @f$l = \sqrt{q_0^2 + q_1^2 + q_2^2 + q_3^3}@f$. A unit quaternion has a norm of 1. 
 
-The **conjugate** of a quaternion is defined as @f$\overline{q} = [q_0,-q_1,-q_2,-q_3]@f$.
+The **conjugate** of a quaternion is defined as @f$q^{\star} = [q_0,-q_1,-q_2,-q_3]@f$.
 
-The **inverse** of a quaternion is defined as @f$q^{-1}=\frac{\overline{q}}{l^2}@f$. For a unit quaternion, the inverse equals the conjugate.
+The **inverse** of a quaternion is defined as @f$q^{-1}=\frac{q^{\star}}{l^2}@f$. For a unit quaternion, the inverse equals the conjugate.
 
 The **product** of two quaternions (important for rotations):
 
@@ -95,11 +95,9 @@ The **product** of two quaternions (important for rotations):
 
 ### Rotating vectors
 
-A 3D rotation can be described as a unit quaternion. If @f$\vec{v}@f$ is the axis of rotation, and @f$l@f$ is the norm, and the angle of rotation around this axis is @f$\theta@f$, then the quaternion that can describe this rotation is:
+A 3D rotation can be described as a unit quaternion. If @f$\vec{v_A}@f$ is the axis of rotation (must be a nonzero vector), and the angle of rotation around this axis is @f$\theta@f$, then the quaternion that can describe this rotation is: @f$q_R = [\cos(\frac{\theta}{2}), \sin(\frac{\theta}{2})\frac{\vec{v_A}}{||\vec{v_A}||}]@f$
 
-@f[
-q = [\cos(\frac{\theta}{2}), \sin(\frac{\theta}{2})\frac{\vec{v}}{l}]
-@f]
+Applying a rotation quaternion to a vector @f$\vec{v}@f$: @f$[0,\vec{v_R}]=q_R\cdot[0,\vec{v}]\cdot q_R^{\star}@f$, where @f$\vec{v_R}@f$ is the rotated vector.
 
 ## Complementary Filter
 
