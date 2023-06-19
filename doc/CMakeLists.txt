@@ -8,6 +8,7 @@ set(
 )
 set(DOXYGEN_SHORT_NAMES YES)
 set(DOXYGEN_USE_MATHJAX YES)
+set(DOXYGEN_IMAGE_PATH "${PROJECT_SOURCE_DIR}/doc/static/")
 
 doxygen_add_docs(doxygen
   ${PROJECT_SOURCE_DIR}

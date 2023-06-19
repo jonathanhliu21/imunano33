@@ -75,7 +75,7 @@ Below shows a diagram and a description of the axes definitions.
 
 With the Arduino flat on a table and the sensors facing up and the opening of the Micro USB port facing towards the front, the positive x direction points towards the front, the positive y direction points perpendicular and to the left, and the positive z direction points directly up. Note that the Arduino may not measure the angular velocities and accelerations with respect to these axes, so you may need to correct the measured values.
 
-@todo Add diagram
+@image html axes.jpeg width=50%
 
 ## Quaternions
 
