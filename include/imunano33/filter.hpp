@@ -143,7 +143,7 @@ public:
     Quaternion qAccelBody{0, accel};
     Quaternion qAccelWorld =
         qGyroCur * qAccelBody *
-        qGyroCur.inv(); // rotates body acceleration by gyro measurements
+        qGyroCur.conj(); // rotates body acceleration by gyro measurements
 
     // correcting gyro drift with accelerometer
     Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
