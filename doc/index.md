@@ -134,6 +134,8 @@ This library comes with some utility classes for math, namely svector::Vector3D,
 The usage of the third-party vectors library can be found at the simplevectors [documentation page](https://jonyboi396825.github.io/simplevectors/a00123.html). The basic usage methods of the quaternion class can be found at the class link: imunano33::Quaternion. It should mainly be used for rotations, whose code can be found below:
 
 ```cpp
+#include <cmath>
+
 #include <imunano33/imunano33.hpp>
 
 imunano33::Quaternion getRotationQuaternion() {
@@ -144,17 +146,21 @@ int main() {
   imunano33::Quaternion quaternion = getRotationQuaternion();
   
 
-  // Method 1, using the member function, if the quaternion is known
+  // Method 1: using the member function, if the quaternion is known
   svector::Vector3D vec{1, 0, 0};
   svector::Vector3D vecRotated1 = quaternion.rotate(vec);
 
-  // Method 2, using the static member function, if the quaternion is unknown
+  // Method 2: using the static member function, if the quaternion is unknown
 
   // 90 degrees (pi/2 radians) clockwise around x-axis
   vec = {0, 1, 0};
   svector::Vector3D axis{1, 0, 0};
   // make sure that the angle given is in radians
-  svector::Vector3D vecRotated2 = Quaternion::rotate(vec, axis, M_PI / 2);
+  svector::Vector3D vecRotated2 = imunano33::Quaternion::rotate(vec, axis, M_PI / 2);
+
+  // Method 3: constructing a quaternion, then using the member function
+  imunano33::Quaternion quaternion2{axis, M_PI / 2};
+  svector::Vector3D vecRotated3 = quaternion2.rotate(vec); 
 }
 ```
 
