@@ -69,6 +69,14 @@ This section explains the math behind how this library works. Most of the math f
 
 In case these links go down, below contains a brief explanation of the math in the links above.
 
+## Axes Definitions
+
+Below shows a diagram and a description of the axes definitions.
+
+With the Arduino flat on a table and the sensors facing up and the opening of the Micro USB port facing towards the front, the positive x direction points towards the front, the positive y direction points perpendicular and to the left, and the positive z direction points directly up. Note that the Arduino may not measure the angular velocities and accelerations with respect to these axes, so you may need to correct the measured values.
+
+@todo Add diagram
+
 ## Quaternions
 
 A quaternion consists of 4 components, one of which is the scalar component and the other three are which are the vector component.
@@ -101,7 +109,17 @@ Applying a rotation quaternion to a vector @f$\vec{v}@f$: @f$[0,\vec{v_R}]=q_R\c
 
 ## Complementary Filter
 
-@todo this page
+This section goes over the complementary filter that combines the gyroscope and accelerometer data from the IMU. The magnetometer is not used because it is difficult to calibrate, and it needs to be calibrated differently based on different locations due to unpredictable noise.
+
+The sub-sections below go over the steps of the complementary filter.
+
+### Gyro Integration
+
+Given the angular velocity vector (in all three rotation axes), @f$\vec{\omega}@f$, the delta quaternion is defined as @f$q_\Delta = [\Delta{t}||\vec{\omega}||, \frac{\vec{\omega}}{||\vec{\omega}||}]@f$, where @f$\Delta{t}@f$ is the time between measurements. If @f$\vec{\omega}@f$ is near zero, then this step is skipped. To get the integrated quaternion: @f$q_{t\omega}=q_{t-1}q_{\Delta}@f$, where @f$t@f$ is the current time step and @f$t-1@f$ is the previous time step.
+
+### Angle correction
+
+Angle correction is done by the accelerometer by taking a fraction of its measurement, assuming that its measurement points towards the direction of the ground. Because of frequent movement, this fraction is often a very small value. The fraction is given as `1 - gyroFavoring` (or `1 - favoring`) in the code. The acceleration vector @f$\vec{a}@f$ is measured by the accelerometer, which is then rotated into world frame from body frame using @f$q_{t\omega}@f$, becoming @f$\vec{a_R}@f$. This vector is then rotated in the direction of the world frame gravity vector @f$\vec{g}=[0,0,-1]@f$. To do this, the axis of rotation @f$\vec{v_R}@f$ is determined by crossing @f$\vec{a_R}\times\vec{g}@f$, and the angle @f$\theta@f$ is determined by @f$\arccos{\left(\frac{\vec{a_R}\cdot\vec{g}}{||\vec{a_R}||||\vec{g}||}\right)}@f$. If either the angle or the axis of rotation vector are zero, then this step is skipped. To have this rotation applied to the original quaternion, we create a rotation quaternion @f$q_a@f$ with an angle of @f$\theta@f$ multiplied by one minus the gyro favoring (`1 - gyroFavoring` in the code), and the axis of rotation being @f$\frac{\vec{v_R}}{||\vec{v_R}||}@f$. This quaternion would then be multiplied by @f$q_{t\omega}@f$, given above, to give us the final rotation quaternion for the current time step @f$t@f$: @f$q_{t\omega}q_a=q_t@f$.
 
 # Usage
 
