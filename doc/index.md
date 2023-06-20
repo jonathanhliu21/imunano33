@@ -188,3 +188,94 @@ int main() {
 }
 ```
 
+## Climate
+
+To update the climate, use imunano33::IMUNano33::updateClimate(). It expects temperature, humidity, and pressure readings from the sensor. The table below shows the units of each quantity that you should measure before passing in the quantity into imunano33::IMUNano33::updateClimate().
+
+Quantity | Unit
+-------- | ------
+Temperature | Celsius
+Relative Humidity | Percent
+Barometric Pressure | Kilopascal
+
+Below is an example of updating the data processor with climate data:
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+double readTempC() {
+  // ...
+}
+
+double readRelativeHumidity() {
+  // ...
+}
+
+double readPressurekPa() {
+  // ...
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+  
+  while (true) {
+    double curTemp = readTempC();
+    double curHumidity = readRelativeHumidity();
+    double curPressure = readPressurekPa();
+
+    proc.updateClimate(curTemp, curHumidity, curPressure);
+  }
+}
+```
+
+The data processor can convert the current climate data into the following units, shown in the table below:
+
+Quantity | Unit
+-------- | ------
+Temperature | Celsius, Fahrenheit, Kelvin
+Relative Humidity | Percent
+Barometric Pressure | Kilopascal, Standard Atmospheres, Millimeters of Mercury, Pounds per Square Inch
+
+Below is an example of converting units.
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+double readTempC() {
+  // ...
+}
+
+double readRelativeHumidity() {
+  // ...
+}
+
+double readPressurekPa() {
+  // ...
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+  
+  while (true) {
+    double curTemp = readTempC();
+    double curHumidity = readRelativeHumidity();
+    double curPressure = readPressurekPa();
+
+    proc.updateClimate(curTemp, curHumidity, curPressure);
+
+    double tempC = proc.getTemperature<imunano33::CELSIUS>();
+    double tempF = proc.getTemperature<imunano33::FAHRENHEIT>();
+    double tempK = proc.getTemperature<imunano33::KELVIN>();
+
+    double relativeHumidity = proc.getHumidity();
+
+    double pressureKPa = proc.getPressure<imunano33::KPA>();
+    double pressureAtm = proc.getPressure<imunano33::ATM>();
+    double pressureMmHg = proc.getPressure<imunano33::MMHG>();
+    double pressurePSI = proc.getPressure<imunano33::PSI>();
+  }
+}
+```
+
+## IMU
+
