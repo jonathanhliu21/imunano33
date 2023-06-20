@@ -147,8 +147,8 @@ public:
    * note comes with more details specific to the Arduino Nano 33.
    * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
    * @param deltaT The time between this measurement and the previous
-   * measurement. If this is the first measurement, deltaT would refer to the
-   * time since startup (when initialQ was measured).
+   * measurement, in seconds. If this is the first measurement, deltaT would
+   * refer to the time since startup (when initialQ was measured).
    */
   void updateIMU(const Vector3D &accel, const Vector3D &gyro,
                  const double deltaT) {
@@ -170,8 +170,8 @@ public:
    * note comes with more details specific to the Arduino Nano 33.
    * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
    * @param deltaT The time between this measurement and the previous
-   * measurement. If this is the first measurement, deltaT would refer to the
-   * time since startup (when initialQ was measured).
+   * measurement, in seconds. If this is the first measurement, deltaT would
+   * refer to the time since startup (when initialQ was measured).
    * @param temperature Temperature, in C
    * @param humidity Relative humidity, in percent
    * @param pressure Pressure, in kPa
