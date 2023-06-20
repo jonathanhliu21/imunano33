@@ -279,3 +279,39 @@ int main() {
 
 ## IMU
 
+To update the orientation data, use imunano33::IMUNano33::updateIMU(). To use this method, make sure that the readings are consistent with the axes defined above. The unit of the accelermoter readings can be anything, but meters per second squared is recommended because it is in SI units. The unit of the gyroscope readings **must** be in radians per second. Usually, they are in degrees per second, so they must be converted. The time difference between measurement readings **must** be in seconds. Below is an example of updating IMU data:
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+svector::Vector3D readGyro() {
+  // ...
+  // returns <roll, pitch, yaw>
+}
+
+svector::Vector3D readAcc() {
+  // ...
+}
+
+double getCurTime() {
+  // ...
+  // returns time, in seconds
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+
+  double prevTime = getCurTime();
+  
+  while (true) {
+    svector::Vector3D gyro = readGyro();
+    svector::Vector3D acc = readAcc();
+    svector::Vector3D curTime = getCurTime();
+
+    proc.updateIMU(acc, gyro, curTime - prevTime);
+    
+    prevTime = curTime;
+  }
+}
+```
+
