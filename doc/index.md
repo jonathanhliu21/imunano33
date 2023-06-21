@@ -315,3 +315,55 @@ int main() {
 }
 ```
 
+To get the current rotation quaternion, use imunano33::IMUNano33::getRotQ().
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+svector::Vector3D readGyro() {
+  // ...
+  // returns <roll, pitch, yaw>
+}
+
+svector::Vector3D readAcc() {
+  // ...
+}
+
+double getCurTime() {
+  // ...
+  // returns time, in seconds
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+
+  double prevTime = getCurTime();
+  
+  while (true) {
+    svector::Vector3D gyro = readGyro();
+    svector::Vector3D acc = readAcc();
+    svector::Vector3D curTime = getCurTime();
+
+    proc.updateIMU(acc, gyro, curTime - prevTime);
+    
+    prevTime = curTime;
+
+    imunano33::Quaternion curQ = proc.getRotQ();
+
+    // Gets X, Y, Z axes of Arduino relative to world frame.
+    // Does this by rotating the body fram XYZ axes using the rotation 
+    // quaternion given above.
+    svector::Vector3D iBodyFrame{1, 0, 0};
+    svector::Vector3D jBodyFrame{0, 1, 0};
+    svector::Vector3D kBodyFrame{0, 0, 1};
+
+    svector::Vector3D iWorldFrame = curQ.rotate(iBodyFrame);
+    svector::Vector3D jWorldFrame = curQ.rotate(jBodyFrame);
+    svector::Vector3D kWorldFrame = curQ.rotate(kBodyFrame);
+  }
+}
+```
+
+## IMU and Climate
+
+
