@@ -366,4 +366,98 @@ int main() {
 
 ## IMU and Climate
 
+If both IMU and climate data are known, then use imunano33::IMUNano33::update(), which takes in both climate and IMU data inputs. For specifications of the inputs, read the sections above. Below shows an example of using the method:
 
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+svector::Vector3D readGyro() {
+  // ...
+  // returns <roll, pitch, yaw>
+}
+
+svector::Vector3D readAcc() {
+  // ...
+}
+
+double getCurTime() {
+  // ...
+  // returns time, in seconds
+}
+
+double readTempC() {
+  // ...
+}
+
+double readRelativeHumidity() {
+  // ...
+}
+
+double readPressurekPa() {
+  // ...
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+
+  double prevTime = getCurTime();
+  
+  while (true) {
+    svector::Vector3D gyro = readGyro();
+    svector::Vector3D acc = readAcc();
+    svector::Vector3D curTime = getCurTime();
+
+    double curTemp = readTempC();
+    double curHumidity = readRelativeHumidity();
+    double curPressure = readPressurekPa();
+
+    proc.update(acc, gyro, curTime - prevTime, curTemp, curHumidity, curPressure);
+    // above line is equivalent to below two lines
+    // proc.updateIMU(acc, gyro, curTime - prevTime);  
+    // proc.updateClimate(curTemp, curHumidity, curPressure);
+    prevTime = curTime;
+
+    imunano33::Quaternion curQ = proc.getRotQ();
+
+    // Gets X, Y, Z axes of Arduino relative to world frame.
+    // Does this by rotating the body fram XYZ axes using the rotation 
+    // quaternion given above.
+    svector::Vector3D iBodyFrame{1, 0, 0};
+    svector::Vector3D jBodyFrame{0, 1, 0};
+    svector::Vector3D kBodyFrame{0, 0, 1};
+
+    svector::Vector3D iWorldFrame = curQ.rotate(iBodyFrame);
+    svector::Vector3D jWorldFrame = curQ.rotate(jBodyFrame);
+    svector::Vector3D kWorldFrame = curQ.rotate(kBodyFrame);
+
+    // climate processing
+    double tempC = proc.getTemperature<imunano33::CELSIUS>();
+    double tempF = proc.getTemperature<imunano33::FAHRENHEIT>();
+    double tempK = proc.getTemperature<imunano33::KELVIN>();
+
+    double relativeHumidity = proc.getHumidity();
+
+    double pressureKPa = proc.getPressure<imunano33::KPA>();
+    double pressureAtm = proc.getPressure<imunano33::ATM>();
+    double pressureMmHg = proc.getPressure<imunano33::MMHG>();
+    double pressurePSI = proc.getPressure<imunano33::PSI>();
+  }
+}
+```
+
+## More usage information
+
+More usage information can be found at the imunano33::IMUNano33 class documentation page.
+
+# License
+
+The MIT License (MIT)
+
+Copyright © 2023 Jonathan Liu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
