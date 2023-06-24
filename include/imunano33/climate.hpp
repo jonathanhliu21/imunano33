@@ -29,30 +29,32 @@ public:
    *
    * Initializes with no climate data. To update climate data, call update().
    */
-  Climate() : m_dataExists{false}, m_temp{0}, m_humid{0}, m_pressure{0} {}
+  Climate() = default;
 
   /**
    * @brief Copy constructor
    */
-  Climate(const Climate &other)
-      : m_dataExists{other.m_dataExists}, m_temp{other.m_temp},
-        m_humid{other.m_humid}, m_pressure{other.m_pressure} {}
+  Climate(const Climate &other) = default;
 
   /**
    * @brief Assignment operator
    */
-  Climate &operator=(const Climate &other) {
-    if (this == &other) {
-      return *this;
-    }
+  Climate &operator=(const Climate &other) = default;
 
-    m_dataExists = other.m_dataExists;
-    m_temp = other.m_temp;
-    m_humid = other.m_humid;
-    m_pressure = other.m_pressure;
+  /**
+   * @brief Destructor
+   */
+  ~Climate() = default;
 
-    return *this;
-  }
+  /**
+   * @brief Move constructor
+   */
+  Climate(Climate &&) = default;
+
+  /**
+   * @brief Move assignment
+   */
+  Climate &operator=(Climate &&) = default;
 
   /**
    * @brief Determines if climate data exists.
@@ -74,7 +76,7 @@ public:
    * @returns Temperature in given unit.
    */
   template <TempUnit U> double getTemp() const {
-    double res;
+    double res = 0;
 
     switch (U) {
     case FAHRENHEIT:
@@ -103,7 +105,7 @@ public:
    * @returns Pressure in given unit.
    */
   template <PressureUnit U> double getPressure() const {
-    double res;
+    double res = 0;
 
     switch (U) {
     case KPA:
@@ -156,11 +158,11 @@ public:
   void reset() { m_dataExists = false; }
 
 private:
-  bool m_dataExists;
+  bool m_dataExists{false};
 
-  double m_temp;
-  double m_humid;
-  double m_pressure;
+  double m_temp{0};
+  double m_humid{0};
+  double m_pressure{0};
 };
 } // namespace imunano33
 
