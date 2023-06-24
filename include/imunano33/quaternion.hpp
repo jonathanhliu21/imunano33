@@ -35,7 +35,7 @@ public:
    * @param w The scalar component
    * @param vec The vector component
    */
-  Quaternion(const double w, Vector3D vec) : m_vec{vec} {
+  Quaternion(const double w, const Vector3D &vec) : m_vec{vec} {
     // makes sure that quaternion magnitude is nonzero
     // this is important for rotations
     if (w == 0 && isZero(vec)) {
@@ -53,9 +53,8 @@ public:
    *
    * @note A zero vector passed into vec will result in undefined behavior
    */
-  Quaternion(Vector3D vec, const double ang) {
-    Vector3D norm = normalize(vec);
-    m_w = std::cos(ang / 2);
+  Quaternion(const Vector3D &vec, const double ang) : m_w{std::cos(ang / 2)} {
+    const Vector3D norm = normalize(vec);
     m_vec = normalize(vec) * std::sin(ang / 2);
   }
 
@@ -64,21 +63,27 @@ public:
    *
    * @param other Other quaternion
    */
-  Quaternion(const Quaternion &other) : m_w{other.m_w}, m_vec{other.m_vec} {}
+  Quaternion(const Quaternion &other) = default;
 
   /**
    * @brief Assignment operator
    */
-  Quaternion &operator=(const Quaternion &other) {
-    if (this == &other) {
-      return *this;
-    }
+  Quaternion &operator=(const Quaternion &other) = default;
 
-    m_w = other.m_w;
-    m_vec = other.m_vec;
+  /**
+   * @brief Destructor
+   */
+  ~Quaternion() = default;
 
-    return *this;
-  }
+  /**
+   * @brief Move constructor
+   */
+  Quaternion(Quaternion &&) = default;
+
+  /**
+   * @brief Move assignment
+   */
+  Quaternion &operator=(Quaternion &&) = default;
 
   /**
    * @brief Gets the scalar component of the quaternion
@@ -107,10 +112,10 @@ public:
    * @returns Quaternion inverse
    */
   Quaternion inv() const {
-    Quaternion conju = conj();
-    double mag = norm();
-    double newW = conju.w() / (mag * mag);
-    Vector3D newVec = conju.vec() / (mag * mag);
+    const Quaternion conju = conj();
+    const double mag = norm();
+    const double newW = conju.w() / (mag * mag);
+    const Vector3D newVec = conju.vec() / (mag * mag);
 
     return Quaternion{newW, newVec};
   }
@@ -137,18 +142,17 @@ public:
    * @returns Equivalent unit quaternion
    */
   Quaternion unit() const {
-    double mag = norm();
-    double newW = m_w / mag;
-    Vector3D newVec = m_vec / mag;
+    const double mag = norm();
+    const double newW = m_w / mag;
+    const Vector3D newVec = m_vec / mag;
 
     return Quaternion{newW, newVec};
   }
 
   // defined later, where operators are defined
   Quaternion &operator*=(const Quaternion &other);
-  Vector3D rotate(const Vector3D &vec);
-  static Vector3D rotate(const Vector3D &vec, const Vector3D &axis,
-                         const double ang);
+  Vector3D rotate(const Vector3D &vec) const;
+  static Vector3D rotate(const Vector3D &vec, const Vector3D &axis, double ang);
 
 private:
   double m_w;
@@ -166,13 +170,13 @@ private:
 inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
   using svector::Vector3D;
 
-  double wl = lhs.w();
-  double wr = rhs.w();
+  const double wl = lhs.w();
+  const double wr = rhs.w();
 
-  Vector3D vl = lhs.vec();
-  Vector3D vr = rhs.vec();
+  const Vector3D vl = lhs.vec();
+  const Vector3D vr = rhs.vec();
 
-  return Quaternion(wl * wr - dot(vl, vr), vr * wl + vl * wr + cross(vl, vr));
+  return Quaternion{wl * wr - dot(vl, vr), vr * wl + vl * wr + cross(vl, vr)};
 }
 
 /**
@@ -210,9 +214,9 @@ inline bool operator!=(const Quaternion &lhs, const Quaternion &rhs) {
  */
 inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
                                    const double ang) {
-  Quaternion rotQ{normalize(axis), ang};
-  Quaternion vecQ{0, vec};
-  Quaternion res = rotQ * vecQ * rotQ.conj();
+  const Quaternion rotQ{normalize(axis), ang};
+  const Quaternion vecQ{0, vec};
+  const Quaternion res = rotQ * vecQ * rotQ.conj();
 
   return res.vec();
 }
@@ -225,7 +229,7 @@ inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
  * @returns Quaternion multiplied in place
  */
 inline Quaternion &Quaternion::operator*=(const Quaternion &other) {
-  Quaternion res = (*this) * other;
+  const Quaternion res = (*this) * other;
   m_w = res.w();
   m_vec = res.vec();
 
@@ -239,9 +243,9 @@ inline Quaternion &Quaternion::operator*=(const Quaternion &other) {
  *
  * @returns The rotated vector.
  */
-inline Vector3D Quaternion::rotate(const Vector3D &vec) {
-  Quaternion vecQ = {0, vec};
-  Quaternion res = (*this) * vecQ * inv();
+inline Vector3D Quaternion::rotate(const Vector3D &vec) const {
+  const Quaternion vecQ = {0, vec};
+  const Quaternion res = (*this) * vecQ * inv();
 
   return res.vec();
 }
