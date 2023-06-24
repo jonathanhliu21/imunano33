@@ -101,24 +101,27 @@ public:
   /**
    * @brief Copy constructor
    */
-  IMUNano33(const IMUNano33 &other)
-      : m_initialQ{other.m_initialQ}, m_filter{other.m_filter},
-        m_climate{other.m_climate} {}
+  IMUNano33(const IMUNano33 &other) = default;
 
   /**
    * @brief Assignment operator
    */
-  IMUNano33 &operator=(const IMUNano33 &other) {
-    if (this == &other) {
-      return *this;
-    }
+  IMUNano33 &operator=(const IMUNano33 &other) = default;
 
-    m_initialQ = other.m_initialQ;
-    m_filter = other.m_filter;
-    m_climate = other.m_climate;
+  /**
+   * @brief Destructor
+   */
+  ~IMUNano33() = default;
 
-    return *this;
-  }
+  /**
+   * @brief Move constructor
+   */
+  IMUNano33(IMUNano33 &&) = default;
+
+  /**
+   * @brief Move assignment
+   */
+  IMUNano33 &operator=(IMUNano33 &&) = default;
 
   /**
    * @brief Updates climate data
