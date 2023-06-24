@@ -36,3 +36,32 @@ $ cmake .. -DIMUNANO33_BUILD_DOC=ON
 - Run `make doxygen`.
 - The index file should be in `./doc/html/index.html`
 
+## Linting and Formatting
+
+To lint your code, you need `clang-tidy` and `clang-format`, meaning that you need to install LLVM onto your system.
+
+- Create a build folder and `cd` into it.
+- Run
+
+```text
+$ cmake .. -DSVECTOR_BUILD_EXAMPLE=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS="-Werror -Wall -Wextra"
+```
+
+- Run `make`.
+- Go to the root directory of the repository.
+
+```text
+$ cd ..
+```
+
+- Run
+
+```text
+$ make -C scripts/ lint
+```
+
+- To format your C++ code (do not run the command for any other type of file), run
+
+```text
+$ clang-format -i path/to/file/you/just/changed.hpp
+```
