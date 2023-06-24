@@ -77,22 +77,27 @@ public:
   /**
    * @brief Copy constructor
    */
-  Filter(const Filter &other)
-      : m_gyroFavoring{other.m_gyroFavoring}, m_qRot{other.m_qRot} {}
+  Filter(const Filter &other) = default;
 
   /**
    * @brief Assignment operator
    */
-  Filter &operator=(const Filter &other) {
-    if (this == &other) {
-      return *this;
-    }
+  Filter &operator=(const Filter &other) = default;
 
-    m_gyroFavoring = other.m_gyroFavoring;
-    m_qRot = other.m_qRot;
+  /**
+   * @brief Destructor
+   */
+  ~Filter() = default;
 
-    return *this;
-  }
+  /**
+   * @brief Move constructor
+   */
+  Filter(Filter &&) = default;
+
+  /**
+   * @brief Move assignment
+   */
+  Filter &operator=(Filter &&) = default;
 
   /**
    * @brief Updates filter
@@ -128,7 +133,7 @@ public:
       qGyroCur = m_qRot;
     } else {
       // otherwise integrate quaternion reading
-      Quaternion qGyroDelta{normalize(gyro), time * magn(gyro)};
+      const Quaternion qGyroDelta{normalize(gyro), time * magn(gyro)};
       qGyroCur = m_qRot * qGyroDelta;
     }
 
@@ -140,20 +145,20 @@ public:
     }
 
     // gravity vector rotation
-    Quaternion qAccelBody{0, accel};
-    Quaternion qAccelWorld =
+    const Quaternion qAccelBody{0, accel};
+    const Quaternion qAccelWorld =
         qGyroCur * qAccelBody *
         qGyroCur.conj(); // rotates body acceleration by gyro measurements
 
     // correcting gyro drift with accelerometer
-    Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
-    Vector3D vecAccelGravity{0, 0, -1};
-    Vector3D vecRotAxis =
+    const Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
+    const Vector3D vecAccelGravity{0, 0, -1};
+    const Vector3D vecRotAxis =
         cross(vecAccelWorldNorm,
               vecAccelGravity); // rotation axis for correction rotation from
                                 // estimated gravity vector (from gyro
                                 // readings) to true gravity vector
-    double rotAngle = std::acos(
+    const double rotAngle = std::acos(
         MathUtil::clamp(dot(vecAccelGravity, vecAccelWorldNorm) /
                             (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
                         -1.0,
@@ -167,7 +172,8 @@ public:
     }
 
     // complementary filter
-    Quaternion qAccelCur{normalize(vecRotAxis), (1 - favoring) * rotAngle};
+    const Quaternion qAccelCur{normalize(vecRotAxis),
+                               (1 - favoring) * rotAngle};
     m_qRot = qAccelCur * qGyroCur;
   }
 
