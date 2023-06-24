@@ -21,15 +21,37 @@ public:
   /**
    * @brief Determines if double is near zero with given precision.
    *
+   * The tolerance is 0.00001.
+   *
+   * @param num The number to determine if near zero
+   *
+   * @returns if the num is near zero
+   */
+  static bool nearZero(const double num) { return nearZero(num, NEAR_ZERO); }
+
+  /**
+   * @brief Determines if double is near zero with given precision.
+   *
    * @param num The number to determine if near zero
    * @param tol Tolerance within zero such that a number strictly less than this
    * tolerance is counted as zero.
    *
    * @returns if the num is near zero
    */
-  static bool nearZero(const double num, const double tol = NEAR_ZERO) {
+  static bool nearZero(const double num, const double tol) {
     return std::abs(num) < tol;
   }
+
+  /**
+   * @brief Determines if vector is near zero with given precision.
+   *
+   * The tolerance is 0.00001.
+   *
+   * @param vec The vector to determine if near zero
+   *
+   * @returns if the vector is near zero
+   */
+  static bool nearZero(const Vector3D &vec) { return nearZero(vec, NEAR_ZERO); }
 
   /**
    * @brief Determines if vector is near zero with given precision.
@@ -40,13 +62,27 @@ public:
    *
    * @returns if the vector is near zero
    */
-  static bool nearZero(const Vector3D &vec, const double tol = NEAR_ZERO) {
-    for (const double &i : vec) {
-      if (std::abs(i) >= tol) {
-        return false;
-      }
-    }
-    return true;
+  static bool nearZero(const Vector3D &vec, const double tol) {
+    return std::none_of(vec.begin(), vec.end(), [tol](const double &el) {
+      return std::abs(el) >= tol;
+    });
+  }
+
+  /**
+   * @brief Determines if num1 is nearly equal to num2
+   *
+   * The tolerance is 0.00001.
+   *
+   * This is helpful for comparing the equality of floating point numbers.
+   *
+   * @param num1 A number to compare
+   * @param num2 A number to compare
+   *
+   * @returns If the numbers are near each other such that they can be counted
+   * as equal.
+   */
+  static bool nearEq(const double num1, const double num2) {
+    return nearEq(num1, num2, NEAR_ZERO);
   }
 
   /**
@@ -62,8 +98,7 @@ public:
    * @returns If the numbers are near each other such that they can be counted
    * as equal.
    */
-  static bool nearEq(const double num1, const double num2,
-                     const double tol = NEAR_ZERO) {
+  static bool nearEq(const double num1, const double num2, const double tol) {
     return std::abs(num1 - num2) < tol;
   }
 
