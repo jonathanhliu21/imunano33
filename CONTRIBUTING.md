@@ -44,7 +44,7 @@ To lint your code, you need `clang-tidy` and `clang-format`, meaning that you ne
 - Run
 
 ```text
-$ cmake .. -DSVECTOR_BUILD_EXAMPLE=ON -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS="-Werror -Wall -Wextra"
+$ cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=ON -DCMAKE_CXX_FLAGS="-Werror -Wall -Wextra"
 ```
 
 - Run `make`.
@@ -57,7 +57,7 @@ $ cd ..
 - Run
 
 ```text
-$ make -C scripts/ lint
+$ clang-tidy -p build/ script/tidy.cpp
 ```
 
 - To format your C++ code (do not run the command for any other type of file), run
