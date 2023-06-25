@@ -1,0 +1,40 @@
+name: Deploy documentation
+
+on:
+  push:
+    branches: [ "main" ]
+
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Gets CMake
+        uses: lukka/get-cmake@latest
+
+      - name: Installs Doxygen
+        run: sudo apt-get install doxygen graphviz -y
+        shell: bash
+
+      - name: Builds documentation
+        run: |
+          mkdir build && cd build
+          cmake .. -DIMUNANO33_BUILD_DOCS=ON
+          make doxygen
+
+      - name: Creates .nojekyll (ensures pages with underscores work on gh pages)
+        run: touch build/doc/html/.nojekyll
+        shell: bash
+
+      - name: Deploys to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: gh-pages
+          folder: build/doc/html
+
