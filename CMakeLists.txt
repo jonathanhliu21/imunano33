@@ -15,6 +15,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Compilation options
 option(IMUNANO33_BUILD_DOCS "Enable building of documentation" OFF)
 option(IMUNANO33_BUILD_TESTING "Enable building tests" OFF)
+option(IMUNANO33_BUILD_SCRIPT "Enable building linting script" OFF)
 
 # Add an interface target for our header-only library
 add_library(imunano33 INTERFACE)
@@ -39,6 +40,11 @@ endif()
 
 # Add an alias target for use if this project is included as a subproject in another project
 add_library(imunano33::imunano33 ALIAS imunano33)
+
+if(IMUNANO33_BUILD_SCRIPT)
+  add_executable(imunano33_tidy script/tidy.cpp)
+  target_link_libraries(imunano33_tidy imunano33::imunano33)
+endif()
 
 # Install targets and configuration
 install(

@@ -78,7 +78,7 @@ jobs:
         run: |
           mkdir build && cd build
           # build example so cmake has cpp targets to build otherwise it will complain
-          cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DCMAKE_CXX_FLAGS="-Werror -Wall -Wextra -Wpedantic"
+          cmake .. -DCMAKE_EXPORT_COMPILE_COMMANDS=1 -DIMUNANO33_BUILD_SCRIPT=ON -DCMAKE_CXX_FLAGS="-Werror -Wall -Wextra -Wpedantic"
           make
 
       - name: Run Linter
