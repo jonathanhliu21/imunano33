@@ -1,0 +1,4 @@
+var searchData=
+[
+  ['x_97',['x',['../a00085.html#a4d01e85c26657fcfe710c549cb0399fa',1,'svector::Vector2D::x() const'],['../a00085.html#ae7e988c8ff0b3eafa55733b68a523a2c',1,'svector::Vector2D::x(const double &amp;newX)'],['../a00089.html#af15751f22e0f5657f4534f55881b2ad9',1,'svector::Vector3D::x() const'],['../a00089.html#ad5df8e07f445adf7af18f1b0f77e105e',1,'svector::Vector3D::x(const double &amp;newX)'],['../a00029.html#a22168f0683d87e70187a9d9d8bc5c0a1',1,'svector::x(const Vector2D &amp;v)'],['../a00029.html#aeede853b6e4e2f7ce7b09ac00a163624',1,'svector::x(Vector2D &amp;v, const double xValue)'],['../a00029.html#a957a9f171b6f00d68ee4e371488e41e6',1,'svector::x(const Vector3D &amp;v)'],['../a00029.html#a641b39b1ece9036d5ed1d55ede0893bb',1,'svector::x(Vector3D &amp;v, const double xValue)']]]
+];
