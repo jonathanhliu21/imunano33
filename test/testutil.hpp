@@ -7,6 +7,10 @@
 #include <gtest/gtest.h>
 #include <imunano33/simplevectors.hpp>
 
+#ifndef M_PI
+#define M_PI 3.1415926535897932384626433
+#endif
+
 using namespace svector;
 
 inline void nearCheck(Vector3D a, Vector3D b, double tol = 0.0001) {
