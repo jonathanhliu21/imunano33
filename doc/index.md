@@ -22,11 +22,15 @@ This library can also be used with an Arduino connected to an MPU-9250 or MPU-60
 
 # Installation
 
-There are three main ways to install this library
+There are four main ways to install this library.
+
+## Single Include
+
+The easiest way to install this library is to download the single include file on the GitHub releases page and place it into a convenient place in your project. The examples below show the include path to be `imunano33/imunano33.hpp`, but replace this with the include path that you are using to add the library.
 
 ## Copying Folder
 
-The most convenient way to install this library is to clone the repository, and copy the `include/imunano33` directory directly into your project directory, or in a folder designated for third party libraries. This way, you can include the main file, `imunano33/imunano33.hpp`, anywhere in your project.
+Another way to install this library is to clone the repository, and copy the `include/imunano33` directory directly into your project directory, or in a folder designated for third party libraries. This way, you can include the main file, `imunano33/imunano33.hpp`, anywhere in your project.
 
 ## CMake Submodule
 
@@ -67,13 +71,13 @@ The include path will be `imunano33/imunano33.hpp`.
 
 As of version 0.1.x, this library can be embedded onto an Arduino.
 
-@todo Figure out installation
+The only way to install this library with an Arduino is downloading the single include header file from the releases on the GitHub page and copying it into your Arduino project directory.
 
 After installing, it is important to add the following macro to the top of your code, before your include statement. This macro allows the library to know that it is used on an Arduino, without the C++ standard library. Without adding this, the program will not compile.
 
 ```cpp
 #define IMUNANO33_EMBED
-#include <imunano33/imunano33.hpp>
+#include "imunano33.hpp"
 
 imunano33::IMUNano33 processor;
 
@@ -477,7 +481,7 @@ int main() {
 
 ## More usage information
 
-More usage information can be found at the imunano33::IMUNano33 class documentation page. Note that these documentation pages are generated without the `IMUNANO33_EMBED` macro and are meant to be used with the Raspberry Pi. However, it is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that it does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D for its primary vector type.
+More usage information can be found at the imunano33::IMUNano33 class documentation page. Note that these documentation pages are generated without the `IMUNANO33_EMBED` macro and are meant to be used with the Raspberry Pi. However, it is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that it does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D as its primary vector type.
 
 # License
 
