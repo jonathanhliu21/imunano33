@@ -8,7 +8,7 @@ var indexSectionsWithContent =
   5: "cinrv",
   6: "apt",
   7: "abcfgkmp",
-  8: "ct"
+  8: "c"
 };
 
 var indexSectionNames =

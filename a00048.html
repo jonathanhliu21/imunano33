@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>imunano33: imunano33::Filter Class Reference</title>
+<title>imunano33: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -29,7 +29,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">imunano33
-   &#160;<span id="projectnumber">0.0.1</span>
+   &#160;<span id="projectnumber">0.1.0</span>
    </div>
   </td>
  </tr>
@@ -69,446 +69,40 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>imunano33</b></li><li class="navelem"><a class="el" href="a00048.html">Filter</a></li>  </ul>
+<li class="navelem"><b>imunano33</b></li><li class="navelem"><a class="el" href="a00051.html">IMUNano33</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="a00045.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">imunano33::Filter Class Reference</div>  </div>
+<div class="title">imunano33::IMUNano33 Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A complementary filter for a 6 axis IMU using quaternions.  
- <a href="a00048.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00017_source.html">filter.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a48e36741479da309cb97571b8ac49cdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a48e36741479da309cb97571b8ac49cdb">Filter</a> ()</td></tr>
-<tr class="memdesc:a48e36741479da309cb97571b8ac49cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="a00048.html#a48e36741479da309cb97571b8ac49cdb">More...</a><br /></td></tr>
-<tr class="separator:a48e36741479da309cb97571b8ac49cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a666da136189236bce0503d0a720e6490"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a666da136189236bce0503d0a720e6490">Filter</a> (const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> gyroFavoring)</td></tr>
-<tr class="memdesc:a666da136189236bce0503d0a720e6490"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a00048.html#a666da136189236bce0503d0a720e6490">More...</a><br /></td></tr>
-<tr class="separator:a666da136189236bce0503d0a720e6490"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acbe6664382a02845aaa7dde8d79f69db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#acbe6664382a02845aaa7dde8d79f69db">Filter</a> (const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> gyroFavoring, const <a class="el" href="a00060.html">Quaternion</a> &amp;initialQ)</td></tr>
-<tr class="memdesc:acbe6664382a02845aaa7dde8d79f69db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a00048.html#acbe6664382a02845aaa7dde8d79f69db">More...</a><br /></td></tr>
-<tr class="separator:acbe6664382a02845aaa7dde8d79f69db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9994a7507942f1cf1081db2173e8cf9e"><td class="memItemLeft" align="right" valign="top"><a id="a9994a7507942f1cf1081db2173e8cf9e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a9994a7507942f1cf1081db2173e8cf9e">Filter</a> (const <a class="el" href="a00048.html">Filter</a> &amp;other)=default</td></tr>
-<tr class="memdesc:a9994a7507942f1cf1081db2173e8cf9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
-<tr class="separator:a9994a7507942f1cf1081db2173e8cf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b255d70f7c96250108eae7f7f703d9"><td class="memItemLeft" align="right" valign="top"><a id="a34b255d70f7c96250108eae7f7f703d9"></a>
-<a class="el" href="a00048.html">Filter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a34b255d70f7c96250108eae7f7f703d9">operator=</a> (const <a class="el" href="a00048.html">Filter</a> &amp;other)=default</td></tr>
-<tr class="memdesc:a34b255d70f7c96250108eae7f7f703d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br /></td></tr>
-<tr class="separator:a34b255d70f7c96250108eae7f7f703d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635c51eae6b87f3958e9efc366e5eb29"><td class="memItemLeft" align="right" valign="top"><a id="a635c51eae6b87f3958e9efc366e5eb29"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a635c51eae6b87f3958e9efc366e5eb29">~Filter</a> ()=default</td></tr>
-<tr class="memdesc:a635c51eae6b87f3958e9efc366e5eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:a635c51eae6b87f3958e9efc366e5eb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="memItemLeft" align="right" valign="top"><a id="aa746ffcc312b4e8b2b8d203ba251b07d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#aa746ffcc312b4e8b2b8d203ba251b07d">Filter</a> (<a class="el" href="a00048.html">Filter</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
-<tr class="separator:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f824e7f07b6a3a170267939919fd893"><td class="memItemLeft" align="right" valign="top"><a id="a1f824e7f07b6a3a170267939919fd893"></a>
-<a class="el" href="a00048.html">Filter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a1f824e7f07b6a3a170267939919fd893">operator=</a> (<a class="el" href="a00048.html">Filter</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a1f824e7f07b6a3a170267939919fd893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment. <br /></td></tr>
-<tr class="separator:a1f824e7f07b6a3a170267939919fd893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a13f2a50f74a41ef423dd2e955ab6c1ba">update</a> (const <a class="el" href="a00072.html">Vector3D</a> &amp;accel, const <a class="el" href="a00072.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring)</td></tr>
-<tr class="memdesc:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00048.html#a13f2a50f74a41ef423dd2e955ab6c1ba">More...</a><br /></td></tr>
-<tr class="separator:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a556d8dc3609dcf9ec73afebadb2c9e2d">update</a> (const <a class="el" href="a00072.html">Vector3D</a> &amp;accel, const <a class="el" href="a00072.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time)</td></tr>
-<tr class="memdesc:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00048.html#a556d8dc3609dcf9ec73afebadb2c9e2d">More...</a><br /></td></tr>
-<tr class="separator:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39065f0dac556e54fa7ca041dff8cce6"><td class="memItemLeft" align="right" valign="top"><a id="a39065f0dac556e54fa7ca041dff8cce6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a39065f0dac556e54fa7ca041dff8cce6">reset</a> ()</td></tr>
-<tr class="memdesc:a39065f0dac556e54fa7ca041dff8cce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets quaternion to [1, 0, 0, 0], or facing towards position x direction. <br /></td></tr>
-<tr class="separator:a39065f0dac556e54fa7ca041dff8cce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad961237f4331643fc193a4b4925a710a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00060.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#ad961237f4331643fc193a4b4925a710a">getRotQ</a> () const</td></tr>
-<tr class="memdesc:ad961237f4331643fc193a4b4925a710a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets rotation quaternion of the complementary filter.  <a href="a00048.html#ad961237f4331643fc193a4b4925a710a">More...</a><br /></td></tr>
-<tr class="separator:ad961237f4331643fc193a4b4925a710a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a32a50698461860c99179b17071ddb1d9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a32a50698461860c99179b17071ddb1d9">getGyroFavoring</a> () const</td></tr>
-<tr class="memdesc:a32a50698461860c99179b17071ddb1d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets gyroscope favoring.  <a href="a00048.html#a32a50698461860c99179b17071ddb1d9">More...</a><br /></td></tr>
-<tr class="separator:a32a50698461860c99179b17071ddb1d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a> (const <a class="el" href="a00060.html">Quaternion</a> &amp;q)</td></tr>
-<tr class="memdesc:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets rotation quaternion for the filter.  <a href="a00048.html#a9b4cc11753a1b0e97e868643e9f7c7a3">More...</a><br /></td></tr>
-<tr class="separator:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5bef288bd9cad33978fb36e1a4e5d0b6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00048.html#a5bef288bd9cad33978fb36e1a4e5d0b6">setGyroFavoring</a> (const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring)</td></tr>
-<tr class="memdesc:a5bef288bd9cad33978fb36e1a4e5d0b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets gyro favoring.  <a href="a00048.html#a5bef288bd9cad33978fb36e1a4e5d0b6">More...</a><br /></td></tr>
-<tr class="separator:a5bef288bd9cad33978fb36e1a4e5d0b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A complementary filter for a 6 axis IMU using quaternions. </p>
-<p>Integrates the gyro measurements, then uses a small fraction of the gravity measurements (from the accelerometer) to correct the orientation given from the gyro measurements. The fraction is specified through the gyroFavoring parameter in the constructor.</p>
-<p>The math and details are based on these lectures from Stanford:</p><ul>
-<li><a href="https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf">https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf</a></li>
-<li><a href="https://stanford.edu/class/ee267/lectures/lecture10.pdf">https://stanford.edu/class/ee267/lectures/lecture10.pdf</a> </li>
-</ul>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a48e36741479da309cb97571b8ac49cdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48e36741479da309cb97571b8ac49cdb">&#9670;&nbsp;</a></span>Filter() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default Constructor. </p>
-<p>Initializes intiial quaternion to [1, 0, 0, 0] (or facing towards +x direction) and gyro favoring to 0.98. See other constructors for more information about gyro favoring. </p>
-
-</div>
-</div>
-<a id="a666da136189236bce0503d0a720e6490"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a666da136189236bce0503d0a720e6490">&#9670;&nbsp;</a></span>Filter() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>gyroFavoring</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gyroFavoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If gyroFavoring is less than 0 or greater than 1, it gets clamped to 0 or 1. </dd>
-<dd>
-If favoring is too high (&gt; 0.99), then there might be latency in gravity correction. </dd></dl>
-
-</div>
-</div>
-<a id="acbe6664382a02845aaa7dde8d79f69db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acbe6664382a02845aaa7dde8d79f69db">&#9670;&nbsp;</a></span>Filter() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>gyroFavoring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00060.html">Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>initialQ</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gyroFavoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all. </td></tr>
-    <tr><td class="paramname">initialQ</td><td>The initial rotation quaternion.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If gyroFavoring is less than 0 or greater than 1, it gets clamped to 0 or 1. </dd>
-<dd>
-If initialQ is unnormalized, then the method will normalize it. If initialQ is set to be zeroes, this will result in undefined behavior. </dd>
-<dd>
-If favoring is too high (&gt; 0.99), then there might be latency in gravity correction. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a32a50698461860c99179b17071ddb1d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a32a50698461860c99179b17071ddb1d9">&#9670;&nbsp;</a></span>getGyroFavoring()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> imunano33::Filter::getGyroFavoring </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets gyroscope favoring. </p>
-<dl class="section return"><dt>Returns</dt><dd>gyro favoring </dd></dl>
-
-</div>
-</div>
-<a id="ad961237f4331643fc193a4b4925a710a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad961237f4331643fc193a4b4925a710a">&#9670;&nbsp;</a></span>getRotQ()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00060.html">Quaternion</a> imunano33::Filter::getRotQ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets rotation quaternion of the complementary filter. </p>
-<dl class="section return"><dt>Returns</dt><dd>rotation quaternion </dd></dl>
-
-</div>
-</div>
-<a id="a5bef288bd9cad33978fb36e1a4e5d0b6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5bef288bd9cad33978fb36e1a4e5d0b6">&#9670;&nbsp;</a></span>setGyroFavoring()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::setGyroFavoring </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>favoring</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets gyro favoring. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">favoring</td><td>The new gyro favoring, in the range [0, 1]</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If favoring is less than 0 or greater than 1, it will be clamped to 0 or 1. </dd></dl>
-
-</div>
-</div>
-<a id="a9b4cc11753a1b0e97e868643e9f7c7a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b4cc11753a1b0e97e868643e9f7c7a3">&#9670;&nbsp;</a></span>setRotQ()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::setRotQ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00060.html">Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets rotation quaternion for the filter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q</td><td>The rotation quaternion</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If q is unnormalized, then this method will normalize it. If q is set to be zeros, this will result in undefined behavior. </dd></dl>
-
-</div>
-</div>
-<a id="a556d8dc3609dcf9ec73afebadb2c9e2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a556d8dc3609dcf9ec73afebadb2c9e2d">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00072.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>accel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00072.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>gyro</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates filter. </p>
-<p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
-    <tr><td class="paramname">gyro</td><td>Gyroscope reading (in rad/s) </td></tr>
-    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>With the opening of the USB port facing front and the Arduino's sensors facing up, the positive x axis is to the front, the positive y axis is to the left, and the positive z axis is to the top. </dd></dl>
-
-</div>
-</div>
-<a id="a13f2a50f74a41ef423dd2e955ab6c1ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f2a50f74a41ef423dd2e955ab6c1ba">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00072.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>accel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00072.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>gyro</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>favoring</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates filter. </p>
-<p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
-    <tr><td class="paramname">gyro</td><td>Gyroscope reading (&lt;roll, pitch, yaw&gt; in rad/s) </td></tr>
-    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s) </td></tr>
-    <tr><td class="paramname">favoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>With the opening of the USB port facing front and the Arduino's sensors facing up, the positive x axis is to the front, the positive y axis is to the left, and the positive z axis is to the top. </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/runner/work/imunano33/imunano33/include/imunano33/<a class="el" href="a00017_source.html">filter.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00051.html">imunano33::IMUNano33</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a1eb068f79c9249fb5f0b781b42968426">climateDataExists</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#abd0f275f8d924da0b4eebeafbb3da01e">getGyroFavoring</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a3b6ad81d82e371b3e63eba04a5375443">getHumidity</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#ad47a104b754e84dd853906378b2bb5a6">getPressure</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a87c23a6d0a9eba96bc3d77aaaed1e985">getRotQ</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#a2fc8b01e98724405a21f0c2c7776f42f">getTemperature</a>() const</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#acca31f9c34fbfb1651bd57ae5de9777c">IMUNano33</a>()=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#a8425417389e13b72f5a2b96a2a0d670b">IMUNano33</a>(const num_t gyroFavoring)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#acee76b723b084959aa2358ba02f17dbd">IMUNano33</a>(const num_t gyroFavoring, const Quaternion &amp;initialQ)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#ac70475e570f2630dbfdd02f9f02a7e8e">IMUNano33</a>(const IMUNano33 &amp;other)=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a662948df770dd15c09cffca3d0fe908b">IMUNano33</a>(IMUNano33 &amp;&amp;)=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#ac99b8c46d13bcb04d5d50c8fcbf4a8c3">operator=</a>(const IMUNano33 &amp;other)=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a0b7683699f39c63ad400efaf8871e0b0">operator=</a>(IMUNano33 &amp;&amp;)=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#a46a1eb8f4d5541fc986b52cd2a4843dc">resetClimate</a>()</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#aad8acc6868eac96093e16cd85b9cdbd3">resetIMU</a>()</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#ac714afc13ff78dfc010bb6dd95cb3e98">setGyroFavoring</a>(const num_t favoring)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#af6e3f482dac713f143c5cf21887a764d">setRotQ</a>(const Quaternion &amp;q)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#a87e42163dcda1f1edadddea8567a91c4">update</a>(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t deltaT, const num_t temperature, const num_t humidity, const num_t pressure)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a5bfd5a31ebc91730ed33e9b6eef5d25e">updateClimate</a>(const num_t temperature, const num_t humidity, const num_t pressure)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#ad0cdf23b65e33a193774464b1a099df7">updateIMU</a>(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t deltaT)</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00051.html#a0e7d03823a31a1265257054e825130d9">zeroIMU</a>()</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00051.html#a8a66ddf1f11042dce96632da154f25ff">~IMUNano33</a>()=default</td><td class="entry"><a class="el" href="a00051.html">imunano33::IMUNano33</a></td><td class="entry"></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1
