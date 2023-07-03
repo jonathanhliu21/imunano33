@@ -192,6 +192,31 @@ public:
   }
 
   /**
+   * @brief Updates IMU acceleration data
+   *
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
+   */
+  void updateIMUAccel(const Vector3D &accel) { m_filter.updateAccel(accel); }
+
+  /**
+   * @brief Updates IMU gyroscope data.
+   *
+   * It is important that the gyroscope is given in radians per second, or the
+   * orientation data will be inaccurate. The accelerometer measurement can be
+   * in any unit, but m / s^2 is preferred as it is SI.
+   *
+   * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
+   * @param deltaT The time between this measurement and the previous
+   * measurement, in seconds. If this is the first measurement, deltaT would
+   * refer to the time since startup (when initialQ was measured).
+   */
+  void updateIMUGyro(const Vector3D &gyro, const num_t deltaT) {
+    m_filter.updateGyro(gyro, deltaT);
+  }
+
+  /**
    * @brief Updates both IMU and climate data
    *
    * It is important that the gyroscope is given in radians per second, or the
