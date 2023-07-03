@@ -75,8 +75,8 @@ public:
    *
    * @returns Temperature in given unit.
    */
-  template <TempUnit U> double getTemp() const {
-    double res = 0;
+  template <TempUnit U> num_t getTemp() const {
+    num_t res = 0;
 
     switch (U) {
     case FAHRENHEIT:
@@ -104,8 +104,8 @@ public:
    *
    * @returns Pressure in given unit.
    */
-  template <PressureUnit U> double getPressure() const {
-    double res = 0;
+  template <PressureUnit U> num_t getPressure() const {
+    num_t res = 0;
 
     switch (U) {
     case KPA:
@@ -134,7 +134,7 @@ public:
    *
    * @returns Relative humidity
    */
-  double getHumidity() const { return m_humid; }
+  num_t getHumidity() const { return m_humid; }
 
   /**
    * @brief Updates climate data
@@ -143,7 +143,7 @@ public:
    * @param humid Relative humidity, in percent
    * @param pressure Pressure, in kPa
    */
-  void update(const double temp, const double humid, const double pressure) {
+  void update(const num_t temp, const num_t humid, const num_t pressure) {
     m_dataExists = true;
     m_temp = temp;
     m_humid = humid;
@@ -160,9 +160,9 @@ public:
 private:
   bool m_dataExists{false};
 
-  double m_temp{0};
-  double m_humid{0};
-  double m_pressure{0};
+  num_t m_temp{0};
+  num_t m_humid{0};
+  num_t m_pressure{0};
 };
 } // namespace imunano33
 

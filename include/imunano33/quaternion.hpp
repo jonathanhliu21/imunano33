@@ -10,6 +10,7 @@
 #include <cmath>
 
 #include "imunano33/simplevectors.hpp"
+#include "imunano33/unit.hpp"
 
 namespace imunano33 {
 using svector::Vector3D;
@@ -35,7 +36,7 @@ public:
    * @param w The scalar component
    * @param vec The vector component
    */
-  Quaternion(const double w, const Vector3D &vec) : m_vec{vec} {
+  Quaternion(const num_t w, const Vector3D &vec) : m_vec{vec} {
     // makes sure that quaternion magnitude is nonzero
     // this is important for rotations
     if (w == 0 && isZero(vec)) {
@@ -53,7 +54,7 @@ public:
    *
    * @note A zero vector passed into vec will result in undefined behavior
    */
-  Quaternion(const Vector3D &vec, const double ang) : m_w{std::cos(ang / 2)} {
+  Quaternion(const Vector3D &vec, const num_t ang) : m_w{std::cos(ang / 2)} {
     const Vector3D norm = normalize(vec);
     m_vec = normalize(vec) * std::sin(ang / 2);
   }
@@ -90,7 +91,7 @@ public:
    *
    * @returns The scalar component
    */
-  double w() const { return m_w; }
+  num_t w() const { return m_w; }
 
   /**
    * @brief Gets the vector component of the quaternion
@@ -113,8 +114,8 @@ public:
    */
   Quaternion inv() const {
     const Quaternion conju = conj();
-    const double mag = norm();
-    const double newW = conju.w() / (mag * mag);
+    const num_t mag = norm();
+    const num_t newW = conju.w() / (mag * mag);
     const Vector3D newVec = conju.vec() / (mag * mag);
 
     return Quaternion{newW, newVec};
@@ -127,7 +128,7 @@ public:
    *
    * @returns Quaternion norm
    */
-  double norm() const {
+  num_t norm() const {
     return std::sqrt(m_w * m_w + x(m_vec) * x(m_vec) + y(m_vec) * y(m_vec) +
                      z(m_vec) * z(m_vec));
   }
@@ -142,8 +143,8 @@ public:
    * @returns Equivalent unit quaternion
    */
   Quaternion unit() const {
-    const double mag = norm();
-    const double newW = m_w / mag;
+    const num_t mag = norm();
+    const num_t newW = m_w / mag;
     const Vector3D newVec = m_vec / mag;
 
     return Quaternion{newW, newVec};
@@ -152,10 +153,10 @@ public:
   // defined later, where operators are defined
   Quaternion &operator*=(const Quaternion &other);
   Vector3D rotate(const Vector3D &vec) const;
-  static Vector3D rotate(const Vector3D &vec, const Vector3D &axis, double ang);
+  static Vector3D rotate(const Vector3D &vec, const Vector3D &axis, num_t ang);
 
 private:
-  double m_w;
+  num_t m_w;
   Vector3D m_vec;
 };
 
@@ -170,8 +171,8 @@ private:
 inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
   using svector::Vector3D;
 
-  const double wl = lhs.w();
-  const double wr = rhs.w();
+  const num_t wl = lhs.w();
+  const num_t wr = rhs.w();
 
   const Vector3D vl = lhs.vec();
   const Vector3D vr = rhs.vec();
@@ -213,7 +214,7 @@ inline bool operator!=(const Quaternion &lhs, const Quaternion &rhs) {
  * @returns The rotated vector.
  */
 inline Vector3D Quaternion::rotate(const Vector3D &vec, const Vector3D &axis,
-                                   const double ang) {
+                                   const num_t ang) {
   const Quaternion rotQ{normalize(axis), ang};
   const Quaternion vecQ{0, vec};
   const Quaternion res = rotQ * vecQ * rotQ.conj();

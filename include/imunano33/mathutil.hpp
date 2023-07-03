@@ -9,6 +9,7 @@
 #include <cmath>
 
 #include "imunano33/simplevectors.hpp"
+#include "imunano33/unit.hpp"
 
 namespace imunano33 {
 using svector::Vector3D;
@@ -19,7 +20,7 @@ using svector::Vector3D;
 class MathUtil {
 public:
   /**
-   * @brief Determines if double is near zero with given precision.
+   * @brief Determines if number is near zero with given precision.
    *
    * The tolerance is 0.00001.
    *
@@ -27,10 +28,10 @@ public:
    *
    * @returns if the num is near zero
    */
-  static bool nearZero(const double num) { return nearZero(num, NEAR_ZERO); }
+  static bool nearZero(const num_t num) { return nearZero(num, NEAR_ZERO); }
 
   /**
-   * @brief Determines if double is near zero with given precision.
+   * @brief Determines if number is near zero with given precision.
    *
    * @param num The number to determine if near zero
    * @param tol Tolerance within zero such that a number strictly less than this
@@ -38,7 +39,7 @@ public:
    *
    * @returns if the num is near zero
    */
-  static bool nearZero(const double num, const double tol) {
+  static bool nearZero(const num_t num, const num_t tol) {
     return std::abs(num) < tol;
   }
 
@@ -62,10 +63,9 @@ public:
    *
    * @returns if the vector is near zero
    */
-  static bool nearZero(const Vector3D &vec, const double tol) {
-    return std::none_of(vec.begin(), vec.end(), [tol](const double &el) {
-      return std::abs(el) >= tol;
-    });
+  static bool nearZero(const Vector3D &vec, const num_t tol) {
+    return std::none_of(vec.begin(), vec.end(),
+                        [tol](const num_t &el) { return std::abs(el) >= tol; });
   }
 
   /**
@@ -81,7 +81,7 @@ public:
    * @returns If the numbers are near each other such that they can be counted
    * as equal.
    */
-  static bool nearEq(const double num1, const double num2) {
+  static bool nearEq(const num_t num1, const num_t num2) {
     return nearEq(num1, num2, NEAR_ZERO);
   }
 
@@ -98,7 +98,7 @@ public:
    * @returns If the numbers are near each other such that they can be counted
    * as equal.
    */
-  static bool nearEq(const double num1, const double num2, const double tol) {
+  static bool nearEq(const num_t num1, const num_t num2, const num_t tol) {
     return std::abs(num1 - num2) < tol;
   }
 
@@ -119,7 +119,7 @@ public:
   }
 
 private:
-  static constexpr double NEAR_ZERO = 0.00001;
+  static constexpr num_t NEAR_ZERO = 0.00001;
 };
 
 } // namespace imunano33
