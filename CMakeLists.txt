@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.9)
 
 # Set a name and a version number for your project:
-project(imunano33 VERSION 0.1.0 LANGUAGES CXX)
+project(imunano33 VERSION 0.1.1 LANGUAGES CXX)
 
 # Initialize some default paths
 include(GNUInstallDirs)
