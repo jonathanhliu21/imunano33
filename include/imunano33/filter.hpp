@@ -124,55 +124,49 @@ public:
   Filter &operator=(Filter &&) = default;
 
   /**
-   * @brief Updates filter
+   * @brief Updates filter with gyro data.
    *
-   * If you plan on only using the gyroscope measurements, then pass in
-   * a zero vector for the acceleration, as accelerometer corrections will not
-   * be performed if the acceleration vector is zero.
-   *
-   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
-   * (important for gravity corrections), and xy is translational motion. The
-   * note comes with more details specific to the Arduino Nano 33.
-   * @param gyro Gyroscope reading (<roll, pitch, yaw> in rad/s)
+   * @param gyro Gyroscope reading (in rad/s)
    * @param time The time it took for the reading to happen (in s)
-   * @param favoring Determines how much gravity should correct, in the range
-   * [0, 1]. 0 means that gravity should fully correct the error (does not mean
-   * that orientation is solely determined by gravity), and 1 means that gravity
-   * does not correct error at all.
    *
    * @note With the opening of the USB port facing front and the Arduino's
    * sensors facing up, the positive x axis is to the front, the positive y axis
    * is to the left, and the positive z axis is to the top.
    */
-  void update(const Vector3D &accel, const Vector3D &gyro, const num_t time,
-              const num_t favoring) {
-    // math from:
-    // https://stanford.edu/class/ee267/lectures/lecture10.pdf
-    // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
-
-    // rotation quaternion from gyroscope readings
-    Quaternion qGyroCur;
+  void updateGyro(const Vector3D &gyro, const num_t time) {
     if (MathUtil::nearZero(gyro)) {
-      // if gyro reading is 0, take current quaternion to be corrected
-      qGyroCur = m_qRot;
-    } else {
-      // otherwise integrate quaternion reading
-      const Quaternion qGyroDelta{normalize(gyro), time * magn(gyro)};
-      qGyroCur = m_qRot * qGyroDelta;
+      // if gyro reading is 0, then don't correct
+      return;
     }
 
+    // otherwise integrate quaternion reading
+    const Quaternion qGyroDelta{normalize(gyro), time * magn(gyro)};
+    m_qRot *= qGyroDelta;
+  }
+
+  /**
+   * @brief Updates filter with accelerometer data.
+   *
+   * @param accel Accelerometer reading, in <x, y, z>, where positive z is up
+   * (important for gravity corrections), and xy is translational motion. The
+   * note comes with more details specific to the Arduino Nano 33.
+   *
+   * @note With the opening of the USB port facing front and the Arduino's
+   * sensors facing up, the positive x axis is to the front, the positive y axis
+   * is to the left, and the positive z axis is to the top.
+   */
+  void updateAccel(const Vector3D &accel) {
     // don't bother with acceleration correction if acceleration is basically
     // 0
     if (MathUtil::nearZero(accel)) {
-      m_qRot = qGyroCur;
       return;
     }
 
     // gravity vector rotation
     const Quaternion qAccelBody{0, accel};
     const Quaternion qAccelWorld =
-        qGyroCur * qAccelBody *
-        qGyroCur.conj(); // rotates body acceleration by gyro measurements
+        m_qRot * qAccelBody *
+        m_qRot.conj(); // rotates body acceleration by gyro measurements
 
     // correcting gyro drift with accelerometer
     const Vector3D vecAccelWorldNorm = normalize(qAccelWorld.vec());
@@ -200,18 +194,17 @@ public:
     // if angle needed to rotate is 0 or the axis to rotate around is 0, then
     // don't bother correcting
     if (MathUtil::nearZero(rotAngle) || MathUtil::nearZero(vecRotAxis)) {
-      m_qRot = qGyroCur;
       return;
     }
 
     // complementary filter
     const Quaternion qAccelCur{normalize(vecRotAxis),
-                               (1 - favoring) * rotAngle};
-    m_qRot = qAccelCur * qGyroCur;
+                               (1 - m_gyroFavoring) * rotAngle};
+    m_qRot *= qAccelCur;
   }
 
   /**
-   * @brief Updates filter
+   * @brief Updates filter with both gyro and accel data.
    *
    * If you plan on only using the gyroscope measurements, then pass in
    * a zero vector for the acceleration, as accelerometer corrections will not
@@ -228,7 +221,12 @@ public:
    * is to the left, and the positive z axis is to the top.
    */
   void update(const Vector3D &accel, const Vector3D &gyro, const num_t time) {
-    update(accel, gyro, time, m_gyroFavoring);
+    // math from:
+    // https://stanford.edu/class/ee267/lectures/lecture10.pdf
+    // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
+
+    updateGyro(gyro, time);
+    updateAccel(accel);
   }
 
   /**

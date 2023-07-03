@@ -348,6 +348,47 @@ int main() {
 }
 ```
 
+If the accelerometer values and gyroscope values are sampled separately, then the imunano33::IMUNano33::updateIMUAccel() and imunano33::IMUNano33::updateIMUGyro() methods can be used to update both values on their own:
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+svector::Vector3D readGyro() {
+  // ...
+  // returns <roll, pitch, yaw>
+}
+
+svector::Vector3D readAcc() {
+  // ...
+}
+
+double getCurTime() {
+  // ...
+  // returns time, in seconds
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+
+  double prevTime = getCurTime();
+  
+  while (true) {
+    svector::Vector3D gyro = readGyro();
+    svector::Vector3D acc = readAcc();
+    svector::Vector3D curTime = getCurTime();
+
+    // This is the same as calling proc.updateIMU() in this case
+    // because they are sampled at the same time. If the accelerometer
+    // and gyro are sampled at different times, each method should
+    // be called separately at those times.
+    proc.updateIMUGyro(gyro, curTime - prevTime);
+    proc.updateIMUAccel(acc);
+    
+    prevTime = curTime;
+  }
+}
+```
+
 To get the current rotation quaternion, use imunano33::IMUNano33::getRotQ().
 
 ```cpp
