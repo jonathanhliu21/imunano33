@@ -6,12 +6,28 @@
 #ifndef INCLUDE_IMUNANO33_FILTER_HPP_
 #define INCLUDE_IMUNANO33_FILTER_HPP_
 
+#ifdef IMUNANO33_EMBED
+#include <math.h>
+#else
+#include <cmath>
+#endif
+
 #include "imunano33/mathutil.hpp"
 #include "imunano33/quaternion.hpp"
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
+#include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief A complementary filter for a 6 axis IMU using quaternions.
@@ -49,8 +65,12 @@ public:
    * @note If favoring is too high (> 0.99), then there might be latency in
    * gravity correction.
    */
-  Filter(const double gyroFavoring) : m_qRot{1, Vector3D{}} {
+  Filter(const num_t gyroFavoring) : m_qRot{1, Vector3D{}} {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0, 1.0);
+#endif
   }
 
   /**
@@ -69,9 +89,13 @@ public:
    * @note If favoring is too high (> 0.99), then there might be latency in
    * gravity correction.
    */
-  Filter(const double gyroFavoring, const Quaternion &initialQ)
+  Filter(const num_t gyroFavoring, const Quaternion &initialQ)
       : m_qRot{initialQ.unit()} {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0, 1.0);
+#endif
   }
 
   /**
@@ -120,8 +144,8 @@ public:
    * sensors facing up, the positive x axis is to the front, the positive y axis
    * is to the left, and the positive z axis is to the top.
    */
-  void update(const Vector3D &accel, const Vector3D &gyro, const double time,
-              const double favoring) {
+  void update(const Vector3D &accel, const Vector3D &gyro, const num_t time,
+              const num_t favoring) {
     // math from:
     // https://stanford.edu/class/ee267/lectures/lecture10.pdf
     // https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf
@@ -158,11 +182,20 @@ public:
               vecAccelGravity); // rotation axis for correction rotation from
                                 // estimated gravity vector (from gyro
                                 // readings) to true gravity vector
-    const double rotAngle = std::acos(
+
+#ifdef IMUNANO33_EMBED
+    const num_t rotAngle = acosf(MathUtil::clamp(
+        dot(vecAccelGravity, vecAccelWorldNorm) /
+            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
+        -1.0F,
+        1.0F)); // angle to rotate to correct acceleration vector
+#else
+    const num_t rotAngle = std::acos(
         MathUtil::clamp(dot(vecAccelGravity, vecAccelWorldNorm) /
                             (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
                         -1.0,
                         1.0)); // angle to rotate to correct acceleration vector
+#endif
 
     // if angle needed to rotate is 0 or the axis to rotate around is 0, then
     // don't bother correcting
@@ -194,7 +227,7 @@ public:
    * sensors facing up, the positive x axis is to the front, the positive y axis
    * is to the left, and the positive z axis is to the top.
    */
-  void update(const Vector3D &accel, const Vector3D &gyro, const double time) {
+  void update(const Vector3D &accel, const Vector3D &gyro, const num_t time) {
     update(accel, gyro, time, m_gyroFavoring);
   }
 
@@ -216,7 +249,7 @@ public:
    *
    * @returns gyro favoring
    */
-  double getGyroFavoring() const { return m_gyroFavoring; }
+  num_t getGyroFavoring() const { return m_gyroFavoring; }
 
   /**
    * @brief Sets rotation quaternion for the filter
@@ -236,12 +269,16 @@ public:
    * @note If favoring is less than 0 or greater than 1, it will be clamped to 0
    * or 1.
    */
-  void setGyroFavoring(const double favoring) {
+  void setGyroFavoring(const num_t favoring) {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(favoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(favoring, 0.0, 1.0);
+#endif
   }
 
 private:
-  double m_gyroFavoring;
+  num_t m_gyroFavoring;
 
   Quaternion m_qRot;
 };

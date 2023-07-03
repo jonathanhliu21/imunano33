@@ -9,11 +9,20 @@
 #include "imunano33/climate.hpp"
 #include "imunano33/filter.hpp"
 #include "imunano33/quaternion.hpp"
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
 #include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief A data processor for IMU and climate data from an Arduino Nano 33 BLE
@@ -76,7 +85,7 @@ public:
    * @note If favoring is too high (> 0.99), then there might be latency in
    * gravity correction.
    */
-  IMUNano33(const double gyroFavoring) : m_filter{gyroFavoring} {}
+  IMUNano33(const num_t gyroFavoring) : m_filter{gyroFavoring} {}
 
   /**
    * @brief Constructor
@@ -95,7 +104,7 @@ public:
    * @note If favoring is too high (> 0.99), then there might be latency in
    * gravity correction.
    */
-  IMUNano33(const double gyroFavoring, const Quaternion &initialQ)
+  IMUNano33(const num_t gyroFavoring, const Quaternion &initialQ)
       : m_initialQ{initialQ}, m_filter{gyroFavoring, initialQ} {}
 
   /**
@@ -133,8 +142,8 @@ public:
    * @param humidity Relative humidity, in percent
    * @param pressure Pressure, in kPa
    */
-  void updateClimate(const double temperature, const double humidity,
-                     const double pressure) {
+  void updateClimate(const num_t temperature, const num_t humidity,
+                     const num_t pressure) {
     m_climate.update(temperature, humidity, pressure);
   }
 
@@ -154,7 +163,7 @@ public:
    * refer to the time since startup (when initialQ was measured).
    */
   void updateIMU(const Vector3D &accel, const Vector3D &gyro,
-                 const double deltaT) {
+                 const num_t deltaT) {
     m_filter.update(accel, gyro, deltaT);
   }
 
@@ -179,9 +188,9 @@ public:
    * @param humidity Relative humidity, in percent
    * @param pressure Pressure, in kPa
    */
-  void update(const Vector3D &accel, const Vector3D &gyro, const double deltaT,
-              const double temperature, const double humidity,
-              const double pressure) {
+  void update(const Vector3D &accel, const Vector3D &gyro, const num_t deltaT,
+              const num_t temperature, const num_t humidity,
+              const num_t pressure) {
     updateIMU(accel, gyro, deltaT);
     updateClimate(temperature, humidity, pressure);
   }
@@ -233,7 +242,7 @@ public:
    * @note If favoring is less than 0 or greater than 1, it will be clamped to 0
    * or 1.
    */
-  void setGyroFavoring(const double favoring) {
+  void setGyroFavoring(const num_t favoring) {
     m_filter.setGyroFavoring(favoring);
   }
 
@@ -249,7 +258,7 @@ public:
    *
    * @returns gyro favoring
    */
-  double getGyroFavoring() const { return m_filter.getGyroFavoring(); }
+  num_t getGyroFavoring() const { return m_filter.getGyroFavoring(); }
 
   /**
    * @brief Gets temperature
@@ -261,7 +270,7 @@ public:
    *
    * @returns Temperature in given unit.
    */
-  template <TempUnit U> double getTemperature() const {
+  template <TempUnit U> num_t getTemperature() const {
     return m_climate.getTemp<U>();
   }
 
@@ -275,7 +284,7 @@ public:
    *
    * @returns Pressure in given unit.
    */
-  template <PressureUnit U> double getPressure() const {
+  template <PressureUnit U> num_t getPressure() const {
     return m_climate.getPressure<U>();
   }
 
@@ -289,7 +298,7 @@ public:
    *
    * @returns Relative humidity
    */
-  double getHumidity() const { return m_climate.getHumidity(); }
+  num_t getHumidity() const { return m_climate.getHumidity(); }
 
   /**
    * @brief Determines if climate data exists.

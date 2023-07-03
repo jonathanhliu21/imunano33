@@ -4,6 +4,8 @@ set(
   "${PROJECT_SOURCE_DIR}/ext/*"
   "${CMAKE_SOURCE_DIR}/build/*"
   "${CMAKE_SOURCE_DIR}/example/*"
+  "${CMAKE_SOURCE_DIR}/script/*"
+  "${CMAKE_SOURCE_DIR}/test/*"
   "${PROJECT_SOURCE_DIR}/README.md"
 )
 set(DOXYGEN_SHORT_NAMES YES)

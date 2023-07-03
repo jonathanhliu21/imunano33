@@ -1,6 +1,7 @@
 /**
  * @file
- * @brief Contains imunano33::TempUnit and imunano33::PressureUnit enums
+ * @brief Contains imunano33::TempUnit and imunano33::PressureUnit enums, in
+ * addition to number type
  */
 
 #ifndef INCLUDE_IMUNANO33_UNIT_HPP_
@@ -26,6 +27,12 @@ enum PressureUnit {
   MMHG, //!< Converts pressure to millimeters of mercury
   PSI   //!< Converts pressure to pounds per square inch
 };
+
+#ifdef IMUNANO33_EMBED
+using num_t = float; //!< Alias to number type depending on embed
+#else
+using num_t = double; //!< Alias to number type depending on embed
+#endif
 } // namespace imunano33
 
 #endif

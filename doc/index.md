@@ -11,7 +11,7 @@ IMUNano33 is a data processor library for the sensors on an Arduino Nano 33 BLE 
 
 The HTS221 and LPS22HB are used for climate data, and the LSM9DS1 is used to determine the orientation of the Arduino Nano. It uses the gyroscope to integrate the angular rates and then corrects it with the direction of gravity given by the accelerometer. The magnetometer is not used to correct yaw because of high magnetic interference and noise in various applications, and because it is difficult to calibrate properly.
 
-This library only processes the data and does not read in any data. It expects temperature (in °C), relative humidity, and air pressure (in kPa) from the climate sensors, and angular velocities about all three axes, accelerations in all three dimensions, and the time between the current and last measurement from the IMU. This data can be a combined input, or read from the climate sensors and the IMU separately (see imunano33::IMUNano33::update(), imunano33::IMUNano33::updateIMU(), and imunano33::IMUNano33::updateClimate()). Additionally, this library is not meant to be uploaded to the Arduino directly, because it uses the C++ standard library, which is not supported. Instead, it is meant to be used on a device such as a Raspberry Pi or a computer that the Arduino is connected to, where the input data from above is meant to be read from the BLE interface or from the serial port.
+This library only processes the data and does not read in any data. It expects temperature (in °C), relative humidity, and air pressure (in kPa) from the climate sensors, and angular velocities about all three axes, accelerations in all three dimensions, and the time between the current and last measurement from the IMU. This data can be a combined input, or read from the climate sensors and the IMU separately (see imunano33::IMUNano33::update(), imunano33::IMUNano33::updateIMU(), and imunano33::IMUNano33::updateClimate()). This library can be used on a device such as a Raspberry Pi, which supports the C++ standard library, or it can be used on the Arduino with the macro `IMUNANO33_EMBED` defined **before** the include statement.
 
 This library can also be used with an Arduino connected to an MPU-9250 or MPU-6050 IMU along with a DHT22 temperature/humidity sensor and a BMP390 pressure sensor. However, the axes mentioned in the documentation will not match. Additionally, as mentioned above, this library can be used as a standalone orientation calculator or a standalone climate data processor, so it can be used with just a MPU-9250/MPU-6050 or just a DHT22 + BMP390.
 
@@ -62,6 +62,31 @@ target_link_libraries(your_target PUBLIC imunano33::imunano33)
 ```
 
 The include path will be `imunano33/imunano33.hpp`.
+
+## Embedding on an Arduino
+
+As of version 0.1.x, this library can be embedded onto an Arduino.
+
+@todo Figure out installation
+
+After installing, it is important to add the following macro to the top of your code, before your include statement. This macro allows the library to know that it is used on an Arduino, without the C++ standard library. Without adding this, the program will not compile.
+
+```cpp
+#define IMUNANO33_EMBED
+#include <imunano33/imunano33.hpp>
+
+imunano33::IMUNano33 processor;
+
+void setup() {
+  // ...
+}
+
+void loop() {
+  // ...
+}
+```
+
+It is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that the embedded library does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D as its primary vector type.
 
 # Theory
 
@@ -129,7 +154,7 @@ Angle correction is done by the accelerometer by taking a fraction of its measur
 
 # Usage
 
-The main class to use is the imunano33::IMUNano33 class. It provides independent methods for processing climate and IMU data, allowing you to ditch the climate or ditch the IMU if you do not have the data from one sensor or the other. However, it is important to know that this is only a data *processor*, and does not contain code for reading data input. This has to be done on your own. For example, you can use the Arduino's BLE interface or serial UART interface to read the data.
+The main class to use is the imunano33::IMUNano33 class. It provides independent methods for processing climate and IMU data, allowing you to ditch the climate or ditch the IMU if you do not have the data from one sensor or the other. However, it is important to know that this is only a data *processor*, and does not contain code for reading data input. This has to be done on your own.
 
 ## Math Utilities
 
@@ -452,7 +477,7 @@ int main() {
 
 ## More usage information
 
-More usage information can be found at the imunano33::IMUNano33 class documentation page.
+More usage information can be found at the imunano33::IMUNano33 class documentation page. Note that these documentation pages are generated without the `IMUNANO33_EMBED` macro and are meant to be used with the Raspberry Pi. However, it is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that it does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D for its primary vector type.
 
 # License
 

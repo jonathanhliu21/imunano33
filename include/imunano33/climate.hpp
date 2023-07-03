@@ -75,18 +75,26 @@ public:
    *
    * @returns Temperature in given unit.
    */
-  template <TempUnit U> double getTemp() const {
-    double res = 0;
+  template <TempUnit U> num_t getTemp() const {
+    num_t res = 0;
 
     switch (U) {
     case FAHRENHEIT:
-      res = m_temp * (9.0 / 5.0) + 32;
+#ifdef IMUNANO33_EMBED
+      res = m_temp * (9.0F / 5.0F) + 32.0F;
+#else
+      res = m_temp * (9.0 / 5.0) + 32.0;
+#endif
       break;
     case CELSIUS:
       res = m_temp;
       break;
     case KELVIN:
+#ifdef IMUNANO33_EMBED
+      res = m_temp + 273.15F;
+#else
       res = m_temp + 273.15;
+#endif
       break;
     default:
       res = m_temp;
@@ -104,21 +112,33 @@ public:
    *
    * @returns Pressure in given unit.
    */
-  template <PressureUnit U> double getPressure() const {
-    double res = 0;
+  template <PressureUnit U> num_t getPressure() const {
+    num_t res = 0;
 
     switch (U) {
     case KPA:
       res = m_pressure;
       break;
     case ATM:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 0.00986923266716F;
+#else
       res = m_pressure * 0.00986923266716;
+#endif
       break;
     case MMHG:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 7.500617F;
+#else
       res = m_pressure * 7.500617;
+#endif
       break;
     case PSI:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 0.1450377377F;
+#else
       res = m_pressure * 0.1450377377;
+#endif
       break;
     }
 
@@ -134,7 +154,7 @@ public:
    *
    * @returns Relative humidity
    */
-  double getHumidity() const { return m_humid; }
+  num_t getHumidity() const { return m_humid; }
 
   /**
    * @brief Updates climate data
@@ -143,7 +163,7 @@ public:
    * @param humid Relative humidity, in percent
    * @param pressure Pressure, in kPa
    */
-  void update(const double temp, const double humid, const double pressure) {
+  void update(const num_t temp, const num_t humid, const num_t pressure) {
     m_dataExists = true;
     m_temp = temp;
     m_humid = humid;
@@ -160,9 +180,9 @@ public:
 private:
   bool m_dataExists{false};
 
-  double m_temp{0};
-  double m_humid{0};
-  double m_pressure{0};
+  num_t m_temp = 0.0;
+  num_t m_humid = 0.0;
+  num_t m_pressure = 0.0;
 };
 } // namespace imunano33
 
