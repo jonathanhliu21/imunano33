@@ -175,3 +175,6 @@ cython_debug/
 
 # macOs
 .DS_Store
+
+# example amalgamate
+example/imunano33.hpp
