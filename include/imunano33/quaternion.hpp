@@ -7,7 +7,11 @@
 #ifndef INCLUDE_IMUNANO33_QUATERNION_HPP_
 #define INCLUDE_IMUNANO33_QUATERNION_HPP_
 
+#ifdef IMUNANO33_EMBED
+#include <math.h>
+#else
 #include <cmath>
+#endif
 
 #ifdef IMUNANO33_EMBED
 #include "imunano33/sv_embed.hpp"
@@ -21,6 +25,9 @@ namespace imunano33 {
 using Vector3D =
     svector::EmbVec3D; //!< Alias to vector type in embedded systems
 #else
+using std::cos;
+using std::sin;
+using std::sqrt;
 using svector::Vector3D;
 #endif
 
@@ -63,9 +70,9 @@ public:
    *
    * @note A zero vector passed into vec will result in undefined behavior
    */
-  Quaternion(const Vector3D &vec, const num_t ang) : m_w{std::cos(ang / 2)} {
+  Quaternion(const Vector3D &vec, const num_t ang) : m_w{cos(ang / 2)} {
     const Vector3D norm = normalize(vec);
-    m_vec = normalize(vec) * std::sin(ang / 2);
+    m_vec = normalize(vec) * sin(ang / 2);
   }
 
   /**
@@ -138,8 +145,8 @@ public:
    * @returns Quaternion norm
    */
   num_t norm() const {
-    return std::sqrt(m_w * m_w + x(m_vec) * x(m_vec) + y(m_vec) * y(m_vec) +
-                     z(m_vec) * z(m_vec));
+    return sqrt(m_w * m_w + x(m_vec) * x(m_vec) + y(m_vec) * y(m_vec) +
+                z(m_vec) * z(m_vec));
   }
 
   /**

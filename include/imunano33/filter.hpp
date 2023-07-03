@@ -6,6 +6,12 @@
 #ifndef INCLUDE_IMUNANO33_FILTER_HPP_
 #define INCLUDE_IMUNANO33_FILTER_HPP_
 
+#ifdef IMUNANO33_EMBED
+#include <math.h>
+#else
+#include <cmath>
+#endif
+
 #include "imunano33/mathutil.hpp"
 #include "imunano33/quaternion.hpp"
 #ifdef IMUNANO33_EMBED
@@ -178,15 +184,18 @@ public:
                                 // readings) to true gravity vector
 
 #ifdef IMUNANO33_EMBED
-    const float lim = 1.0F;
+    const num_t rotAngle = acosf(MathUtil::clamp(
+        dot(vecAccelGravity, vecAccelWorldNorm) /
+            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
+        -1.0F,
+        1.0F)); // angle to rotate to correct acceleration vector
 #else
-    const double lim = 1.0;
-#endif
     const num_t rotAngle = std::acos(
         MathUtil::clamp(dot(vecAccelGravity, vecAccelWorldNorm) /
                             (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
-                        -lim,
-                        lim)); // angle to rotate to correct acceleration vector
+                        -1.0,
+                        1.0)); // angle to rotate to correct acceleration vector
+#endif
 
     // if angle needed to rotate is 0 or the axis to rotate around is 0, then
     // don't bother correcting

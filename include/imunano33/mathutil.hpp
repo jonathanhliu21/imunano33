@@ -6,8 +6,12 @@
 #ifndef INCLUDE_IMUNANO33_MATHUTIL_HPP_
 #define INCLUDE_IMUNANO33_MATHUTIL_HPP_
 
+#ifdef IMUNANO33_EMBED
+#include <math.h>
+#else
+#include <algorithm>
 #include <cmath>
-#include <cstddef>
+#endif
 
 #ifdef IMUNANO33_EMBED
 #include "imunano33/sv_embed.hpp"
@@ -21,6 +25,7 @@ namespace imunano33 {
 using Vector3D =
     svector::EmbVec3D; //!< Alias to vector type in embedded systems
 #else
+using std::abs;
 using svector::Vector3D;
 #endif
 
@@ -50,7 +55,7 @@ public:
    * @returns if the num is near zero
    */
   static bool nearZero(const num_t num, const num_t tol) {
-    return std::abs(num) < tol;
+    return abs(num) < tol;
   }
 
   /**
@@ -113,7 +118,7 @@ public:
    * as equal.
    */
   static bool nearEq(const num_t num1, const num_t num2, const num_t tol) {
-    return std::abs(num1 - num2) < tol;
+    return abs(num1 - num2) < tol;
   }
 
   /**
