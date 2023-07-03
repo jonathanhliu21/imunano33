@@ -86,7 +86,7 @@ void loop() {
 }
 ```
 
-It is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that the embedded library does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D for its primary vector type.
+It is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that the embedded library does not use the `std` namespace or classes/functions from the C++ standard library, it uses `float` rather than `double` as its primary number type, and it uses svector::EmbVec3D instead of svector::Vector3D as its primary vector type.
 
 # Theory
 
