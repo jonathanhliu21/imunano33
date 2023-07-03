@@ -7,10 +7,12 @@
 #define INCLUDE_IMUNANO33_MATHUTIL_HPP_
 
 #ifdef IMUNANO33_EMBED
+#include <float.h>
 #include <math.h>
 #else
 #include <algorithm>
 #include <cmath>
+#include <limits>
 #endif
 
 #ifdef IMUNANO33_EMBED
@@ -138,7 +140,11 @@ public:
   }
 
 private:
-  static constexpr num_t NEAR_ZERO = 0.00001;
+#ifdef IMUNANO33_EMBED
+  static constexpr num_t NEAR_ZERO = FLT_EPSILON;
+#else
+  static constexpr num_t NEAR_ZERO = std::numeric_limits<num_t>::epsilon();
+#endif
 };
 
 } // namespace imunano33
