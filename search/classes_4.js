@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quaternion_110',['Quaternion',['../a00077.html',1,'imunano33']]]
+  ['mathutil_118',['MathUtil',['../a00056.html',1,'imunano33']]]
 ];

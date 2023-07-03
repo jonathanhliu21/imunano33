@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['vec2_5f_202',['Vec2_',['../a00029.html#ac285406e3ff4ebd5c7b5cf5a92776dcb',1,'svector']]],
-  ['vec3_5f_203',['Vec3_',['../a00029.html#aef2884ff59b01b6ea0c7532106912259',1,'svector']]]
+  ['reverse_5fiterator_219',['reverse_iterator',['../a00064.html#adbdec14f43e66c6b2204317f041d7185',1,'svector::Vector']]]
 ];

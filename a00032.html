@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>imunano33: /home/runner/work/imunano33/imunano33/include/imunano33/unit.hpp File Reference</title>
+<title>imunano33: /home/runner/work/imunano33/imunano33/include/imunano33/sv_embed.hpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -74,93 +74,1952 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#enum-members">Enumerations</a>  </div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
-<div class="title">unit.hpp File Reference</div>  </div>
+<div class="title">sv_embed.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Contains imunano33::TempUnit and imunano33::PressureUnit enums.  
+<p>A minimized version of vectors for embedded devices without access to the STL (such as on an Arduino, hence the ".h" instead of ".hpp").  
 <a href="#details">More...</a></p>
-<div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
+<div class="textblock"><code>#include &lt;math.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+Include dependency graph for sv_embed.hpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00034.png" border="0" usemap="#a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2unit_8hppdep" alt=""/></div>
-<map name="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2unit_8hppdep" id="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2unit_8hppdep">
-<area shape="rect" title="Contains imunano33::TempUnit and imunano33::PressureUnit enums." alt="" coords="80,5,307,61"/>
-<area shape="rect" href="a00014.html" title="File containing the imunano33::Climate class." alt="" coords="5,109,232,165"/>
-<area shape="rect" href="a00020.html" title="Contains the imunano33::IMUNano33 class." alt="" coords="80,213,307,269"/>
+<div class="center"><img src="a00033.png" border="0" usemap="#a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2sv__embed_8hpp" alt=""/></div>
+<map name="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2sv__embed_8hpp" id="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2sv__embed_8hpp">
+<area shape="rect" title="A minimized version of vectors for embedded devices without access to the STL (such as on an Arduino,..." alt="" coords="5,5,232,61"/>
+<area shape="rect" title=" " alt="" coords="85,109,153,136"/>
 </map>
 </div>
 </div>
 <p><a href="a00032_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
-Enumerations</h2></td></tr>
-<tr class="memitem:a845546b1f1cc1265d5fa65ee9553c1d4"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4">imunano33::TempUnit</a> { <a class="el" href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4af1bb8b1c8a51601c1c8dc166661cab3f">imunano33::FAHRENHEIT</a>
-, <a class="el" href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4a100cecfb8b6fec231f1cdd575f7b18d6">imunano33::CELSIUS</a>
-, <a class="el" href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4a37b5e49b6d214c7e090cf472e59188a7">imunano33::KELVIN</a>
- }</td></tr>
-<tr class="memdesc:a845546b1f1cc1265d5fa65ee9553c1d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enumerator describing units of temperature values.  <a href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4">More...</a><br /></td></tr>
-<tr class="separator:a845546b1f1cc1265d5fa65ee9553c1d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b605fb34b5d58572a4e420811170e6f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6f">imunano33::PressureUnit</a> { <a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6fad064013dd691324beeeea44a96900932">imunano33::KPA</a>
-, <a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6fa8396d5153775bf98a56701e42c477586">imunano33::ATM</a>
-, <a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6fa251dc12cb851a4e85867599a4b0746d9">imunano33::MMHG</a>
-, <a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6fae441f21ec92ac7c9c621615e422e7d31">imunano33::PSI</a>
- }</td></tr>
-<tr class="memdesc:a4b605fb34b5d58572a4e420811170e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">An enumerator describing units of pressure values.  <a href="a00032.html#a4b605fb34b5d58572a4e420811170e6f">More...</a><br /></td></tr>
-<tr class="separator:a4b605fb34b5d58572a4e420811170e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00076.html">svector::EmbVec2D</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A minimal 2D vector representation.  <a href="a00076.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00080.html">svector::EmbVec3D</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A minimal 3D vector representation.  <a href="a00080.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a9031e830d07d3b0df748b0c20b096957"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a9031e830d07d3b0df748b0c20b096957">svector::x</a> (const EmbVec2D &amp;v)</td></tr>
+<tr class="memdesc:a9031e830d07d3b0df748b0c20b096957"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the x-component of a 2D vector.  <a href="a00032.html#a9031e830d07d3b0df748b0c20b096957">More...</a><br /></td></tr>
+<tr class="separator:a9031e830d07d3b0df748b0c20b096957"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad29164ae9ac46449d11224d665fc2aec"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ad29164ae9ac46449d11224d665fc2aec">svector::x</a> (EmbVec2D &amp;v, const float xValue)</td></tr>
+<tr class="memdesc:ad29164ae9ac46449d11224d665fc2aec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the x-component of a 2D vector.  <a href="a00032.html#ad29164ae9ac46449d11224d665fc2aec">More...</a><br /></td></tr>
+<tr class="separator:ad29164ae9ac46449d11224d665fc2aec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cbb572787437a9a83862353b84b107e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a4cbb572787437a9a83862353b84b107e">svector::x</a> (const EmbVec3D &amp;v)</td></tr>
+<tr class="memdesc:a4cbb572787437a9a83862353b84b107e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the x-component of a 3D vector.  <a href="a00032.html#a4cbb572787437a9a83862353b84b107e">More...</a><br /></td></tr>
+<tr class="separator:a4cbb572787437a9a83862353b84b107e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c854abe869a4040c12b05e1d600bd77"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a4c854abe869a4040c12b05e1d600bd77">svector::x</a> (EmbVec3D &amp;v, const float xValue)</td></tr>
+<tr class="memdesc:a4c854abe869a4040c12b05e1d600bd77"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the x-component of a 3D vector.  <a href="a00032.html#a4c854abe869a4040c12b05e1d600bd77">More...</a><br /></td></tr>
+<tr class="separator:a4c854abe869a4040c12b05e1d600bd77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd5e3740a33c295b44cfa08b38a31e6f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#abd5e3740a33c295b44cfa08b38a31e6f">svector::y</a> (const EmbVec2D &amp;v)</td></tr>
+<tr class="memdesc:abd5e3740a33c295b44cfa08b38a31e6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the y-component of a 2D vector.  <a href="a00032.html#abd5e3740a33c295b44cfa08b38a31e6f">More...</a><br /></td></tr>
+<tr class="separator:abd5e3740a33c295b44cfa08b38a31e6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3630a8c0e004ddbf19d5dd154f6730ac"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a3630a8c0e004ddbf19d5dd154f6730ac">svector::y</a> (EmbVec2D &amp;v, const float yValue)</td></tr>
+<tr class="memdesc:a3630a8c0e004ddbf19d5dd154f6730ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the y-component of a 2D vector.  <a href="a00032.html#a3630a8c0e004ddbf19d5dd154f6730ac">More...</a><br /></td></tr>
+<tr class="separator:a3630a8c0e004ddbf19d5dd154f6730ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c6ef097de7177465569fc4abf6a821f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a9c6ef097de7177465569fc4abf6a821f">svector::y</a> (const EmbVec3D &amp;v)</td></tr>
+<tr class="memdesc:a9c6ef097de7177465569fc4abf6a821f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the y-component of a 3D vector.  <a href="a00032.html#a9c6ef097de7177465569fc4abf6a821f">More...</a><br /></td></tr>
+<tr class="separator:a9c6ef097de7177465569fc4abf6a821f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d50e91043df0dde40061a12670e931"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a74d50e91043df0dde40061a12670e931">svector::y</a> (EmbVec3D &amp;v, const float yValue)</td></tr>
+<tr class="memdesc:a74d50e91043df0dde40061a12670e931"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the y-component of a 3D vector.  <a href="a00032.html#a74d50e91043df0dde40061a12670e931">More...</a><br /></td></tr>
+<tr class="separator:a74d50e91043df0dde40061a12670e931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d61ead327f8e53e39845bb96316593"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a74d61ead327f8e53e39845bb96316593">svector::z</a> (const EmbVec3D &amp;v)</td></tr>
+<tr class="memdesc:a74d61ead327f8e53e39845bb96316593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the z-component of a 3D vector.  <a href="a00032.html#a74d61ead327f8e53e39845bb96316593">More...</a><br /></td></tr>
+<tr class="separator:a74d61ead327f8e53e39845bb96316593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23afac9ec912e096b33532d9cd4fbfb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a23afac9ec912e096b33532d9cd4fbfb4">svector::z</a> (EmbVec3D &amp;v, const float zValue)</td></tr>
+<tr class="memdesc:a23afac9ec912e096b33532d9cd4fbfb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the z-component of a 3D vector.  <a href="a00032.html#a23afac9ec912e096b33532d9cd4fbfb4">More...</a><br /></td></tr>
+<tr class="separator:a23afac9ec912e096b33532d9cd4fbfb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad12758ac837745dbf7c52731465af56c"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ad12758ac837745dbf7c52731465af56c">svector::operator+</a> (const EmbVec2D &amp;lhs, const EmbVec2D &amp;rhs)</td></tr>
+<tr class="memdesc:ad12758ac837745dbf7c52731465af56c"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00064.html" title="A base vector representation.">Vector</a> addition.  <a href="a00032.html#ad12758ac837745dbf7c52731465af56c">More...</a><br /></td></tr>
+<tr class="separator:ad12758ac837745dbf7c52731465af56c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a202f0c60fce8a377949f783cbbc8567b"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a202f0c60fce8a377949f783cbbc8567b">svector::operator-</a> (const EmbVec2D &amp;lhs, const EmbVec2D &amp;rhs)</td></tr>
+<tr class="memdesc:a202f0c60fce8a377949f783cbbc8567b"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00064.html" title="A base vector representation.">Vector</a> subtraction.  <a href="a00032.html#a202f0c60fce8a377949f783cbbc8567b">More...</a><br /></td></tr>
+<tr class="separator:a202f0c60fce8a377949f783cbbc8567b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a0cf0ba5cac4235e584f05181932a81"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a9a0cf0ba5cac4235e584f05181932a81">svector::operator-</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:a9a0cf0ba5cac4235e584f05181932a81"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative of a vector.  <a href="a00032.html#a9a0cf0ba5cac4235e584f05181932a81">More...</a><br /></td></tr>
+<tr class="separator:a9a0cf0ba5cac4235e584f05181932a81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a82eb38ac40499a89d6b3a44cde992e52"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a82eb38ac40499a89d6b3a44cde992e52">svector::operator+</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:a82eb38ac40499a89d6b3a44cde992e52"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive of a vector.  <a href="a00032.html#a82eb38ac40499a89d6b3a44cde992e52">More...</a><br /></td></tr>
+<tr class="separator:a82eb38ac40499a89d6b3a44cde992e52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add312a2d477804ec252ea7a03c777200"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#add312a2d477804ec252ea7a03c777200">svector::operator*</a> (const EmbVec2D &amp;lhs, const float rhs)</td></tr>
+<tr class="memdesc:add312a2d477804ec252ea7a03c777200"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar multiplication.  <a href="a00032.html#add312a2d477804ec252ea7a03c777200">More...</a><br /></td></tr>
+<tr class="separator:add312a2d477804ec252ea7a03c777200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc99369ee035ac7339667cd06c32b23a"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#adc99369ee035ac7339667cd06c32b23a">svector::operator/</a> (const EmbVec2D &amp;lhs, const float rhs)</td></tr>
+<tr class="memdesc:adc99369ee035ac7339667cd06c32b23a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar division.  <a href="a00032.html#adc99369ee035ac7339667cd06c32b23a">More...</a><br /></td></tr>
+<tr class="separator:adc99369ee035ac7339667cd06c32b23a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e3454407cd15e9be453574e6e392492"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a0e3454407cd15e9be453574e6e392492">svector::operator==</a> (const EmbVec2D &amp;lhs, const EmbVec2D &amp;rhs)</td></tr>
+<tr class="memdesc:a0e3454407cd15e9be453574e6e392492"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares equality of two vectors.  <a href="a00032.html#a0e3454407cd15e9be453574e6e392492">More...</a><br /></td></tr>
+<tr class="separator:a0e3454407cd15e9be453574e6e392492"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac539cb71e9c7952a2aa6bcd507fcbdbd"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ac539cb71e9c7952a2aa6bcd507fcbdbd">svector::operator!=</a> (const EmbVec2D &amp;lhs, const EmbVec2D &amp;rhs)</td></tr>
+<tr class="memdesc:ac539cb71e9c7952a2aa6bcd507fcbdbd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares inequality of two vectors.  <a href="a00032.html#ac539cb71e9c7952a2aa6bcd507fcbdbd">More...</a><br /></td></tr>
+<tr class="separator:ac539cb71e9c7952a2aa6bcd507fcbdbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad07e9693e7871d50aa5ffab7516712b9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ad07e9693e7871d50aa5ffab7516712b9">svector::dot</a> (const EmbVec2D &amp;lhs, const EmbVec2D &amp;rhs)</td></tr>
+<tr class="memdesc:ad07e9693e7871d50aa5ffab7516712b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dot product of two vectors.  <a href="a00032.html#ad07e9693e7871d50aa5ffab7516712b9">More...</a><br /></td></tr>
+<tr class="separator:ad07e9693e7871d50aa5ffab7516712b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a163d790b3a2a2e3956105ca56ad97f9a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a163d790b3a2a2e3956105ca56ad97f9a">svector::magn</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:a163d790b3a2a2e3956105ca56ad97f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the magnitude of the vector.  <a href="a00032.html#a163d790b3a2a2e3956105ca56ad97f9a">More...</a><br /></td></tr>
+<tr class="separator:a163d790b3a2a2e3956105ca56ad97f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef028881c9b5472d0057aba44071889d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aef028881c9b5472d0057aba44071889d">svector::angle</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:aef028881c9b5472d0057aba44071889d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the angle of a 2D vector in radians.  <a href="a00032.html#aef028881c9b5472d0057aba44071889d">More...</a><br /></td></tr>
+<tr class="separator:aef028881c9b5472d0057aba44071889d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac232d8fca01b8483a24b37a8271a6e70"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ac232d8fca01b8483a24b37a8271a6e70">svector::normalize</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:ac232d8fca01b8483a24b37a8271a6e70"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector.  <a href="a00032.html#ac232d8fca01b8483a24b37a8271a6e70">More...</a><br /></td></tr>
+<tr class="separator:ac232d8fca01b8483a24b37a8271a6e70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7b6c9890453ffadf53494378c604653"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ad7b6c9890453ffadf53494378c604653">svector::isZero</a> (const EmbVec2D &amp;vec)</td></tr>
+<tr class="memdesc:ad7b6c9890453ffadf53494378c604653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether a vector is a zero vector.  <a href="a00032.html#ad7b6c9890453ffadf53494378c604653">More...</a><br /></td></tr>
+<tr class="separator:ad7b6c9890453ffadf53494378c604653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeedec43453d1824dc5eca3fc1781dd4b"><td class="memItemLeft" align="right" valign="top">EmbVec2D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aeedec43453d1824dc5eca3fc1781dd4b">svector::rotate</a> (const EmbVec2D &amp;vec, const float ang)</td></tr>
+<tr class="memdesc:aeedec43453d1824dc5eca3fc1781dd4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates vector by a certain angle.  <a href="a00032.html#aeedec43453d1824dc5eca3fc1781dd4b">More...</a><br /></td></tr>
+<tr class="separator:aeedec43453d1824dc5eca3fc1781dd4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26b1a611f18781c0d060bbdea50fb525"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a26b1a611f18781c0d060bbdea50fb525">svector::operator+</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:a26b1a611f18781c0d060bbdea50fb525"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00064.html" title="A base vector representation.">Vector</a> addition.  <a href="a00032.html#a26b1a611f18781c0d060bbdea50fb525">More...</a><br /></td></tr>
+<tr class="separator:a26b1a611f18781c0d060bbdea50fb525"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a3d9565aa90bf16023466c9d881f96"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aa8a3d9565aa90bf16023466c9d881f96">svector::operator-</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:aa8a3d9565aa90bf16023466c9d881f96"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="a00064.html" title="A base vector representation.">Vector</a> subtraction.  <a href="a00032.html#aa8a3d9565aa90bf16023466c9d881f96">More...</a><br /></td></tr>
+<tr class="separator:aa8a3d9565aa90bf16023466c9d881f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8f16ac08957b74bbd58045c83253376"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aa8f16ac08957b74bbd58045c83253376">svector::operator-</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:aa8f16ac08957b74bbd58045c83253376"><td class="mdescLeft">&#160;</td><td class="mdescRight">Negative of a vector.  <a href="a00032.html#aa8f16ac08957b74bbd58045c83253376">More...</a><br /></td></tr>
+<tr class="separator:aa8f16ac08957b74bbd58045c83253376"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dd09273bbd6cf460415ea2b5826aac4"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a2dd09273bbd6cf460415ea2b5826aac4">svector::operator+</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:a2dd09273bbd6cf460415ea2b5826aac4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Positive of a vector.  <a href="a00032.html#a2dd09273bbd6cf460415ea2b5826aac4">More...</a><br /></td></tr>
+<tr class="separator:a2dd09273bbd6cf460415ea2b5826aac4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a032196f02a8602718ee34f25bd184795"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a032196f02a8602718ee34f25bd184795">svector::operator*</a> (const EmbVec3D &amp;lhs, const float rhs)</td></tr>
+<tr class="memdesc:a032196f02a8602718ee34f25bd184795"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar multiplication.  <a href="a00032.html#a032196f02a8602718ee34f25bd184795">More...</a><br /></td></tr>
+<tr class="separator:a032196f02a8602718ee34f25bd184795"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a301f72bc48e81cad1bf01e675aca7cbb"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a301f72bc48e81cad1bf01e675aca7cbb">svector::operator/</a> (const EmbVec3D &amp;lhs, const float rhs)</td></tr>
+<tr class="memdesc:a301f72bc48e81cad1bf01e675aca7cbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scalar division.  <a href="a00032.html#a301f72bc48e81cad1bf01e675aca7cbb">More...</a><br /></td></tr>
+<tr class="separator:a301f72bc48e81cad1bf01e675aca7cbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d719e3d893ef8bd52548f4c1e3537e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a15d719e3d893ef8bd52548f4c1e3537e">svector::operator==</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:a15d719e3d893ef8bd52548f4c1e3537e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares equality of two vectors.  <a href="a00032.html#a15d719e3d893ef8bd52548f4c1e3537e">More...</a><br /></td></tr>
+<tr class="separator:a15d719e3d893ef8bd52548f4c1e3537e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3daa0b6ddb73391b93004a833494c19"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ad3daa0b6ddb73391b93004a833494c19">svector::operator!=</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:ad3daa0b6ddb73391b93004a833494c19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares inequality of two vectors.  <a href="a00032.html#ad3daa0b6ddb73391b93004a833494c19">More...</a><br /></td></tr>
+<tr class="separator:ad3daa0b6ddb73391b93004a833494c19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950085d3eb9483e46135f2e304e422b6"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a950085d3eb9483e46135f2e304e422b6">svector::dot</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:a950085d3eb9483e46135f2e304e422b6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the dot product of two vectors.  <a href="a00032.html#a950085d3eb9483e46135f2e304e422b6">More...</a><br /></td></tr>
+<tr class="separator:a950085d3eb9483e46135f2e304e422b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adfc6e296bf904e600101f65861638a51"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#adfc6e296bf904e600101f65861638a51">svector::cross</a> (const EmbVec3D &amp;lhs, const EmbVec3D &amp;rhs)</td></tr>
+<tr class="memdesc:adfc6e296bf904e600101f65861638a51"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cross product of two vectors.  <a href="a00032.html#adfc6e296bf904e600101f65861638a51">More...</a><br /></td></tr>
+<tr class="separator:adfc6e296bf904e600101f65861638a51"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e6666c1c8ac442a1f613038a8aa0f4c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a3e6666c1c8ac442a1f613038a8aa0f4c">svector::magn</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:a3e6666c1c8ac442a1f613038a8aa0f4c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the magnitude of the vector.  <a href="a00032.html#a3e6666c1c8ac442a1f613038a8aa0f4c">More...</a><br /></td></tr>
+<tr class="separator:a3e6666c1c8ac442a1f613038a8aa0f4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f1b322cd3ac2d6e031c345e14b26a53"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a5f1b322cd3ac2d6e031c345e14b26a53">svector::normalize</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:a5f1b322cd3ac2d6e031c345e14b26a53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalizes a vector.  <a href="a00032.html#a5f1b322cd3ac2d6e031c345e14b26a53">More...</a><br /></td></tr>
+<tr class="separator:a5f1b322cd3ac2d6e031c345e14b26a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aadcdfe798700ffad3510644f7921b2f9"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#aadcdfe798700ffad3510644f7921b2f9">svector::isZero</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:aadcdfe798700ffad3510644f7921b2f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines whether a vector is a zero vector.  <a href="a00032.html#aadcdfe798700ffad3510644f7921b2f9">More...</a><br /></td></tr>
+<tr class="separator:aadcdfe798700ffad3510644f7921b2f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fe9c1451857b286fcd699a23ed42f95"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a2fe9c1451857b286fcd699a23ed42f95">svector::alpha</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:a2fe9c1451857b286fcd699a23ed42f95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets α angle.  <a href="a00032.html#a2fe9c1451857b286fcd699a23ed42f95">More...</a><br /></td></tr>
+<tr class="separator:a2fe9c1451857b286fcd699a23ed42f95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb93eff310411aa83a61a828d4571d37"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#acb93eff310411aa83a61a828d4571d37">svector::beta</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:acb93eff310411aa83a61a828d4571d37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets β angle.  <a href="a00032.html#acb93eff310411aa83a61a828d4571d37">More...</a><br /></td></tr>
+<tr class="separator:acb93eff310411aa83a61a828d4571d37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada83de391f28387dd6ccdfe5f19bfa3f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ada83de391f28387dd6ccdfe5f19bfa3f">svector::gamma</a> (const EmbVec3D &amp;vec)</td></tr>
+<tr class="memdesc:ada83de391f28387dd6ccdfe5f19bfa3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets γ angle.  <a href="a00032.html#ada83de391f28387dd6ccdfe5f19bfa3f">More...</a><br /></td></tr>
+<tr class="separator:ada83de391f28387dd6ccdfe5f19bfa3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6df21069f31c0a5ac1736df62a1c11da"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a6df21069f31c0a5ac1736df62a1c11da">svector::rotateAlpha</a> (const EmbVec3D &amp;vec, const float ang)</td></tr>
+<tr class="memdesc:a6df21069f31c0a5ac1736df62a1c11da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates around x-axis.  <a href="a00032.html#a6df21069f31c0a5ac1736df62a1c11da">More...</a><br /></td></tr>
+<tr class="separator:a6df21069f31c0a5ac1736df62a1c11da"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2e465bf8cfdc4a836b9f95a81caac58"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#ac2e465bf8cfdc4a836b9f95a81caac58">svector::rotateBeta</a> (const EmbVec3D &amp;vec, const float ang)</td></tr>
+<tr class="memdesc:ac2e465bf8cfdc4a836b9f95a81caac58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates around y-axis.  <a href="a00032.html#ac2e465bf8cfdc4a836b9f95a81caac58">More...</a><br /></td></tr>
+<tr class="separator:ac2e465bf8cfdc4a836b9f95a81caac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58d4541e9720a4aa6bc33d6538730cf0"><td class="memItemLeft" align="right" valign="top">EmbVec3D&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00032.html#a58d4541e9720a4aa6bc33d6538730cf0">svector::rotateGamma</a> (const EmbVec3D &amp;vec, const float ang)</td></tr>
+<tr class="memdesc:a58d4541e9720a4aa6bc33d6538730cf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Rotates around z-axis.  <a href="a00032.html#a58d4541e9720a4aa6bc33d6538730cf0">More...</a><br /></td></tr>
+<tr class="separator:a58d4541e9720a4aa6bc33d6538730cf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Contains imunano33::TempUnit and imunano33::PressureUnit enums. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a4b605fb34b5d58572a4e420811170e6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b605fb34b5d58572a4e420811170e6f">&#9670;&nbsp;</a></span>PressureUnit</h2>
+<div class="textblock"><p>A minimized version of vectors for embedded devices without access to the STL (such as on an Arduino, hence the ".h" instead of ".hpp"). </p>
+<p>This file is meant to be a standalone file, so it is not included in vectors.hpp.</p>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2023 Jonathan Liu. This project is released under the MIT License. All rights reserved. </dd></dl>
+</div><h2 class="groupheader">Function Documentation</h2>
+<a id="a2fe9c1451857b286fcd699a23ed42f95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2fe9c1451857b286fcd699a23ed42f95">&#9670;&nbsp;</a></span>alpha()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00032.html#a4b605fb34b5d58572a4e420811170e6f">imunano33::PressureUnit</a></td>
+          <td class="memname">float svector::alpha </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>An enumerator describing units of pressure values. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a4b605fb34b5d58572a4e420811170e6fad064013dd691324beeeea44a96900932"></a>KPA&#160;</td><td class="fielddoc"><p>Converts pressure to kilopascal. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b605fb34b5d58572a4e420811170e6fa8396d5153775bf98a56701e42c477586"></a>ATM&#160;</td><td class="fielddoc"><p>Converts pressure to standard atmospheric pressure, the pressure at sea level and at 0°C </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b605fb34b5d58572a4e420811170e6fa251dc12cb851a4e85867599a4b0746d9"></a>MMHG&#160;</td><td class="fielddoc"><p>Converts pressure to millimeters of mercury. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a4b605fb34b5d58572a4e420811170e6fae441f21ec92ac7c9c621615e422e7d31"></a>PSI&#160;</td><td class="fielddoc"><p>Converts pressure to pounds per square inch. </p>
-</td></tr>
-</table>
+<p>Gets α angle. </p>
+<p>α is the angle between the vector and the x-axis.</p>
+<dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>α. </dd></dl>
 
 </div>
 </div>
-<a id="a845546b1f1cc1265d5fa65ee9553c1d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a845546b1f1cc1265d5fa65ee9553c1d4">&#9670;&nbsp;</a></span>TempUnit</h2>
+<a id="aef028881c9b5472d0057aba44071889d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef028881c9b5472d0057aba44071889d">&#9670;&nbsp;</a></span>angle()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00032.html#a845546b1f1cc1265d5fa65ee9553c1d4">imunano33::TempUnit</a></td>
+          <td class="memname">float svector::angle </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
-<p>An enumerator describing units of temperature values. </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a845546b1f1cc1265d5fa65ee9553c1d4af1bb8b1c8a51601c1c8dc166661cab3f"></a>FAHRENHEIT&#160;</td><td class="fielddoc"><p>Converts temperature to Fahrenheit. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a845546b1f1cc1265d5fa65ee9553c1d4a100cecfb8b6fec231f1cdd575f7b18d6"></a>CELSIUS&#160;</td><td class="fielddoc"><p>Converts temperature to Celsius. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a845546b1f1cc1265d5fa65ee9553c1d4a37b5e49b6d214c7e090cf472e59188a7"></a>KELVIN&#160;</td><td class="fielddoc"><p>Converts temperature to Kelvin. </p>
-</td></tr>
+<p>Gets the angle of a 2D vector in radians. </p>
+<p>The angle will be in the range (-π, π].</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>angle of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="acb93eff310411aa83a61a828d4571d37"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb93eff310411aa83a61a828d4571d37">&#9670;&nbsp;</a></span>beta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::beta </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
+
+<p>Gets β angle. </p>
+<p>β is the angle between the vector and the y-axis.</p>
+<dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>β. </dd></dl>
+
+</div>
+</div>
+<a id="adfc6e296bf904e600101f65861638a51"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adfc6e296bf904e600101f65861638a51">&#9670;&nbsp;</a></span>cross()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::cross </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Cross product of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>A 3D vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>A 3D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The crossed 3D vector. </dd></dl>
+
+</div>
+</div>
+<a id="ad07e9693e7871d50aa5ffab7516712b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad07e9693e7871d50aa5ffab7516712b9">&#9670;&nbsp;</a></span>dot() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the dot product of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>First vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>Second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dot product of lhs and rhs. </dd></dl>
+
+</div>
+</div>
+<a id="a950085d3eb9483e46135f2e304e422b6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950085d3eb9483e46135f2e304e422b6">&#9670;&nbsp;</a></span>dot() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::dot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculates the dot product of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>First vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>Second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The dot product of lhs and rhs. </dd></dl>
+
+</div>
+</div>
+<a id="ada83de391f28387dd6ccdfe5f19bfa3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada83de391f28387dd6ccdfe5f19bfa3f">&#9670;&nbsp;</a></span>gamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::gamma </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets γ angle. </p>
+<p>γ is the angle between the vector and the z-axis.</p>
+<dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>γ. </dd></dl>
+
+</div>
+</div>
+<a id="ad7b6c9890453ffadf53494378c604653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7b6c9890453ffadf53494378c604653">&#9670;&nbsp;</a></span>isZero() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::isZero </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether a vector is a zero vector. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the given vector is a zero vector. </dd></dl>
+
+</div>
+</div>
+<a id="aadcdfe798700ffad3510644f7921b2f9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aadcdfe798700ffad3510644f7921b2f9">&#9670;&nbsp;</a></span>isZero() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::isZero </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Determines whether a vector is a zero vector. </p>
+<dl class="section return"><dt>Returns</dt><dd>Whether the given vector is a zero vector. </dd></dl>
+
+</div>
+</div>
+<a id="a163d790b3a2a2e3956105ca56ad97f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a163d790b3a2a2e3956105ca56ad97f9a">&#9670;&nbsp;</a></span>magn() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::magn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the magnitude of the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>magnitude of vector. </dd></dl>
+
+</div>
+</div>
+<a id="a3e6666c1c8ac442a1f613038a8aa0f4c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e6666c1c8ac442a1f613038a8aa0f4c">&#9670;&nbsp;</a></span>magn() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::magn </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the magnitude of the vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>magnitude of vector </dd></dl>
+
+</div>
+</div>
+<a id="ac232d8fca01b8483a24b37a8271a6e70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac232d8fca01b8483a24b37a8271a6e70">&#9670;&nbsp;</a></span>normalize() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::normalize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normalizes a vector. </p>
+<p>Finds the unit vector with the same direction angle as the current vector.</p>
+<dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Normalized vector. </dd></dl>
+
+</div>
+</div>
+<a id="a5f1b322cd3ac2d6e031c345e14b26a53"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f1b322cd3ac2d6e031c345e14b26a53">&#9670;&nbsp;</a></span>normalize() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::normalize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Normalizes a vector. </p>
+<p>Finds the unit vector with the same direction angle as the current vector.</p>
+<dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Normalized vector. </dd></dl>
+
+</div>
+</div>
+<a id="ac539cb71e9c7952a2aa6bcd507fcbdbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac539cb71e9c7952a2aa6bcd507fcbdbd">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares inequality of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing whether the two vectors do not compare equal. </dd></dl>
+
+</div>
+</div>
+<a id="ad3daa0b6ddb73391b93004a833494c19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3daa0b6ddb73391b93004a833494c19">&#9670;&nbsp;</a></span>operator!=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::operator!= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares inequality of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing whether the two vectors do not compare equal. </dd></dl>
+
+</div>
+</div>
+<a id="add312a2d477804ec252ea7a03c777200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add312a2d477804ec252ea7a03c777200">&#9670;&nbsp;</a></span>operator*() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scalar multiplication. </p>
+<p>Performs scalar multiplication and returns a new vector representing the product.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the scalar product. </dd></dl>
+
+</div>
+</div>
+<a id="a032196f02a8602718ee34f25bd184795"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a032196f02a8602718ee34f25bd184795">&#9670;&nbsp;</a></span>operator*() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scalar multiplication. </p>
+<p>Performs scalar multiplication and returns a new vector representing the product.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the scalar product. </dd></dl>
+
+</div>
+</div>
+<a id="ad12758ac837745dbf7c52731465af56c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad12758ac837745dbf7c52731465af56c">&#9670;&nbsp;</a></span>operator+() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector addition. </p>
+<p>Performs vector addition and returns a new vector representing the sum of the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the vector sum. </dd></dl>
+
+</div>
+</div>
+<a id="a82eb38ac40499a89d6b3a44cde992e52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a82eb38ac40499a89d6b3a44cde992e52">&#9670;&nbsp;</a></span>operator+() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Positive of a vector. </p>
+<p>Represents value of vector, with the unary plus operator applied to each component. In almost all cases, this should result in the original vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The same 2D vector. </dd></dl>
+
+</div>
+</div>
+<a id="a26b1a611f18781c0d060bbdea50fb525"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26b1a611f18781c0d060bbdea50fb525">&#9670;&nbsp;</a></span>operator+() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector addition. </p>
+<p>Performs vector addition and returns a new vector representing the sum of the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the vector sum. </dd></dl>
+
+</div>
+</div>
+<a id="a2dd09273bbd6cf460415ea2b5826aac4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dd09273bbd6cf460415ea2b5826aac4">&#9670;&nbsp;</a></span>operator+() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Positive of a vector. </p>
+<p>Represents value of vector, with the unary plus operator applied to each component. In almost all cases, this should result in the original vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The same 3D vector. </dd></dl>
+
+</div>
+</div>
+<a id="a202f0c60fce8a377949f783cbbc8567b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a202f0c60fce8a377949f783cbbc8567b">&#9670;&nbsp;</a></span>operator-() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector subtraction. </p>
+<p>Performs vector subtraction and returns a new vector representing the difference of the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the vector sum. </dd></dl>
+
+</div>
+</div>
+<a id="a9a0cf0ba5cac4235e584f05181932a81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0cf0ba5cac4235e584f05181932a81">&#9670;&nbsp;</a></span>operator-() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Negative of a vector. </p>
+<p>Makes all components of a vector negative.</p>
+<p>This can also be thought of flipping the direction of the vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the negative of the given vector. </dd></dl>
+
+</div>
+</div>
+<a id="aa8a3d9565aa90bf16023466c9d881f96"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a3d9565aa90bf16023466c9d881f96">&#9670;&nbsp;</a></span>operator-() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Vector subtraction. </p>
+<p>Performs vector subtraction and returns a new vector representing the difference of the two vectors.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the vector sum. </dd></dl>
+
+</div>
+</div>
+<a id="aa8f16ac08957b74bbd58045c83253376"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8f16ac08957b74bbd58045c83253376">&#9670;&nbsp;</a></span>operator-() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Negative of a vector. </p>
+<p>Makes all components of a vector negative of what they currently are.</p>
+<p>This can also be thought of flipping the direction of the vector.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the negative of the given vector. </dd></dl>
+
+</div>
+</div>
+<a id="adc99369ee035ac7339667cd06c32b23a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc99369ee035ac7339667cd06c32b23a">&#9670;&nbsp;</a></span>operator/() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scalar division. </p>
+<p>Performs scalar division and returns a new vector representing the quotient.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the scalar product. </dd></dl>
+
+</div>
+</div>
+<a id="a301f72bc48e81cad1bf01e675aca7cbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a301f72bc48e81cad1bf01e675aca7cbb">&#9670;&nbsp;</a></span>operator/() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Scalar division. </p>
+<p>Performs scalar division and returns a new vector representing the quotient.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new vector representing the scalar product. </dd></dl>
+
+</div>
+</div>
+<a id="a0e3454407cd15e9be453574e6e392492"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e3454407cd15e9be453574e6e392492">&#9670;&nbsp;</a></span>operator==() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares equality of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing whether the two vectors compare equal. </dd></dl>
+
+</div>
+</div>
+<a id="a15d719e3d893ef8bd52548f4c1e3537e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15d719e3d893ef8bd52548f4c1e3537e">&#9670;&nbsp;</a></span>operator==() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool svector::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Compares equality of two vectors. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
+    <tr><td class="paramname">rhs</td><td>The second vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A boolean representing whether the two vectors compare equal. </dd></dl>
+
+</div>
+</div>
+<a id="aeedec43453d1824dc5eca3fc1781dd4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeedec43453d1824dc5eca3fc1781dd4b">&#9670;&nbsp;</a></span>rotate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec2D svector::rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ang</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates vector by a certain angle. </p>
+<p>The angle should be given in radians. The vector rotates counterclockwise when the angle is positive and clockwise when the angle is negative.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 2D vector. </td></tr>
+    <tr><td class="paramname">ang</td><td>the angle to rotate the vector, in radians.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a new, rotated vector. </dd></dl>
+
+</div>
+</div>
+<a id="a6df21069f31c0a5ac1736df62a1c11da"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6df21069f31c0a5ac1736df62a1c11da">&#9670;&nbsp;</a></span>rotateAlpha()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::rotateAlpha </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ang</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates around x-axis. </p>
+<p>Uses the basic gimbal-like 3D rotation matrices for rotation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector. </td></tr>
+    <tr><td class="paramname">ang</td><td>The angle to rotate the vector, in radians.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new, rotated vector. </dd></dl>
+
+</div>
+</div>
+<a id="ac2e465bf8cfdc4a836b9f95a81caac58"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2e465bf8cfdc4a836b9f95a81caac58">&#9670;&nbsp;</a></span>rotateBeta()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::rotateBeta </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ang</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates around y-axis. </p>
+<p>Uses the basic gimbal-like 3D rotation matrices for rotation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector. </td></tr>
+    <tr><td class="paramname">ang</td><td>The angle to rotate the vector, in radians.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new, rotated vector. </dd></dl>
+
+</div>
+</div>
+<a id="a58d4541e9720a4aa6bc33d6538730cf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58d4541e9720a4aa6bc33d6538730cf0">&#9670;&nbsp;</a></span>rotateGamma()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">EmbVec3D svector::rotateGamma </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>vec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>ang</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Rotates around z-axis. </p>
+<p>Uses the basic gimbal-like 3D rotation matrices for rotation.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">vec</td><td>A 3D vector. </td></tr>
+    <tr><td class="paramname">ang</td><td>The angle to rotate the vector, in radians.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A new, rotated vector. </dd></dl>
+
+</div>
+</div>
+<a id="a9031e830d07d3b0df748b0c20b096957"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9031e830d07d3b0df748b0c20b096957">&#9670;&nbsp;</a></span>x() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::x </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the x-component of a 2D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 2D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>x-component of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a4cbb572787437a9a83862353b84b107e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cbb572787437a9a83862353b84b107e">&#9670;&nbsp;</a></span>x() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::x </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the x-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>x-component of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="ad29164ae9ac46449d11224d665fc2aec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad29164ae9ac46449d11224d665fc2aec">&#9670;&nbsp;</a></span>x() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svector::x </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>xValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the x-component of a 2D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 2D Vector. </td></tr>
+    <tr><td class="paramname">xValue</td><td>The x-value to set to the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a4c854abe869a4040c12b05e1d600bd77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c854abe869a4040c12b05e1d600bd77">&#9670;&nbsp;</a></span>x() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svector::x </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>xValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the x-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector. </td></tr>
+    <tr><td class="paramname">xValue</td><td>The x-value to set to the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="abd5e3740a33c295b44cfa08b38a31e6f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd5e3740a33c295b44cfa08b38a31e6f">&#9670;&nbsp;</a></span>y() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::y </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the y-component of a 2D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 2D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>y-component of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a9c6ef097de7177465569fc4abf6a821f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c6ef097de7177465569fc4abf6a821f">&#9670;&nbsp;</a></span>y() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::y </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the y-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>y-component of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a3630a8c0e004ddbf19d5dd154f6730ac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3630a8c0e004ddbf19d5dd154f6730ac">&#9670;&nbsp;</a></span>y() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svector::y </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00076.html">EmbVec2D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>yValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the y-component of a 2D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 2D Vector. </td></tr>
+    <tr><td class="paramname">yValue</td><td>The y-value to set to the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a74d50e91043df0dde40061a12670e931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d50e91043df0dde40061a12670e931">&#9670;&nbsp;</a></span>y() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svector::y </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>yValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the y-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector. </td></tr>
+    <tr><td class="paramname">yValue</td><td>The y value to set to the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a74d61ead327f8e53e39845bb96316593"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d61ead327f8e53e39845bb96316593">&#9670;&nbsp;</a></span>z() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float svector::z </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Gets the z-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>z-component of the vector. </dd></dl>
+
+</div>
+</div>
+<a id="a23afac9ec912e096b33532d9cd4fbfb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23afac9ec912e096b33532d9cd4fbfb4">&#9670;&nbsp;</a></span>z() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void svector::z </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00080.html">EmbVec3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>zValue</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Sets the z-component of a 3D vector. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">v</td><td>A 3D Vector. </td></tr>
+    <tr><td class="paramname">zValue</td><td>The z value to set to the vector. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

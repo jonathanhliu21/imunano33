@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['w_187',['w',['../a00077.html#a66162146fd4663da641fb9184543418a',1,'imunano33::Quaternion']]]
+  ['w_199',['w',['../a00060.html#ac47c459fdb8045b11eb13f74abb6c53f',1,'imunano33::Quaternion']]]
 ];

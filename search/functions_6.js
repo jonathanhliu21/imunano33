@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['gamma_137',['gamma',['../a00029.html#ad016b588e770f34801f8c04471fb1cdb',1,'svector']]],
-  ['getgyrofavoring_138',['getGyroFavoring',['../a00065.html#a76f8a45ee65900027a6d10e24fb6b557',1,'imunano33::Filter::getGyroFavoring()'],['../a00069.html#a88a52a0aaeccd59def449e7c9e858168',1,'imunano33::IMUNano33::getGyroFavoring()']]],
-  ['gethumidity_139',['getHumidity',['../a00061.html#a0ea4c7e5b4d7d9432999abab8486a382',1,'imunano33::Climate::getHumidity()'],['../a00069.html#a82e3fed5a0999dccb2f675454c818bef',1,'imunano33::IMUNano33::getHumidity()']]],
-  ['getpressure_140',['getPressure',['../a00061.html#add7b8edbafb8536c72d984195ed7d601',1,'imunano33::Climate::getPressure()'],['../a00069.html#a8132bf95a81d8f486034c327232f8610',1,'imunano33::IMUNano33::getPressure()']]],
-  ['getrotq_141',['getRotQ',['../a00065.html#ad961237f4331643fc193a4b4925a710a',1,'imunano33::Filter::getRotQ()'],['../a00069.html#a87c23a6d0a9eba96bc3d77aaaed1e985',1,'imunano33::IMUNano33::getRotQ()']]],
-  ['gettemp_142',['getTemp',['../a00061.html#a87aaac3a80cb842f5e1bf4639d3381e8',1,'imunano33::Climate']]],
-  ['gettemperature_143',['getTemperature',['../a00069.html#a2a510baefe295b9d26616b2155d42b0c',1,'imunano33::IMUNano33']]]
+  ['gamma_149',['gamma',['../a00029.html#ad016b588e770f34801f8c04471fb1cdb',1,'svector::gamma(const Vector3D &amp;v)'],['../a00032.html#ada83de391f28387dd6ccdfe5f19bfa3f',1,'svector::gamma(const EmbVec3D &amp;vec)']]],
+  ['getgyrofavoring_150',['getGyroFavoring',['../a00048.html#a32a50698461860c99179b17071ddb1d9',1,'imunano33::Filter::getGyroFavoring()'],['../a00052.html#abd0f275f8d924da0b4eebeafbb3da01e',1,'imunano33::IMUNano33::getGyroFavoring()']]],
+  ['gethumidity_151',['getHumidity',['../a00044.html#ad806bf2c684bb5cd641eceec972844ff',1,'imunano33::Climate::getHumidity()'],['../a00052.html#a3b6ad81d82e371b3e63eba04a5375443',1,'imunano33::IMUNano33::getHumidity()']]],
+  ['getpressure_152',['getPressure',['../a00044.html#a5392416065b4948b838db48e94c129fb',1,'imunano33::Climate::getPressure()'],['../a00052.html#ad47a104b754e84dd853906378b2bb5a6',1,'imunano33::IMUNano33::getPressure()']]],
+  ['getrotq_153',['getRotQ',['../a00048.html#ad961237f4331643fc193a4b4925a710a',1,'imunano33::Filter::getRotQ()'],['../a00052.html#a87c23a6d0a9eba96bc3d77aaaed1e985',1,'imunano33::IMUNano33::getRotQ()']]],
+  ['gettemp_154',['getTemp',['../a00044.html#a97419ced643d5e4d3bb5ed9562f372c0',1,'imunano33::Climate']]],
+  ['gettemperature_155',['getTemperature',['../a00052.html#a2fc8b01e98724405a21f0c2c7776f42f',1,'imunano33::IMUNano33']]]
 ];

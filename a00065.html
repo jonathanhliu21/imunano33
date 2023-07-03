@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>imunano33: imunano33::Filter Class Reference</title>
+<title>imunano33: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -69,446 +69,66 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>imunano33</b></li><li class="navelem"><a class="el" href="a00065.html">Filter</a></li>  </ul>
+<li class="navelem"><b>svector</b></li><li class="navelem"><a class="el" href="a00068.html">Vector2D</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="a00062.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">imunano33::Filter Class Reference</div>  </div>
+<div class="title">svector::Vector2D Member List</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>A complementary filter for a 6 axis IMU using quaternions.  
- <a href="a00065.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00017_source.html">filter.hpp</a>&gt;</code></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a48e36741479da309cb97571b8ac49cdb"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a48e36741479da309cb97571b8ac49cdb">Filter</a> ()</td></tr>
-<tr class="memdesc:a48e36741479da309cb97571b8ac49cdb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Constructor.  <a href="a00065.html#a48e36741479da309cb97571b8ac49cdb">More...</a><br /></td></tr>
-<tr class="separator:a48e36741479da309cb97571b8ac49cdb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa236184310684fbc110e2230f520f4ff"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#aa236184310684fbc110e2230f520f4ff">Filter</a> (const double gyroFavoring)</td></tr>
-<tr class="memdesc:aa236184310684fbc110e2230f520f4ff"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a00065.html#aa236184310684fbc110e2230f520f4ff">More...</a><br /></td></tr>
-<tr class="separator:aa236184310684fbc110e2230f520f4ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a583250c68c54fe4f4d76c89f6edcdd0b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a583250c68c54fe4f4d76c89f6edcdd0b">Filter</a> (const double gyroFavoring, const <a class="el" href="a00077.html">Quaternion</a> &amp;initialQ)</td></tr>
-<tr class="memdesc:a583250c68c54fe4f4d76c89f6edcdd0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor.  <a href="a00065.html#a583250c68c54fe4f4d76c89f6edcdd0b">More...</a><br /></td></tr>
-<tr class="separator:a583250c68c54fe4f4d76c89f6edcdd0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9994a7507942f1cf1081db2173e8cf9e"><td class="memItemLeft" align="right" valign="top"><a id="a9994a7507942f1cf1081db2173e8cf9e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a9994a7507942f1cf1081db2173e8cf9e">Filter</a> (const <a class="el" href="a00065.html">Filter</a> &amp;other)=default</td></tr>
-<tr class="memdesc:a9994a7507942f1cf1081db2173e8cf9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor. <br /></td></tr>
-<tr class="separator:a9994a7507942f1cf1081db2173e8cf9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a34b255d70f7c96250108eae7f7f703d9"><td class="memItemLeft" align="right" valign="top"><a id="a34b255d70f7c96250108eae7f7f703d9"></a>
-<a class="el" href="a00065.html">Filter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a34b255d70f7c96250108eae7f7f703d9">operator=</a> (const <a class="el" href="a00065.html">Filter</a> &amp;other)=default</td></tr>
-<tr class="memdesc:a34b255d70f7c96250108eae7f7f703d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Assignment operator. <br /></td></tr>
-<tr class="separator:a34b255d70f7c96250108eae7f7f703d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a635c51eae6b87f3958e9efc366e5eb29"><td class="memItemLeft" align="right" valign="top"><a id="a635c51eae6b87f3958e9efc366e5eb29"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a635c51eae6b87f3958e9efc366e5eb29">~Filter</a> ()=default</td></tr>
-<tr class="memdesc:a635c51eae6b87f3958e9efc366e5eb29"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor. <br /></td></tr>
-<tr class="separator:a635c51eae6b87f3958e9efc366e5eb29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="memItemLeft" align="right" valign="top"><a id="aa746ffcc312b4e8b2b8d203ba251b07d"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#aa746ffcc312b4e8b2b8d203ba251b07d">Filter</a> (<a class="el" href="a00065.html">Filter</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move constructor. <br /></td></tr>
-<tr class="separator:aa746ffcc312b4e8b2b8d203ba251b07d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f824e7f07b6a3a170267939919fd893"><td class="memItemLeft" align="right" valign="top"><a id="a1f824e7f07b6a3a170267939919fd893"></a>
-<a class="el" href="a00065.html">Filter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a1f824e7f07b6a3a170267939919fd893">operator=</a> (<a class="el" href="a00065.html">Filter</a> &amp;&amp;)=default</td></tr>
-<tr class="memdesc:a1f824e7f07b6a3a170267939919fd893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment. <br /></td></tr>
-<tr class="separator:a1f824e7f07b6a3a170267939919fd893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58863d6f18a86c7b81c2d4afc3337d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a58863d6f18a86c7b81c2d4afc3337d54">update</a> (const <a class="el" href="a00089.html">Vector3D</a> &amp;accel, const <a class="el" href="a00089.html">Vector3D</a> &amp;gyro, const double time, const double favoring)</td></tr>
-<tr class="memdesc:a58863d6f18a86c7b81c2d4afc3337d54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00065.html#a58863d6f18a86c7b81c2d4afc3337d54">More...</a><br /></td></tr>
-<tr class="separator:a58863d6f18a86c7b81c2d4afc3337d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaa382ea2da67fa1d6d4aae20ee909a4b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#aaa382ea2da67fa1d6d4aae20ee909a4b">update</a> (const <a class="el" href="a00089.html">Vector3D</a> &amp;accel, const <a class="el" href="a00089.html">Vector3D</a> &amp;gyro, const double time)</td></tr>
-<tr class="memdesc:aaa382ea2da67fa1d6d4aae20ee909a4b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00065.html#aaa382ea2da67fa1d6d4aae20ee909a4b">More...</a><br /></td></tr>
-<tr class="separator:aaa382ea2da67fa1d6d4aae20ee909a4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39065f0dac556e54fa7ca041dff8cce6"><td class="memItemLeft" align="right" valign="top"><a id="a39065f0dac556e54fa7ca041dff8cce6"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a39065f0dac556e54fa7ca041dff8cce6">reset</a> ()</td></tr>
-<tr class="memdesc:a39065f0dac556e54fa7ca041dff8cce6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Resets quaternion to [1, 0, 0, 0], or facing towards position x direction. <br /></td></tr>
-<tr class="separator:a39065f0dac556e54fa7ca041dff8cce6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad961237f4331643fc193a4b4925a710a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00077.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#ad961237f4331643fc193a4b4925a710a">getRotQ</a> () const</td></tr>
-<tr class="memdesc:ad961237f4331643fc193a4b4925a710a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets rotation quaternion of the complementary filter.  <a href="a00065.html#ad961237f4331643fc193a4b4925a710a">More...</a><br /></td></tr>
-<tr class="separator:ad961237f4331643fc193a4b4925a710a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76f8a45ee65900027a6d10e24fb6b557"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a76f8a45ee65900027a6d10e24fb6b557">getGyroFavoring</a> () const</td></tr>
-<tr class="memdesc:a76f8a45ee65900027a6d10e24fb6b557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets gyroscope favoring.  <a href="a00065.html#a76f8a45ee65900027a6d10e24fb6b557">More...</a><br /></td></tr>
-<tr class="separator:a76f8a45ee65900027a6d10e24fb6b557"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a> (const <a class="el" href="a00077.html">Quaternion</a> &amp;q)</td></tr>
-<tr class="memdesc:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets rotation quaternion for the filter.  <a href="a00065.html#a9b4cc11753a1b0e97e868643e9f7c7a3">More...</a><br /></td></tr>
-<tr class="separator:a9b4cc11753a1b0e97e868643e9f7c7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee8a5c2b2710d94d0e90ebe748b312d8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00065.html#aee8a5c2b2710d94d0e90ebe748b312d8">setGyroFavoring</a> (const double favoring)</td></tr>
-<tr class="memdesc:aee8a5c2b2710d94d0e90ebe748b312d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets gyro favoring.  <a href="a00065.html#aee8a5c2b2710d94d0e90ebe748b312d8">More...</a><br /></td></tr>
-<tr class="separator:aee8a5c2b2710d94d0e90ebe748b312d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A complementary filter for a 6 axis IMU using quaternions. </p>
-<p>Integrates the gyro measurements, then uses a small fraction of the gravity measurements (from the accelerometer) to correct the orientation given from the gyro measurements. The fraction is specified through the gyroFavoring parameter in the constructor.</p>
-<p>The math and details are based on these lectures from Stanford:</p><ul>
-<li><a href="https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf">https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf</a></li>
-<li><a href="https://stanford.edu/class/ee267/lectures/lecture10.pdf">https://stanford.edu/class/ee267/lectures/lecture10.pdf</a> </li>
-</ul>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a48e36741479da309cb97571b8ac49cdb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48e36741479da309cb97571b8ac49cdb">&#9670;&nbsp;</a></span>Filter() <span class="overload">[1/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Default Constructor. </p>
-<p>Initializes intiial quaternion to [1, 0, 0, 0] (or facing towards +x direction) and gyro favoring to 0.98. See other constructors for more information about gyro favoring. </p>
-
-</div>
-</div>
-<a id="aa236184310684fbc110e2230f520f4ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa236184310684fbc110e2230f520f4ff">&#9670;&nbsp;</a></span>Filter() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>gyroFavoring</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gyroFavoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If gyroFavoring is less than 0 or greater than 1, it gets clamped to 0 or 1. </dd>
-<dd>
-If favoring is too high (&gt; 0.99), then there might be latency in gravity correction. </dd></dl>
-
-</div>
-</div>
-<a id="a583250c68c54fe4f4d76c89f6edcdd0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a583250c68c54fe4f4d76c89f6edcdd0b">&#9670;&nbsp;</a></span>Filter() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">imunano33::Filter::Filter </td>
-          <td>(</td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>gyroFavoring</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00077.html">Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>initialQ</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Constructor. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gyroFavoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all. </td></tr>
-    <tr><td class="paramname">initialQ</td><td>The initial rotation quaternion.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If gyroFavoring is less than 0 or greater than 1, it gets clamped to 0 or 1. </dd>
-<dd>
-If initialQ is unnormalized, then the method will normalize it. If initialQ is set to be zeroes, this will result in undefined behavior. </dd>
-<dd>
-If favoring is too high (&gt; 0.99), then there might be latency in gravity correction. </dd></dl>
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a76f8a45ee65900027a6d10e24fb6b557"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76f8a45ee65900027a6d10e24fb6b557">&#9670;&nbsp;</a></span>getGyroFavoring()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">double imunano33::Filter::getGyroFavoring </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets gyroscope favoring. </p>
-<dl class="section return"><dt>Returns</dt><dd>gyro favoring </dd></dl>
-
-</div>
-</div>
-<a id="ad961237f4331643fc193a4b4925a710a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad961237f4331643fc193a4b4925a710a">&#9670;&nbsp;</a></span>getRotQ()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00077.html">Quaternion</a> imunano33::Filter::getRotQ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Gets rotation quaternion of the complementary filter. </p>
-<dl class="section return"><dt>Returns</dt><dd>rotation quaternion </dd></dl>
-
-</div>
-</div>
-<a id="aee8a5c2b2710d94d0e90ebe748b312d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee8a5c2b2710d94d0e90ebe748b312d8">&#9670;&nbsp;</a></span>setGyroFavoring()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::setGyroFavoring </td>
-          <td>(</td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>favoring</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets gyro favoring. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">favoring</td><td>The new gyro favoring, in the range [0, 1]</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If favoring is less than 0 or greater than 1, it will be clamped to 0 or 1. </dd></dl>
-
-</div>
-</div>
-<a id="a9b4cc11753a1b0e97e868643e9f7c7a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b4cc11753a1b0e97e868643e9f7c7a3">&#9670;&nbsp;</a></span>setRotQ()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::setRotQ </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00077.html">Quaternion</a> &amp;&#160;</td>
-          <td class="paramname"><em>q</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Sets rotation quaternion for the filter. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">q</td><td>The rotation quaternion</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>If q is unnormalized, then this method will normalize it. If q is set to be zeros, this will result in undefined behavior. </dd></dl>
-
-</div>
-</div>
-<a id="aaa382ea2da67fa1d6d4aae20ee909a4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaa382ea2da67fa1d6d4aae20ee909a4b">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00089.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>accel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00089.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>gyro</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>time</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates filter. </p>
-<p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
-    <tr><td class="paramname">gyro</td><td>Gyroscope reading (in rad/s) </td></tr>
-    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>With the opening of the USB port facing front and the Arduino's sensors facing up, the positive x axis is to the front, the positive y axis is to the left, and the positive z axis is to the top. </dd></dl>
-
-</div>
-</div>
-<a id="a58863d6f18a86c7b81c2d4afc3337d54"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58863d6f18a86c7b81c2d4afc3337d54">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void imunano33::Filter::update </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00089.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>accel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00089.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>gyro</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double&#160;</td>
-          <td class="paramname"><em>favoring</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Updates filter. </p>
-<p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
-    <tr><td class="paramname">gyro</td><td>Gyroscope reading (&lt;roll, pitch, yaw&gt; in rad/s) </td></tr>
-    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s) </td></tr>
-    <tr><td class="paramname">favoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section note"><dt>Note</dt><dd>With the opening of the USB port facing front and the Arduino's sensors facing up, the positive x axis is to the front, the positive y axis is to the left, and the positive z axis is to the top. </dd></dl>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li>/home/runner/work/imunano33/imunano33/include/imunano33/<a class="el" href="a00017_source.html">filter.hpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00068.html">svector::Vector2D</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#a01c57c2feab79c8685d0f81d0f4ea6cd">angle</a>() const</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a0a600611b85c1d7e190634ed17f8b259">at</a>(const std::size_t index) const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#aef620526e8001af494bd793ea4a8f044">at</a>(const std::size_t index)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a448079b6fdc19f1bdb753f3b33c03934">begin</a>() noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#aea758be24ad30640ebe49a801b775945">begin</a>() const noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#a0a9bfa964c3f81ed0ce727c5005fb350">componentsAs</a>() const</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a114147aca66dcebb6e2f718ff2fdf21a">const_iterator</a> typedef</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a0346035577f39d20980aec3b2acc3839">const_reverse_iterator</a> typedef</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#aa8c5febe15949c0b06bf9161ecc7cc98">dot</a>(const Vector&lt; D, T &gt; &amp;other) const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a90b984cf25cbc2043736a5673f03444a">end</a>() noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a4efdfe65e424daca281d09d3341ab8d9">end</a>() const noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#ae5a6f649b2cb3df258e180b4a31ba497">isZero</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a4c9b94cbfcc97c894149ff849fcea0e0">iterator</a> typedef</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#aa16867012cbc61db8d2296b49afec291">m_components</a></td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a2ee110a3ffb375d2a929b2ff949081ca">magn</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a4f87a5c8f27493f09d14108efaab47a4">normalize</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#af6b51d8b845952b1c693e430c77ab220">numDimensions</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#ad6fcb661236fce31717f1e2d1282574e">operator*=</a>(const T other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a13afee2758933db5cdb1acf28ad472d6">operator+</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a3aef72548b86be6fa4754922484941c2">operator+=</a>(const Vector&lt; D, T &gt; &amp;other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a79529f4272bee3fb4a25a223e33c49d1">operator-</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a5e27aa7efedb7d0bdbace989238018d9">operator-=</a>(const Vector&lt; D, T &gt; &amp;other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#ab312fad048da79f297c3b1d9103236b9">operator/=</a>(const T other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#aa104c7240b64c743c6d8451504abe616">operator=</a>(const Vector&lt; D, T &gt; &amp;other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a8cc27e048d28bb5597c7b96cd1b89321">operator=</a>(Vector&lt; D, T &gt; &amp;&amp;) noexcept=default</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#afb5cb2cd0cab52f59df195d7809ba1ad">operator[]</a>(const std::size_t index) const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#adf62ce931622e9acb55614b4170442e8">operator[]</a>(const std::size_t index)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a2702f121eaef8d97f30b482fed56c509">rbegin</a>() noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a41d606c82599dda991cc95bdfce83daf">rbegin</a>() const noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a142a7f6785eba59d5f3efb1f97cb22ed">rend</a>() noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a604df9d4e4e6f410a82e156dd717a535">rend</a>() const noexcept</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#adbdec14f43e66c6b2204317f041d7185">reverse_iterator</a> typedef</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#a6f1d87000f3ade1355ce09f4f1cb7fa4">rotate</a>(const double ang) const</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a706197199863f1748ce354de928a13de">toString</a>() const</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#a0e00d66b1b8a7f90a45a61f24b88834d">Vector</a>()</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#a7abfe9895c72adf1da5280f6db80db69">Vector</a>(const std::initializer_list&lt; T &gt; args)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#a90e54dd0178d253b9a1945448836f2a5">Vector</a>(const Vector&lt; D, T &gt; &amp;other)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#a265d6629c6d07dc72e3050cb8c963423">Vector</a>(Vector&lt; D, T &gt; &amp;&amp;) noexcept=default</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a7abfe9895c72adf1da5280f6db80db69">svector::Vector::Vector</a>(const std::initializer_list&lt; T &gt; args)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#a90e54dd0178d253b9a1945448836f2a5">svector::Vector::Vector</a>(const Vector&lt; D, T &gt; &amp;other)</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00064.html#a265d6629c6d07dc72e3050cb8c963423">svector::Vector::Vector</a>(Vector&lt; D, T &gt; &amp;&amp;) noexcept=default</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#ade7644d360dcca83b213aad4b3833000">Vector2D</a>(const double x, const double y)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#aa8a21eeda6c4221e7ef8a16b360f5265">Vector2D</a>(const Vec2_ &amp;other)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#a4d01e85c26657fcfe710c549cb0399fa">x</a>() const</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#ae7e988c8ff0b3eafa55733b68a523a2c">x</a>(const double &amp;newX)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00068.html#af21f272ca060179f76aa9fb9384d4c5a">y</a>() const</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00068.html#aac5198ca1281582f68859b24024cbd7c">y</a>(const double &amp;newY)</td><td class="entry"><a class="el" href="a00068.html">svector::Vector2D</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr><td class="entry"><a class="el" href="a00064.html#affe2ae62a95ea70f7065c0bd61a53553">~Vector</a>()=default</td><td class="entry"><a class="el" href="a00064.html">svector::Vector&lt; D, T &gt;</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1

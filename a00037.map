@@ -1,0 +1,8 @@
+<map id="/home/runner/work/imunano33/imunano33/include/imunano33/unit.hpp" name="/home/runner/work/imunano33/imunano33/include/imunano33/unit.hpp">
+<area shape="rect" id="node1" title="Contains imunano33::TempUnit and imunano33::PressureUnit enums, in addition to number type." alt="" coords="207,5,433,61"/>
+<area shape="rect" id="node2" href="$a00014.html" title="File containing the imunano33::Climate class." alt="" coords="5,213,232,269"/>
+<area shape="rect" id="node3" href="$a00020.html" title="Contains the imunano33::IMUNano33 class." alt="" coords="244,317,471,373"/>
+<area shape="rect" id="node4" href="$a00017.html" title="File containing the imunano33::Filter class." alt="" coords="332,213,559,269"/>
+<area shape="rect" id="node5" href="$a00023.html" title="File containing the imunano33::MathUtil class." alt="" coords="357,109,584,165"/>
+<area shape="rect" id="node6" href="$a00026.html" title="File containing the imunano33::Quaternion class." alt="" coords="608,109,835,165"/>
+</map>
