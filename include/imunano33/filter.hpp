@@ -199,7 +199,7 @@ public:
     // complementary filter
     const Quaternion qAccelCur{normalize(vecRotAxis),
                                (1 - m_gyroFavoring) * rotAngle};
-    m_qRot *= qAccelCur;
+    m_qRot = qAccelCur * m_qRot;
   }
 
   /**
