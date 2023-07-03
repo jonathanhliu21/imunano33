@@ -1,5 +1,5 @@
 /**
- * @file embed.h
+ * @file
  *
  * @brief A minimized version of vectors for embedded devices without access to
  * the STL (such as on an Arduino, hence the ".h" instead of ".hpp").

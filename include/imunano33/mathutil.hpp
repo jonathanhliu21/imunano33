@@ -7,12 +7,22 @@
 #define INCLUDE_IMUNANO33_MATHUTIL_HPP_
 
 #include <cmath>
+#include <cstddef>
 
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
 #include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief Utility static methods for math calculations
@@ -64,8 +74,12 @@ public:
    * @returns if the vector is near zero
    */
   static bool nearZero(const Vector3D &vec, const num_t tol) {
+#ifdef IMUNANO33_EMBED
+    return vec.x < tol && vec.y < tol && vec.z < tol;
+#else
     return std::none_of(vec.begin(), vec.end(),
                         [tol](const num_t &el) { return std::abs(el) >= tol; });
+#endif
   }
 
   /**

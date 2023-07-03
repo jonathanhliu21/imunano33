@@ -9,11 +9,20 @@
 
 #include <cmath>
 
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
 #include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief A simple quaternion class for rotations
@@ -169,7 +178,12 @@ private:
  * @returns Product
  */
 inline Quaternion operator*(const Quaternion &lhs, const Quaternion &rhs) {
+#ifdef IMUNANO33_EMBED
+  using Vector3D =
+      svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
   using svector::Vector3D;
+#endif
 
   const num_t wl = lhs.w();
   const num_t wr = rhs.w();

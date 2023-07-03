@@ -9,11 +9,20 @@
 #include "imunano33/climate.hpp"
 #include "imunano33/filter.hpp"
 #include "imunano33/quaternion.hpp"
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
 #include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief A data processor for IMU and climate data from an Arduino Nano 33 BLE

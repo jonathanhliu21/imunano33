@@ -8,11 +8,20 @@
 
 #include "imunano33/mathutil.hpp"
 #include "imunano33/quaternion.hpp"
+#ifdef IMUNANO33_EMBED
+#include "imunano33/sv_embed.hpp"
+#else
 #include "imunano33/simplevectors.hpp"
+#endif
 #include "imunano33/unit.hpp"
 
 namespace imunano33 {
+#ifdef IMUNANO33_EMBED
+using Vector3D =
+    svector::EmbVec3D; //!< Alias to vector type in embedded systems
+#else
 using svector::Vector3D;
+#endif
 
 /**
  * @brief A complementary filter for a 6 axis IMU using quaternions.
@@ -51,7 +60,11 @@ public:
    * gravity correction.
    */
   Filter(const num_t gyroFavoring) : m_qRot{1, Vector3D{}} {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0, 1.0);
+#endif
   }
 
   /**
@@ -72,7 +85,11 @@ public:
    */
   Filter(const num_t gyroFavoring, const Quaternion &initialQ)
       : m_qRot{initialQ.unit()} {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(gyroFavoring, 0.0, 1.0);
+#endif
   }
 
   /**
@@ -159,11 +176,17 @@ public:
               vecAccelGravity); // rotation axis for correction rotation from
                                 // estimated gravity vector (from gyro
                                 // readings) to true gravity vector
+
+#ifdef IMUNANO33_EMBED
+    const float lim = 1.0F;
+#else
+    const double lim = 1.0;
+#endif
     const num_t rotAngle = std::acos(
         MathUtil::clamp(dot(vecAccelGravity, vecAccelWorldNorm) /
                             (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),
-                        -1.0,
-                        1.0)); // angle to rotate to correct acceleration vector
+                        -lim,
+                        lim)); // angle to rotate to correct acceleration vector
 
     // if angle needed to rotate is 0 or the axis to rotate around is 0, then
     // don't bother correcting
@@ -238,7 +261,11 @@ public:
    * or 1.
    */
   void setGyroFavoring(const num_t favoring) {
+#ifdef IMUNANO33_EMBED
+    m_gyroFavoring = MathUtil::clamp(favoring, 0.0F, 1.0F);
+#else
     m_gyroFavoring = MathUtil::clamp(favoring, 0.0, 1.0);
+#endif
   }
 
 private:
