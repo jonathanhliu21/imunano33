@@ -27,7 +27,7 @@ namespace imunano33 {
 using Vector3D =
     svector::EmbVec3D; //!< Alias to vector type in embedded systems
 #else
-using std::abs;
+using std::fabs;
 using svector::Vector3D;
 #endif
 
@@ -57,7 +57,7 @@ public:
    * @returns if the num is near zero
    */
   static bool nearZero(const num_t num, const num_t tol) {
-    return abs(num) < tol;
+    return fabs(num) < tol;
   }
 
   /**
@@ -82,10 +82,11 @@ public:
    */
   static bool nearZero(const Vector3D &vec, const num_t tol) {
 #ifdef IMUNANO33_EMBED
-    return vec.x < tol && vec.y < tol && vec.z < tol;
+    return fabs(vec.x) < tol && fabs(vec.y) < tol && fabs(vec.z) < tol;
 #else
-    return std::none_of(vec.begin(), vec.end(),
-                        [tol](const num_t &el) { return std::abs(el) >= tol; });
+    return std::none_of(vec.begin(), vec.end(), [tol](const num_t &el) {
+      return std::fabs(el) >= tol;
+    });
 #endif
   }
 
@@ -120,7 +121,7 @@ public:
    * as equal.
    */
   static bool nearEq(const num_t num1, const num_t num2, const num_t tol) {
-    return abs(num1 - num2) < tol;
+    return fabs(num1 - num2) < tol;
   }
 
   /**

@@ -191,9 +191,8 @@ public:
                         1.0)); // angle to rotate to correct acceleration vector
 #endif
 
-    // if angle needed to rotate is 0 or the axis to rotate around is 0, then
-    // don't bother correcting
-    if (MathUtil::nearZero(rotAngle) || MathUtil::nearZero(vecRotAxis)) {
+    // if the axis to rotate around is 0, then don't bother correcting
+    if (MathUtil::nearZero(vecRotAxis)) {
       return;
     }
 
