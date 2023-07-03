@@ -80,13 +80,21 @@ public:
 
     switch (U) {
     case FAHRENHEIT:
-      res = m_temp * (9.0 / 5.0) + 32;
+#ifdef IMUNANO33_EMBED
+      res = m_temp * (9.0F / 5.0F) + 32.0F;
+#else
+      res = m_temp * (9.0 / 5.0) + 32.0;
+#endif
       break;
     case CELSIUS:
       res = m_temp;
       break;
     case KELVIN:
+#ifdef IMUNANO33_EMBED
+      res = m_temp + 273.15F;
+#else
       res = m_temp + 273.15;
+#endif
       break;
     default:
       res = m_temp;
@@ -112,13 +120,25 @@ public:
       res = m_pressure;
       break;
     case ATM:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 0.00986923266716F;
+#else
       res = m_pressure * 0.00986923266716;
+#endif
       break;
     case MMHG:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 7.500617F;
+#else
       res = m_pressure * 7.500617;
+#endif
       break;
     case PSI:
+#ifdef IMUNANO33_EMBED
+      res = m_pressure * 0.1450377377F;
+#else
       res = m_pressure * 0.1450377377;
+#endif
       break;
     }
 
@@ -160,9 +180,9 @@ public:
 private:
   bool m_dataExists{false};
 
-  num_t m_temp{0};
-  num_t m_humid{0};
-  num_t m_pressure{0};
+  num_t m_temp = 0.0;
+  num_t m_humid = 0.0;
+  num_t m_pressure = 0.0;
 };
 } // namespace imunano33
 
