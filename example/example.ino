@@ -3,7 +3,8 @@
  *
  * This sketch reads data from the IMU and climate sensors and processes them
  * using IMUNano33. Depending on the USE_BLUETOOTH macro (see below), this data
- * is then communicated either via BLE or the serial port.
+ * is then communicated either via BLE or the serial port. Note that the BLE
+ * communication is experimental and currently untested.
  *
  * Climate data is sent in the follwing form on the serial monitor:
  * "C<temperature in C>,<humidity in %>,<pressure in kPa>".
@@ -38,7 +39,7 @@
 
 #define COLOR_SHIFT_MS 10
 
-// #define USE_BLUETOOTH           // comment this line to use serial instead
+// #define USE_BLUETOOTH        // uncomment this line to use bluetooth instead (experimental)
 #define DEFAULT_SERIAL Serial1  // change this to Serial if using USB instead of TX & RX pins
 
 // color LED control
@@ -78,18 +79,21 @@ void setup() {
     ;
 
 #ifdef USE_BLUETOOTH
-  BLE.setLocalName("Arduino Nano 33 BLE Sense"); // local name
-  BLE.setAdvertisedService(service); // set advertised service
+  while (!BLE.begin())
+    ;
+
+  BLE.setLocalName("Arduino Nano 33 BLE Sense");  // local name
+  BLE.setAdvertisedService(service);              // set advertised service
 
   // set characteristics of advertised service
   service.addCharacteristic(climateChr);
   service.addCharacteristic(imuChr);
-  
-  BLE.addService(service); // add the service
 
-  BLE.advertise(); // make it seen to others
+  BLE.addService(service);  // add the service
 
-  DEFAULT_SERIAL.println(BLE.address());
+  BLE.advertise();  // make it seen to others
+
+  DEFAULT_SERIAL.println(BLE.address());  // print MAC address
 #endif
 
   prevTimeIMU = millis() / 1000.0;
@@ -97,9 +101,65 @@ void setup() {
 }
 
 void loop() {
+  // uncomment the three lines below if the MAC address print above does not work
+  // #ifdef USE_BLUETOOTH
+  //   DEFAULT_SERIAL.println(BLE.address());
+  // #endif
+
   // get current time
   float curTime = millis() / 1000.0;
+  readIMU(curTime);
 
+#ifndef USE_BLUETOOTH
+  updateSerialIMU(proc.getRotQ());
+#endif
+
+  // climate data, update every ten seconds because it blocks
+  if (curTime - prevTimeClimate >= 10.0) {
+    float temperature = HTS.readTemperature();
+    float humidity = HTS.readHumidity();
+    float pressure = BARO.readPressure();
+
+    proc.updateClimate(temperature, humidity, pressure);
+
+#ifndef USE_BLUETOOTH
+    updateSerialClimate(temperature, humidity, pressure);
+#endif
+
+    prevTimeClimate = curTime;
+  }
+
+#ifdef USE_BLUETOOTH
+  BLEDevice central = BLE.central();
+  if (central) {
+    while (central.connected()) {
+      float curTime = millis() / 1000.0;
+      // read IMU data and process
+      readIMU(curTime);
+
+      // update characteristics
+      updateBLEIMU(proc.getRotQ());
+
+      // climate data, update every ten seconds because it blocks
+      if (curTime - prevTimeClimate >= 10.0) {
+        float temperature = HTS.readTemperature();
+        float humidity = HTS.readHumidity();
+        float pressure = BARO.readPressure();
+
+        proc.updateClimate(temperature, humidity, pressure);
+        updateBLEClimate(temperature, humidity, pressure);
+
+        prevTimeClimate = curTime;
+      }
+    }
+  }
+#endif
+
+  // shift color LED
+  color();
+}
+
+void readIMU(float curTime) {
   // read IMU data
   float aX = 0;
   float aY = 0;
@@ -132,32 +192,6 @@ void loop() {
     proc.updateIMUGyro({ gX, gY, gZ }, curTime - prevTimeIMU);
     prevTimeIMU = curTime;
   }
-
-  // climate data, update every ten seconds because it blocks
-  if (curTime - prevTimeClimate >= 10.0) {
-    float temperature = HTS.readTemperature();
-    float humidity = HTS.readHumidity();
-    float pressure = BARO.readPressure();
-
-    proc.updateClimate(temperature, humidity, pressure);
-
-#ifdef USE_BLUETOOTH
-    updateBLEClimate(temperature, humidity, pressure);
-#else
-    updateSerialClimate(temperature, humidity, pressure);
-#endif
-
-    prevTimeClimate = curTime;
-  }
-
-#ifdef USE_BLUETOOTH
-  updateBLEIMU(proc.getRotQ());
-#else
-  updateSerialIMU(proc.getRotQ());
-#endif
-
-  // shift color LED
-  color();
 }
 
 void updateSerialIMU(const imunano33::Quaternion &qRot) {
@@ -187,14 +221,14 @@ void updateSerialClimate(const float &temperature, const float &humidity, const 
 
 void updateBLEIMU(const imunano33::Quaternion &qRot) {
   imunano33::Vector3D sendVec = qRot.vec() * 1000;
-  String send = String{lroundf(qRot.w() * 1000)} + "," + String{lroundf(sendVec.x)} + "," + String{lroundf(sendVec.y)} + "," + String{lroundf(sendVec.z)};
+  String send = String{ lroundf(qRot.w() * 1000) } + "," + String{ lroundf(sendVec.x) } + "," + String{ lroundf(sendVec.y) } + "," + String{ lroundf(sendVec.z) };
 
   // +1 for null character at the end
   imuChr.writeValue(send.c_str(), send.length() + 1);
 }
 
 void updateBLEClimate(const float &temperature, const float &humidity, const float &pressure) {
-  String send = String{lroundf(temperature * 10)} + "," + String{lroundf(humidity * 10)} + "," + String{lroundf(pressure * 10)};
+  String send = String{ lroundf(temperature * 10) } + "," + String{ lroundf(humidity * 10) } + "," + String{ lroundf(pressure * 10) };
 
   // +1 for null character at the end
   climateChr.writeValue(send.c_str(), send.length() + 1);
