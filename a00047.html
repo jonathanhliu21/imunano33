@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">imunano33
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
   </td>
  </tr>
@@ -134,11 +134,14 @@ Public Member Functions</h2></td></tr>
 <a class="el" href="a00047.html">Filter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a1f824e7f07b6a3a170267939919fd893">operator=</a> (<a class="el" href="a00047.html">Filter</a> &amp;&amp;)=default</td></tr>
 <tr class="memdesc:a1f824e7f07b6a3a170267939919fd893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move assignment. <br /></td></tr>
 <tr class="separator:a1f824e7f07b6a3a170267939919fd893"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">update</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel, const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring)</td></tr>
-<tr class="memdesc:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">More...</a><br /></td></tr>
-<tr class="separator:a13f2a50f74a41ef423dd2e955ab6c1ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9997038da8c8e4756bc3263883f024ed"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a9997038da8c8e4756bc3263883f024ed">updateGyro</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time)</td></tr>
+<tr class="memdesc:a9997038da8c8e4756bc3263883f024ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter with gyro data.  <a href="a00047.html#a9997038da8c8e4756bc3263883f024ed">More...</a><br /></td></tr>
+<tr class="separator:a9997038da8c8e4756bc3263883f024ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1613024246986eec00ee5109db6758c2"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a1613024246986eec00ee5109db6758c2">updateAccel</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel)</td></tr>
+<tr class="memdesc:a1613024246986eec00ee5109db6758c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter with accelerometer data.  <a href="a00047.html#a1613024246986eec00ee5109db6758c2">More...</a><br /></td></tr>
+<tr class="separator:a1613024246986eec00ee5109db6758c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">update</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel, const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time)</td></tr>
-<tr class="memdesc:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter.  <a href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">More...</a><br /></td></tr>
+<tr class="memdesc:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates filter with both gyro and accel data.  <a href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">More...</a><br /></td></tr>
 <tr class="separator:a556d8dc3609dcf9ec73afebadb2c9e2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a39065f0dac556e54fa7ca041dff8cce6"><td class="memItemLeft" align="right" valign="top"><a id="a39065f0dac556e54fa7ca041dff8cce6"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">reset</a> ()</td></tr>
@@ -408,7 +411,7 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
 </div>
 </div>
 <a id="a556d8dc3609dcf9ec73afebadb2c9e2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a556d8dc3609dcf9ec73afebadb2c9e2d">&#9670;&nbsp;</a></span>update() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a556d8dc3609dcf9ec73afebadb2c9e2d">&#9670;&nbsp;</a></span>update()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -447,7 +450,7 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
 </table>
 </div><div class="memdoc">
 
-<p>Updates filter. </p>
+<p>Updates filter with both gyro and accel data. </p>
 <p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -461,8 +464,8 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
 
 </div>
 </div>
-<a id="a13f2a50f74a41ef423dd2e955ab6c1ba"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a13f2a50f74a41ef423dd2e955ab6c1ba">&#9670;&nbsp;</a></span>update() <span class="overload">[2/2]</span></h2>
+<a id="a1613024246986eec00ee5109db6758c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1613024246986eec00ee5109db6758c2">&#9670;&nbsp;</a></span>updateAccel()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -471,14 +474,43 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void imunano33::Filter::update </td>
+          <td class="memname">void imunano33::Filter::updateAccel </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="a00071.html">Vector3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>accel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><em>accel</em></td><td>)</td>
           <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates filter with accelerometer data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section note"><dt>Note</dt><dd>With the opening of the USB port facing front and the Arduino's sensors facing up, the positive x axis is to the front, the positive y axis is to the left, and the positive z axis is to the top. </dd></dl>
+
+</div>
+</div>
+<a id="a9997038da8c8e4756bc3263883f024ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9997038da8c8e4756bc3263883f024ed">&#9670;&nbsp;</a></span>updateGyro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imunano33::Filter::updateGyro </td>
+          <td>(</td>
           <td class="paramtype">const <a class="el" href="a00071.html">Vector3D</a> &amp;&#160;</td>
           <td class="paramname"><em>gyro</em>, </td>
         </tr>
@@ -486,13 +518,7 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>time</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
-          <td class="paramname"><em>favoring</em>&#160;</td>
+          <td class="paramname"><em>time</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -507,14 +533,11 @@ If favoring is too high (&gt; 0.99), then there might be latency in gravity corr
 </table>
 </div><div class="memdoc">
 
-<p>Updates filter. </p>
-<p>If you plan on only using the gyroscope measurements, then pass in a zero vector for the acceleration, as accelerometer corrections will not be performed if the acceleration vector is zero.</p>
+<p>Updates filter with gyro data. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
-    <tr><td class="paramname">gyro</td><td>Gyroscope reading (&lt;roll, pitch, yaw&gt; in rad/s) </td></tr>
-    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s) </td></tr>
-    <tr><td class="paramname">favoring</td><td>Determines how much gravity should correct, in the range [0, 1]. 0 means that gravity should fully correct the error (does not mean that orientation is solely determined by gravity), and 1 means that gravity does not correct error at all.</td></tr>
+    <tr><td class="paramname">gyro</td><td>Gyroscope reading (in rad/s) </td></tr>
+    <tr><td class="paramname">time</td><td>The time it took for the reading to happen (in s)</td></tr>
   </table>
   </dd>
 </dl>

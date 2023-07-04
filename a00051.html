@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">imunano33
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
   </td>
  </tr>
@@ -140,6 +140,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ad0cdf23b65e33a193774464b1a099df7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00051.html#ad0cdf23b65e33a193774464b1a099df7">updateIMU</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel, const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> deltaT)</td></tr>
 <tr class="memdesc:ad0cdf23b65e33a193774464b1a099df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates IMU data.  <a href="a00051.html#ad0cdf23b65e33a193774464b1a099df7">More...</a><br /></td></tr>
 <tr class="separator:ad0cdf23b65e33a193774464b1a099df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ecea68ab3607cac39ccd0c036ba84fa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa">updateIMUAccel</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel)</td></tr>
+<tr class="memdesc:a2ecea68ab3607cac39ccd0c036ba84fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates IMU acceleration data.  <a href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa">More...</a><br /></td></tr>
+<tr class="separator:a2ecea68ab3607cac39ccd0c036ba84fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244acf313bda06633392deab0dfdeda6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6">updateIMUGyro</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> deltaT)</td></tr>
+<tr class="memdesc:a244acf313bda06633392deab0dfdeda6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates IMU gyroscope data.  <a href="a00051.html#a244acf313bda06633392deab0dfdeda6">More...</a><br /></td></tr>
+<tr class="separator:a244acf313bda06633392deab0dfdeda6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a87e42163dcda1f1edadddea8567a91c4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00051.html#a87e42163dcda1f1edadddea8567a91c4">update</a> (const <a class="el" href="a00071.html">Vector3D</a> &amp;accel, const <a class="el" href="a00071.html">Vector3D</a> &amp;gyro, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> deltaT, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> temperature, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> humidity, const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> pressure)</td></tr>
 <tr class="memdesc:a87e42163dcda1f1edadddea8567a91c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates both IMU and climate data.  <a href="a00051.html#a87e42163dcda1f1edadddea8567a91c4">More...</a><br /></td></tr>
 <tr class="separator:a87e42163dcda1f1edadddea8567a91c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -782,6 +788,86 @@ template&lt;TempUnit U&gt; </div>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
+    <tr><td class="paramname">gyro</td><td>Gyroscope reading (&lt;roll, pitch, yaw&gt; in rad/s) </td></tr>
+    <tr><td class="paramname">deltaT</td><td>The time between this measurement and the previous measurement, in seconds. If this is the first measurement, deltaT would refer to the time since startup (when initialQ was measured). </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2ecea68ab3607cac39ccd0c036ba84fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ecea68ab3607cac39ccd0c036ba84fa">&#9670;&nbsp;</a></span>updateIMUAccel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imunano33::IMUNano33::updateIMUAccel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00071.html">Vector3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>accel</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates IMU acceleration data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">accel</td><td>Accelerometer reading, in &lt;x, y, z&gt;, where positive z is up (important for gravity corrections), and xy is translational motion. The note comes with more details specific to the Arduino Nano 33. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a244acf313bda06633392deab0dfdeda6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244acf313bda06633392deab0dfdeda6">&#9670;&nbsp;</a></span>updateIMUGyro()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void imunano33::IMUNano33::updateIMUGyro </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00071.html">Vector3D</a> &amp;&#160;</td>
+          <td class="paramname"><em>gyro</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a>&#160;</td>
+          <td class="paramname"><em>deltaT</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Updates IMU gyroscope data. </p>
+<p>It is important that the gyroscope is given in radians per second, or the orientation data will be inaccurate. The accelerometer measurement can be in any unit, but m / s^2 is preferred as it is SI.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
     <tr><td class="paramname">gyro</td><td>Gyroscope reading (&lt;roll, pitch, yaw&gt; in rad/s) </td></tr>
     <tr><td class="paramname">deltaT</td><td>The time between this measurement and the previous measurement, in seconds. If this is the first measurement, deltaT would refer to the time since startup (when initialQ was measured). </td></tr>
   </table>

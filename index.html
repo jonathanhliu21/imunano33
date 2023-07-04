@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">imunano33
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
   </td>
  </tr>
@@ -394,9 +394,9 @@ Climate</h2>
 <div class="ttc" id="aa00035_html_a845546b1f1cc1265d5fa65ee9553c1d4a100cecfb8b6fec231f1cdd575f7b18d6"><div class="ttname"><a href="a00035.html#a845546b1f1cc1265d5fa65ee9553c1d4a100cecfb8b6fec231f1cdd575f7b18d6">imunano33::CELSIUS</a></div><div class="ttdeci">@ CELSIUS</div><div class="ttdoc">Converts temperature to Celsius.</div><div class="ttdef"><b>Definition:</b> unit.hpp:16</div></div>
 <div class="ttc" id="aa00035_html_a845546b1f1cc1265d5fa65ee9553c1d4a37b5e49b6d214c7e090cf472e59188a7"><div class="ttname"><a href="a00035.html#a845546b1f1cc1265d5fa65ee9553c1d4a37b5e49b6d214c7e090cf472e59188a7">imunano33::KELVIN</a></div><div class="ttdeci">@ KELVIN</div><div class="ttdoc">Converts temperature to Kelvin.</div><div class="ttdef"><b>Definition:</b> unit.hpp:17</div></div>
 <div class="ttc" id="aa00035_html_a845546b1f1cc1265d5fa65ee9553c1d4af1bb8b1c8a51601c1c8dc166661cab3f"><div class="ttname"><a href="a00035.html#a845546b1f1cc1265d5fa65ee9553c1d4af1bb8b1c8a51601c1c8dc166661cab3f">imunano33::FAHRENHEIT</a></div><div class="ttdeci">@ FAHRENHEIT</div><div class="ttdoc">Converts temperature to Fahrenheit.</div><div class="ttdef"><b>Definition:</b> unit.hpp:15</div></div>
-<div class="ttc" id="aa00051_html_a2fc8b01e98724405a21f0c2c7776f42f"><div class="ttname"><a href="a00051.html#a2fc8b01e98724405a21f0c2c7776f42f">imunano33::IMUNano33::getTemperature</a></div><div class="ttdeci">num_t getTemperature() const</div><div class="ttdoc">Gets temperature.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:297</div></div>
-<div class="ttc" id="aa00051_html_a3b6ad81d82e371b3e63eba04a5375443"><div class="ttname"><a href="a00051.html#a3b6ad81d82e371b3e63eba04a5375443">imunano33::IMUNano33::getHumidity</a></div><div class="ttdeci">num_t getHumidity() const</div><div class="ttdoc">Gets relative humidity.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:325</div></div>
-<div class="ttc" id="aa00051_html_ad47a104b754e84dd853906378b2bb5a6"><div class="ttname"><a href="a00051.html#ad47a104b754e84dd853906378b2bb5a6">imunano33::IMUNano33::getPressure</a></div><div class="ttdeci">num_t getPressure() const</div><div class="ttdoc">Gets pressure.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:311</div></div>
+<div class="ttc" id="aa00051_html_a2fc8b01e98724405a21f0c2c7776f42f"><div class="ttname"><a href="a00051.html#a2fc8b01e98724405a21f0c2c7776f42f">imunano33::IMUNano33::getTemperature</a></div><div class="ttdeci">num_t getTemperature() const</div><div class="ttdoc">Gets temperature.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:322</div></div>
+<div class="ttc" id="aa00051_html_a3b6ad81d82e371b3e63eba04a5375443"><div class="ttname"><a href="a00051.html#a3b6ad81d82e371b3e63eba04a5375443">imunano33::IMUNano33::getHumidity</a></div><div class="ttdeci">num_t getHumidity() const</div><div class="ttdoc">Gets relative humidity.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:350</div></div>
+<div class="ttc" id="aa00051_html_ad47a104b754e84dd853906378b2bb5a6"><div class="ttname"><a href="a00051.html#ad47a104b754e84dd853906378b2bb5a6">imunano33::IMUNano33::getPressure</a></div><div class="ttdeci">num_t getPressure() const</div><div class="ttdoc">Gets pressure.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:336</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md32"></a>
 IMU</h2>
 <p>To update the orientation data, use <a class="el" href="a00051.html#ad0cdf23b65e33a193774464b1a099df7" title="Updates IMU data.">imunano33::IMUNano33::updateIMU()</a>. To use this method, make sure that the readings are consistent with the axes defined above. The unit of the accelermoter readings can be anything, but meters per second squared is recommended because it is in SI units. The unit of the gyroscope readings <b>must</b> be in radians per second. Usually, they are in degrees per second, so they must be converted. The time difference between measurement readings <b>must</b> be in seconds. Below is an example of updating IMU data:</p>
@@ -432,7 +432,47 @@ IMU</h2>
 <div class="line">  }</div>
 <div class="line">}</div>
 <div class="ttc" id="aa00051_html_ad0cdf23b65e33a193774464b1a099df7"><div class="ttname"><a href="a00051.html#ad0cdf23b65e33a193774464b1a099df7">imunano33::IMUNano33::updateIMU</a></div><div class="ttdeci">void updateIMU(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t deltaT)</div><div class="ttdoc">Updates IMU data.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:189</div></div>
-</div><!-- fragment --><p>To get the current rotation quaternion, use <a class="el" href="a00051.html#a87c23a6d0a9eba96bc3d77aaaed1e985" title="Gets rotation quaternion of the complementary filter.">imunano33::IMUNano33::getRotQ()</a>.</p>
+</div><!-- fragment --><p>If the accelerometer values and gyroscope values are sampled separately, then the <a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a> and <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a> methods can be used to update both values on their own:</p>
+<div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00020.html">imunano33/imunano33.hpp</a>&gt;</span></div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="a00071.html">svector::Vector3D</a> readGyro() {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  <span class="comment">// returns &lt;roll, pitch, yaw&gt;</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="a00071.html">svector::Vector3D</a> readAcc() {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">double</span> getCurTime() {</div>
+<div class="line">  <span class="comment">// ...</span></div>
+<div class="line">  <span class="comment">// returns time, in seconds</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">  <a class="code" href="a00051.html">imunano33::IMUNano33</a> proc;</div>
+<div class="line"> </div>
+<div class="line">  <span class="keywordtype">double</span> prevTime = getCurTime();</div>
+<div class="line">  </div>
+<div class="line">  <span class="keywordflow">while</span> (<span class="keyword">true</span>) {</div>
+<div class="line">    <a class="code" href="a00071.html">svector::Vector3D</a> gyro = readGyro();</div>
+<div class="line">    <a class="code" href="a00071.html">svector::Vector3D</a> acc = readAcc();</div>
+<div class="line">    <a class="code" href="a00071.html">svector::Vector3D</a> curTime = getCurTime();</div>
+<div class="line"> </div>
+<div class="line">    <span class="comment">// This is the same as calling proc.updateIMU() in this case</span></div>
+<div class="line">    <span class="comment">// because they are sampled at the same time. If the accelerometer</span></div>
+<div class="line">    <span class="comment">// and gyro are sampled at different times, each method should</span></div>
+<div class="line">    <span class="comment">// be called separately at those times.</span></div>
+<div class="line">    proc.<a class="code" href="a00051.html#a244acf313bda06633392deab0dfdeda6">updateIMUGyro</a>(gyro, curTime - prevTime);</div>
+<div class="line">    proc.<a class="code" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa">updateIMUAccel</a>(acc);</div>
+<div class="line">    </div>
+<div class="line">    prevTime = curTime;</div>
+<div class="line">  }</div>
+<div class="line">}</div>
+<div class="ttc" id="aa00051_html_a244acf313bda06633392deab0dfdeda6"><div class="ttname"><a href="a00051.html#a244acf313bda06633392deab0dfdeda6">imunano33::IMUNano33::updateIMUGyro</a></div><div class="ttdeci">void updateIMUGyro(const Vector3D &amp;gyro, const num_t deltaT)</div><div class="ttdoc">Updates IMU gyroscope data.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:215</div></div>
+<div class="ttc" id="aa00051_html_a2ecea68ab3607cac39ccd0c036ba84fa"><div class="ttname"><a href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa">imunano33::IMUNano33::updateIMUAccel</a></div><div class="ttdeci">void updateIMUAccel(const Vector3D &amp;accel)</div><div class="ttdoc">Updates IMU acceleration data.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:201</div></div>
+</div><!-- fragment --><dl class="section note"><dt>Note</dt><dd><a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a> and <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a> are <em>not</em> commutative. <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a> <em>sets</em> the latest known orientation, while <a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a> <em>corrects</em> the latest known orientation. If <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a> is called first, then it rotates the Arduino first and sets the new orientation. Then, this new orientation is corrected with the <a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a> call. If <a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a> is called first, then it corrects the <em>previous</em> orientation, and then the Arduino is rotated to a <em>new</em>, <em>uncorrected</em> orientation with <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a>. <a class="el" href="a00051.html#ad0cdf23b65e33a193774464b1a099df7" title="Updates IMU data.">imunano33::IMUNano33::updateIMU()</a> calls <a class="el" href="a00051.html#a244acf313bda06633392deab0dfdeda6" title="Updates IMU gyroscope data.">imunano33::IMUNano33::updateIMUGyro()</a> first, and then it corrects the orientation with <a class="el" href="a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa" title="Updates IMU acceleration data.">imunano33::IMUNano33::updateIMUAccel()</a>.</dd></dl>
+<p>To get the current rotation quaternion, use <a class="el" href="a00051.html#a87c23a6d0a9eba96bc3d77aaaed1e985" title="Gets rotation quaternion of the complementary filter.">imunano33::IMUNano33::getRotQ()</a>.</p>
 <div class="fragment"><div class="line"><span class="preprocessor">#include &lt;<a class="code" href="a00020.html">imunano33/imunano33.hpp</a>&gt;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="a00071.html">svector::Vector3D</a> readGyro() {</div>
@@ -477,7 +517,7 @@ IMU</h2>
 <div class="line">    <a class="code" href="a00071.html">svector::Vector3D</a> kWorldFrame = curQ.<a class="code" href="a00059.html#a5d3a6cceccdf4a7ba2aaa2c960534379">rotate</a>(kBodyFrame);</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00051_html_a87c23a6d0a9eba96bc3d77aaaed1e985"><div class="ttname"><a href="a00051.html#a87c23a6d0a9eba96bc3d77aaaed1e985">imunano33::IMUNano33::getRotQ</a></div><div class="ttdeci">Quaternion getRotQ() const</div><div class="ttdoc">Gets rotation quaternion of the complementary filter.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:278</div></div>
+<div class="ttc" id="aa00051_html_a87c23a6d0a9eba96bc3d77aaaed1e985"><div class="ttname"><a href="a00051.html#a87c23a6d0a9eba96bc3d77aaaed1e985">imunano33::IMUNano33::getRotQ</a></div><div class="ttdeci">Quaternion getRotQ() const</div><div class="ttdoc">Gets rotation quaternion of the complementary filter.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:303</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md33"></a>
 IMU and Climate</h2>
 <p>If both IMU and climate data are known, then use <a class="el" href="a00051.html#a87e42163dcda1f1edadddea8567a91c4" title="Updates both IMU and climate data.">imunano33::IMUNano33::update()</a>, which takes in both climate and IMU data inputs. For specifications of the inputs, read the sections above. Below shows an example of using the method:</p>
@@ -555,7 +595,7 @@ IMU and Climate</h2>
 <div class="line">    <span class="keywordtype">double</span> pressurePSI = proc.<a class="code" href="a00051.html#ad47a104b754e84dd853906378b2bb5a6">getPressure</a>&lt;<a class="code" href="a00035.html#a4b605fb34b5d58572a4e420811170e6fae441f21ec92ac7c9c621615e422e7d31">imunano33::PSI</a>&gt;();</div>
 <div class="line">  }</div>
 <div class="line">}</div>
-<div class="ttc" id="aa00051_html_a87e42163dcda1f1edadddea8567a91c4"><div class="ttname"><a href="a00051.html#a87e42163dcda1f1edadddea8567a91c4">imunano33::IMUNano33::update</a></div><div class="ttdeci">void update(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t deltaT, const num_t temperature, const num_t humidity, const num_t pressure)</div><div class="ttdoc">Updates both IMU and climate data.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:215</div></div>
+<div class="ttc" id="aa00051_html_a87e42163dcda1f1edadddea8567a91c4"><div class="ttname"><a href="a00051.html#a87e42163dcda1f1edadddea8567a91c4">imunano33::IMUNano33::update</a></div><div class="ttdeci">void update(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t deltaT, const num_t temperature, const num_t humidity, const num_t pressure)</div><div class="ttdoc">Updates both IMU and climate data.</div><div class="ttdef"><b>Definition:</b> imunano33.hpp:240</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md34"></a>
 More usage information</h2>
 <p>More usage information can be found at the <a class="el" href="a00051.html" title="A data processor for IMU and climate data from an Arduino Nano 33 BLE Sense.">imunano33::IMUNano33</a> class documentation page. Note that these documentation pages are generated without the <code>IMUNANO33_EMBED</code> macro and are meant to be used with the Raspberry Pi. However, it is important to note that all class and method names are the same regardless of whether the macro is set. The differences are that it does not use the <code>std</code> namespace or classes/functions from the C++ standard library, it uses <code>float</code> rather than <code>double</code> as its primary number type, and it uses <a class="el" href="a00079.html" title="A minimal 3D vector representation.">svector::EmbVec3D</a> instead of <a class="el" href="a00071.html" title="A simple 3D vector representation.">svector::Vector3D</a> as its primary vector type.</p>

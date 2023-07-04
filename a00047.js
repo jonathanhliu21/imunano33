@@ -14,5 +14,6 @@ var a00047 =
     [ "setGyroFavoring", "a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6", null ],
     [ "setRotQ", "a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3", null ],
     [ "update", "a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d", null ],
-    [ "update", "a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba", null ]
+    [ "updateAccel", "a00047.html#a1613024246986eec00ee5109db6758c2", null ],
+    [ "updateGyro", "a00047.html#a9997038da8c8e4756bc3263883f024ed", null ]
 ];

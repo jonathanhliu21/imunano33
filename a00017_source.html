@@ -34,7 +34,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">imunano33
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.1.1</span>
    </div>
   </td>
  </tr>
@@ -152,101 +152,98 @@ $(document).ready(function(){initNavTree('a00017_source.html',''); initResizable
 <div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160; </div>
 <div class="line"><a name="l00124"></a><span class="lineno"><a class="line" href="a00047.html#a1f824e7f07b6a3a170267939919fd893">  124</a></span>&#160;  <a class="code" href="a00047.html">Filter</a> &amp;<a class="code" href="a00047.html#a1f824e7f07b6a3a170267939919fd893">operator=</a>(<a class="code" href="a00047.html">Filter</a> &amp;&amp;) = <span class="keywordflow">default</span>;</div>
 <div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
-<div class="line"><a name="l00147"></a><span class="lineno"><a class="line" href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">  147</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">update</a>(<span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;accel, <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;gyro, <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time,</div>
-<div class="line"><a name="l00148"></a><span class="lineno">  148</span>&#160;              <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring) {</div>
-<div class="line"><a name="l00149"></a><span class="lineno">  149</span>&#160;    <span class="comment">// math from:</span></div>
-<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;    <span class="comment">// https://stanford.edu/class/ee267/lectures/lecture10.pdf</span></div>
-<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160;    <span class="comment">// https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf</span></div>
-<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160; </div>
-<div class="line"><a name="l00153"></a><span class="lineno">  153</span>&#160;    <span class="comment">// rotation quaternion from gyroscope readings</span></div>
-<div class="line"><a name="l00154"></a><span class="lineno">  154</span>&#160;    <a class="code" href="a00059.html">Quaternion</a> qGyroCur;</div>
-<div class="line"><a name="l00155"></a><span class="lineno">  155</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(gyro)) {</div>
-<div class="line"><a name="l00156"></a><span class="lineno">  156</span>&#160;      <span class="comment">// if gyro reading is 0, take current quaternion to be corrected</span></div>
-<div class="line"><a name="l00157"></a><span class="lineno">  157</span>&#160;      qGyroCur = m_qRot;</div>
-<div class="line"><a name="l00158"></a><span class="lineno">  158</span>&#160;    } <span class="keywordflow">else</span> {</div>
-<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;      <span class="comment">// otherwise integrate quaternion reading</span></div>
-<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;      <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qGyroDelta{normalize(gyro), time * magn(gyro)};</div>
-<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;      qGyroCur = m_qRot * qGyroDelta;</div>
-<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;    }</div>
-<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160; </div>
-<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160;    <span class="comment">// don&#39;t bother with acceleration correction if acceleration is basically</span></div>
-<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">// 0</span></div>
-<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(accel)) {</div>
-<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;      m_qRot = qGyroCur;</div>
-<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;      <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;    }</div>
+<div class="line"><a name="l00136"></a><span class="lineno"><a class="line" href="a00047.html#a9997038da8c8e4756bc3263883f024ed">  136</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a9997038da8c8e4756bc3263883f024ed">updateGyro</a>(<span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;gyro, <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time) {</div>
+<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(gyro)) {</div>
+<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;      <span class="comment">// if gyro reading is 0, then don&#39;t correct</span></div>
+<div class="line"><a name="l00139"></a><span class="lineno">  139</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00140"></a><span class="lineno">  140</span>&#160;    }</div>
+<div class="line"><a name="l00141"></a><span class="lineno">  141</span>&#160; </div>
+<div class="line"><a name="l00142"></a><span class="lineno">  142</span>&#160;    <span class="comment">// otherwise integrate quaternion reading</span></div>
+<div class="line"><a name="l00143"></a><span class="lineno">  143</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qGyroDelta{normalize(gyro), time * magn(gyro)};</div>
+<div class="line"><a name="l00144"></a><span class="lineno">  144</span>&#160;    m_qRot *= qGyroDelta;</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160;  }</div>
+<div class="line"><a name="l00146"></a><span class="lineno">  146</span>&#160; </div>
+<div class="line"><a name="l00158"></a><span class="lineno"><a class="line" href="a00047.html#a1613024246986eec00ee5109db6758c2">  158</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a1613024246986eec00ee5109db6758c2">updateAccel</a>(<span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;accel) {</div>
+<div class="line"><a name="l00159"></a><span class="lineno">  159</span>&#160;    <span class="comment">// don&#39;t bother with acceleration correction if acceleration is basically</span></div>
+<div class="line"><a name="l00160"></a><span class="lineno">  160</span>&#160;    <span class="comment">// 0</span></div>
+<div class="line"><a name="l00161"></a><span class="lineno">  161</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(accel)) {</div>
+<div class="line"><a name="l00162"></a><span class="lineno">  162</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00163"></a><span class="lineno">  163</span>&#160;    }</div>
+<div class="line"><a name="l00164"></a><span class="lineno">  164</span>&#160; </div>
+<div class="line"><a name="l00165"></a><span class="lineno">  165</span>&#160;    <span class="comment">// gravity vector rotation</span></div>
+<div class="line"><a name="l00166"></a><span class="lineno">  166</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelBody{0, accel};</div>
+<div class="line"><a name="l00167"></a><span class="lineno">  167</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelWorld =</div>
+<div class="line"><a name="l00168"></a><span class="lineno">  168</span>&#160;        m_qRot * qAccelBody *</div>
+<div class="line"><a name="l00169"></a><span class="lineno">  169</span>&#160;        m_qRot.<a class="code" href="a00059.html#a535e4fc80a24138706eaaa3926f66f1a">conj</a>(); <span class="comment">// rotates body acceleration by gyro measurements</span></div>
 <div class="line"><a name="l00170"></a><span class="lineno">  170</span>&#160; </div>
-<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// gravity vector rotation</span></div>
-<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelBody{0, accel};</div>
-<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelWorld =</div>
-<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;        qGyroCur * qAccelBody *</div>
-<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        qGyroCur.<a class="code" href="a00059.html#a535e4fc80a24138706eaaa3926f66f1a">conj</a>(); <span class="comment">// rotates body acceleration by gyro measurements</span></div>
-<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160; </div>
-<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;    <span class="comment">// correcting gyro drift with accelerometer</span></div>
-<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecAccelWorldNorm = normalize(qAccelWorld.<a class="code" href="a00059.html#a94121a1392dc6237c35dfb4ecffae96c">vec</a>());</div>
-<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecAccelGravity{0, 0, -1};</div>
-<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecRotAxis =</div>
-<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;        cross(vecAccelWorldNorm,</div>
-<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;              vecAccelGravity); <span class="comment">// rotation axis for correction rotation from</span></div>
-<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;                                <span class="comment">// estimated gravity vector (from gyro</span></div>
-<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;                                <span class="comment">// readings) to true gravity vector</span></div>
-<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160; </div>
-<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#ifdef IMUNANO33_EMBED</span></div>
-<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> rotAngle = acosf(<a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(</div>
-<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        dot(vecAccelGravity, vecAccelWorldNorm) /</div>
-<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),</div>
-<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;        -1.0F,</div>
-<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;        1.0F)); <span class="comment">// angle to rotate to correct acceleration vector</span></div>
-<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> rotAngle = std::acos(</div>
-<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;        <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(dot(vecAccelGravity, vecAccelWorldNorm) /</div>
-<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;                            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),</div>
-<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;                        -1.0,</div>
-<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;                        1.0)); <span class="comment">// angle to rotate to correct acceleration vector</span></div>
-<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160; </div>
-<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="comment">// if angle needed to rotate is 0 or the axis to rotate around is 0, then</span></div>
-<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;    <span class="comment">// don&#39;t bother correcting</span></div>
-<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(rotAngle) || <a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(vecRotAxis)) {</div>
-<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;      m_qRot = qGyroCur;</div>
-<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160;      <span class="keywordflow">return</span>;</div>
-<div class="line"><a name="l00205"></a><span class="lineno">  205</span>&#160;    }</div>
-<div class="line"><a name="l00206"></a><span class="lineno">  206</span>&#160; </div>
-<div class="line"><a name="l00207"></a><span class="lineno">  207</span>&#160;    <span class="comment">// complementary filter</span></div>
-<div class="line"><a name="l00208"></a><span class="lineno">  208</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelCur{normalize(vecRotAxis),</div>
-<div class="line"><a name="l00209"></a><span class="lineno">  209</span>&#160;                               (1 - favoring) * rotAngle};</div>
-<div class="line"><a name="l00210"></a><span class="lineno">  210</span>&#160;    m_qRot = qAccelCur * qGyroCur;</div>
-<div class="line"><a name="l00211"></a><span class="lineno">  211</span>&#160;  }</div>
-<div class="line"><a name="l00212"></a><span class="lineno">  212</span>&#160; </div>
-<div class="line"><a name="l00230"></a><span class="lineno"><a class="line" href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">  230</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">update</a>(<span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;accel, <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;gyro, <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time) {</div>
-<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160;    <a class="code" href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">update</a>(accel, gyro, time, m_gyroFavoring);</div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;  }</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno"><a class="line" href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">  238</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">reset</a>() { <a class="code" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a>({1, {0, 0, 0}}); }</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno"><a class="line" href="a00047.html#ad961237f4331643fc193a4b4925a710a">  245</a></span>&#160;  <a class="code" href="a00059.html">Quaternion</a> <a class="code" href="a00047.html#ad961237f4331643fc193a4b4925a710a">getRotQ</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_qRot; }</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160; </div>
-<div class="line"><a name="l00252"></a><span class="lineno"><a class="line" href="a00047.html#a32a50698461860c99179b17071ddb1d9">  252</a></span>&#160;  <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> <a class="code" href="a00047.html#a32a50698461860c99179b17071ddb1d9">getGyroFavoring</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_gyroFavoring; }</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160; </div>
-<div class="line"><a name="l00262"></a><span class="lineno"><a class="line" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">  262</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a>(<span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> &amp;q) { m_qRot = q.<a class="code" href="a00059.html#a197de297a2bce57da2b6565669c3824b">unit</a>(); }</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160; </div>
-<div class="line"><a name="l00272"></a><span class="lineno"><a class="line" href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">  272</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">setGyroFavoring</a>(<span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring) {</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;<span class="preprocessor">#ifdef IMUNANO33_EMBED</span></div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    m_gyroFavoring = <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(favoring, 0.0F, 1.0F);</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;<span class="preprocessor">#else</span></div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;    m_gyroFavoring = <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(favoring, 0.0, 1.0);</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  }</div>
+<div class="line"><a name="l00171"></a><span class="lineno">  171</span>&#160;    <span class="comment">// correcting gyro drift with accelerometer</span></div>
+<div class="line"><a name="l00172"></a><span class="lineno">  172</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecAccelWorldNorm = normalize(qAccelWorld.<a class="code" href="a00059.html#a94121a1392dc6237c35dfb4ecffae96c">vec</a>());</div>
+<div class="line"><a name="l00173"></a><span class="lineno">  173</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecAccelGravity{0, 0, -1};</div>
+<div class="line"><a name="l00174"></a><span class="lineno">  174</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> vecRotAxis =</div>
+<div class="line"><a name="l00175"></a><span class="lineno">  175</span>&#160;        cross(vecAccelWorldNorm,</div>
+<div class="line"><a name="l00176"></a><span class="lineno">  176</span>&#160;              vecAccelGravity); <span class="comment">// rotation axis for correction rotation from</span></div>
+<div class="line"><a name="l00177"></a><span class="lineno">  177</span>&#160;                                <span class="comment">// estimated gravity vector (from gyro</span></div>
+<div class="line"><a name="l00178"></a><span class="lineno">  178</span>&#160;                                <span class="comment">// readings) to true gravity vector</span></div>
+<div class="line"><a name="l00179"></a><span class="lineno">  179</span>&#160; </div>
+<div class="line"><a name="l00180"></a><span class="lineno">  180</span>&#160;<span class="preprocessor">#ifdef IMUNANO33_EMBED</span></div>
+<div class="line"><a name="l00181"></a><span class="lineno">  181</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> rotAngle = acosf(<a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(</div>
+<div class="line"><a name="l00182"></a><span class="lineno">  182</span>&#160;        dot(vecAccelGravity, vecAccelWorldNorm) /</div>
+<div class="line"><a name="l00183"></a><span class="lineno">  183</span>&#160;            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),</div>
+<div class="line"><a name="l00184"></a><span class="lineno">  184</span>&#160;        -1.0F,</div>
+<div class="line"><a name="l00185"></a><span class="lineno">  185</span>&#160;        1.0F)); <span class="comment">// angle to rotate to correct acceleration vector</span></div>
+<div class="line"><a name="l00186"></a><span class="lineno">  186</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00187"></a><span class="lineno">  187</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> rotAngle = std::acos(</div>
+<div class="line"><a name="l00188"></a><span class="lineno">  188</span>&#160;        <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(dot(vecAccelGravity, vecAccelWorldNorm) /</div>
+<div class="line"><a name="l00189"></a><span class="lineno">  189</span>&#160;                            (magn(vecAccelGravity) * magn(vecAccelWorldNorm)),</div>
+<div class="line"><a name="l00190"></a><span class="lineno">  190</span>&#160;                        -1.0,</div>
+<div class="line"><a name="l00191"></a><span class="lineno">  191</span>&#160;                        1.0)); <span class="comment">// angle to rotate to correct acceleration vector</span></div>
+<div class="line"><a name="l00192"></a><span class="lineno">  192</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00193"></a><span class="lineno">  193</span>&#160; </div>
+<div class="line"><a name="l00194"></a><span class="lineno">  194</span>&#160;    <span class="comment">// if the axis to rotate around is 0, then don&#39;t bother correcting</span></div>
+<div class="line"><a name="l00195"></a><span class="lineno">  195</span>&#160;    <span class="keywordflow">if</span> (<a class="code" href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">MathUtil::nearZero</a>(vecRotAxis)) {</div>
+<div class="line"><a name="l00196"></a><span class="lineno">  196</span>&#160;      <span class="keywordflow">return</span>;</div>
+<div class="line"><a name="l00197"></a><span class="lineno">  197</span>&#160;    }</div>
+<div class="line"><a name="l00198"></a><span class="lineno">  198</span>&#160; </div>
+<div class="line"><a name="l00199"></a><span class="lineno">  199</span>&#160;    <span class="comment">// complementary filter</span></div>
+<div class="line"><a name="l00200"></a><span class="lineno">  200</span>&#160;    <span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> qAccelCur{normalize(vecRotAxis),</div>
+<div class="line"><a name="l00201"></a><span class="lineno">  201</span>&#160;                               (1 - m_gyroFavoring) * rotAngle};</div>
+<div class="line"><a name="l00202"></a><span class="lineno">  202</span>&#160;    m_qRot = qAccelCur * m_qRot;</div>
+<div class="line"><a name="l00203"></a><span class="lineno">  203</span>&#160;  }</div>
+<div class="line"><a name="l00204"></a><span class="lineno">  204</span>&#160; </div>
+<div class="line"><a name="l00222"></a><span class="lineno"><a class="line" href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">  222</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">update</a>(<span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;accel, <span class="keyword">const</span> <a class="code" href="a00071.html">Vector3D</a> &amp;gyro, <span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> time) {</div>
+<div class="line"><a name="l00223"></a><span class="lineno">  223</span>&#160;    <span class="comment">// math from:</span></div>
+<div class="line"><a name="l00224"></a><span class="lineno">  224</span>&#160;    <span class="comment">// https://stanford.edu/class/ee267/lectures/lecture10.pdf</span></div>
+<div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    <span class="comment">// https://stanford.edu/class/ee267/notes/ee267_notes_imu.pdf</span></div>
+<div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160; </div>
+<div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    <a class="code" href="a00047.html#a9997038da8c8e4756bc3263883f024ed">updateGyro</a>(gyro, time);</div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    <a class="code" href="a00047.html#a1613024246986eec00ee5109db6758c2">updateAccel</a>(accel);</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;  }</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
+<div class="line"><a name="l00235"></a><span class="lineno"><a class="line" href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">  235</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">reset</a>() { <a class="code" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a>({1, {0, 0, 0}}); }</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
+<div class="line"><a name="l00242"></a><span class="lineno"><a class="line" href="a00047.html#ad961237f4331643fc193a4b4925a710a">  242</a></span>&#160;  <a class="code" href="a00059.html">Quaternion</a> <a class="code" href="a00047.html#ad961237f4331643fc193a4b4925a710a">getRotQ</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_qRot; }</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
+<div class="line"><a name="l00249"></a><span class="lineno"><a class="line" href="a00047.html#a32a50698461860c99179b17071ddb1d9">  249</a></span>&#160;  <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> <a class="code" href="a00047.html#a32a50698461860c99179b17071ddb1d9">getGyroFavoring</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_gyroFavoring; }</div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160; </div>
+<div class="line"><a name="l00259"></a><span class="lineno"><a class="line" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">  259</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">setRotQ</a>(<span class="keyword">const</span> <a class="code" href="a00059.html">Quaternion</a> &amp;q) { m_qRot = q.<a class="code" href="a00059.html#a197de297a2bce57da2b6565669c3824b">unit</a>(); }</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno"><a class="line" href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">  269</a></span>&#160;  <span class="keywordtype">void</span> <a class="code" href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">setGyroFavoring</a>(<span class="keyword">const</span> <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> favoring) {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;<span class="preprocessor">#ifdef IMUNANO33_EMBED</span></div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    m_gyroFavoring = <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(favoring, 0.0F, 1.0F);</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;<span class="preprocessor">#else</span></div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    m_gyroFavoring = <a class="code" href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">MathUtil::clamp</a>(favoring, 0.0, 1.0);</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;  }</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;  <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> m_gyroFavoring;</div>
 <div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160; </div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;  <a class="code" href="a00035.html#a41f66c543e530259bb19ed179fd82e29">num_t</a> m_gyroFavoring;</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;  <a class="code" href="a00059.html">Quaternion</a> m_qRot;</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160;};</div>
 <div class="line"><a name="l00282"></a><span class="lineno">  282</span>&#160; </div>
-<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;  <a class="code" href="a00059.html">Quaternion</a> m_qRot;</div>
-<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160;};</div>
-<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160; </div>
-<div class="line"><a name="l00286"></a><span class="lineno">  286</span>&#160;} <span class="comment">// namespace imunano33</span></div>
-<div class="line"><a name="l00287"></a><span class="lineno">  287</span>&#160; </div>
-<div class="line"><a name="l00288"></a><span class="lineno">  288</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00283"></a><span class="lineno">  283</span>&#160;} <span class="comment">// namespace imunano33</span></div>
+<div class="line"><a name="l00284"></a><span class="lineno">  284</span>&#160; </div>
+<div class="line"><a name="l00285"></a><span class="lineno">  285</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aa00023_html"><div class="ttname"><a href="a00023.html">mathutil.hpp</a></div><div class="ttdoc">File containing the imunano33::MathUtil class.</div></div>
 <div class="ttc" id="aa00026_html"><div class="ttname"><a href="a00026.html">quaternion.hpp</a></div><div class="ttdoc">File containing the imunano33::Quaternion class.</div></div>
 <div class="ttc" id="aa00029_html"><div class="ttname"><a href="a00029.html">simplevectors.hpp</a></div><div class="ttdoc">Vector math utility file.</div></div>
@@ -254,23 +251,24 @@ $(document).ready(function(){initNavTree('a00017_source.html',''); initResizable
 <div class="ttc" id="aa00035_html"><div class="ttname"><a href="a00035.html">unit.hpp</a></div><div class="ttdoc">Contains imunano33::TempUnit and imunano33::PressureUnit enums, in addition to number type.</div></div>
 <div class="ttc" id="aa00035_html_a41f66c543e530259bb19ed179fd82e29"><div class="ttname"><a href="a00035.html#a41f66c543e530259bb19ed179fd82e29">imunano33::num_t</a></div><div class="ttdeci">double num_t</div><div class="ttdoc">Alias to number type depending on embed.</div><div class="ttdef"><b>Definition:</b> unit.hpp:34</div></div>
 <div class="ttc" id="aa00047_html"><div class="ttname"><a href="a00047.html">imunano33::Filter</a></div><div class="ttdoc">A complementary filter for a 6 axis IMU using quaternions.</div><div class="ttdef"><b>Definition:</b> filter.hpp:44</div></div>
-<div class="ttc" id="aa00047_html_a13f2a50f74a41ef423dd2e955ab6c1ba"><div class="ttname"><a href="a00047.html#a13f2a50f74a41ef423dd2e955ab6c1ba">imunano33::Filter::update</a></div><div class="ttdeci">void update(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t time, const num_t favoring)</div><div class="ttdoc">Updates filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:147</div></div>
+<div class="ttc" id="aa00047_html_a1613024246986eec00ee5109db6758c2"><div class="ttname"><a href="a00047.html#a1613024246986eec00ee5109db6758c2">imunano33::Filter::updateAccel</a></div><div class="ttdeci">void updateAccel(const Vector3D &amp;accel)</div><div class="ttdoc">Updates filter with accelerometer data.</div><div class="ttdef"><b>Definition:</b> filter.hpp:158</div></div>
 <div class="ttc" id="aa00047_html_a1f824e7f07b6a3a170267939919fd893"><div class="ttname"><a href="a00047.html#a1f824e7f07b6a3a170267939919fd893">imunano33::Filter::operator=</a></div><div class="ttdeci">Filter &amp; operator=(Filter &amp;&amp;)=default</div><div class="ttdoc">Move assignment.</div></div>
-<div class="ttc" id="aa00047_html_a32a50698461860c99179b17071ddb1d9"><div class="ttname"><a href="a00047.html#a32a50698461860c99179b17071ddb1d9">imunano33::Filter::getGyroFavoring</a></div><div class="ttdeci">num_t getGyroFavoring() const</div><div class="ttdoc">Gets gyroscope favoring.</div><div class="ttdef"><b>Definition:</b> filter.hpp:252</div></div>
+<div class="ttc" id="aa00047_html_a32a50698461860c99179b17071ddb1d9"><div class="ttname"><a href="a00047.html#a32a50698461860c99179b17071ddb1d9">imunano33::Filter::getGyroFavoring</a></div><div class="ttdeci">num_t getGyroFavoring() const</div><div class="ttdoc">Gets gyroscope favoring.</div><div class="ttdef"><b>Definition:</b> filter.hpp:249</div></div>
 <div class="ttc" id="aa00047_html_a34b255d70f7c96250108eae7f7f703d9"><div class="ttname"><a href="a00047.html#a34b255d70f7c96250108eae7f7f703d9">imunano33::Filter::operator=</a></div><div class="ttdeci">Filter &amp; operator=(const Filter &amp;other)=default</div><div class="ttdoc">Assignment operator.</div></div>
-<div class="ttc" id="aa00047_html_a39065f0dac556e54fa7ca041dff8cce6"><div class="ttname"><a href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">imunano33::Filter::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Resets quaternion to [1, 0, 0, 0], or facing towards position x direction.</div><div class="ttdef"><b>Definition:</b> filter.hpp:238</div></div>
+<div class="ttc" id="aa00047_html_a39065f0dac556e54fa7ca041dff8cce6"><div class="ttname"><a href="a00047.html#a39065f0dac556e54fa7ca041dff8cce6">imunano33::Filter::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdoc">Resets quaternion to [1, 0, 0, 0], or facing towards position x direction.</div><div class="ttdef"><b>Definition:</b> filter.hpp:235</div></div>
 <div class="ttc" id="aa00047_html_a48e36741479da309cb97571b8ac49cdb"><div class="ttname"><a href="a00047.html#a48e36741479da309cb97571b8ac49cdb">imunano33::Filter::Filter</a></div><div class="ttdeci">Filter()</div><div class="ttdoc">Default Constructor.</div><div class="ttdef"><b>Definition:</b> filter.hpp:53</div></div>
-<div class="ttc" id="aa00047_html_a556d8dc3609dcf9ec73afebadb2c9e2d"><div class="ttname"><a href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">imunano33::Filter::update</a></div><div class="ttdeci">void update(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t time)</div><div class="ttdoc">Updates filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:230</div></div>
-<div class="ttc" id="aa00047_html_a5bef288bd9cad33978fb36e1a4e5d0b6"><div class="ttname"><a href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">imunano33::Filter::setGyroFavoring</a></div><div class="ttdeci">void setGyroFavoring(const num_t favoring)</div><div class="ttdoc">Sets gyro favoring.</div><div class="ttdef"><b>Definition:</b> filter.hpp:272</div></div>
+<div class="ttc" id="aa00047_html_a556d8dc3609dcf9ec73afebadb2c9e2d"><div class="ttname"><a href="a00047.html#a556d8dc3609dcf9ec73afebadb2c9e2d">imunano33::Filter::update</a></div><div class="ttdeci">void update(const Vector3D &amp;accel, const Vector3D &amp;gyro, const num_t time)</div><div class="ttdoc">Updates filter with both gyro and accel data.</div><div class="ttdef"><b>Definition:</b> filter.hpp:222</div></div>
+<div class="ttc" id="aa00047_html_a5bef288bd9cad33978fb36e1a4e5d0b6"><div class="ttname"><a href="a00047.html#a5bef288bd9cad33978fb36e1a4e5d0b6">imunano33::Filter::setGyroFavoring</a></div><div class="ttdeci">void setGyroFavoring(const num_t favoring)</div><div class="ttdoc">Sets gyro favoring.</div><div class="ttdef"><b>Definition:</b> filter.hpp:269</div></div>
 <div class="ttc" id="aa00047_html_a635c51eae6b87f3958e9efc366e5eb29"><div class="ttname"><a href="a00047.html#a635c51eae6b87f3958e9efc366e5eb29">imunano33::Filter::~Filter</a></div><div class="ttdeci">~Filter()=default</div><div class="ttdoc">Destructor.</div></div>
 <div class="ttc" id="aa00047_html_a666da136189236bce0503d0a720e6490"><div class="ttname"><a href="a00047.html#a666da136189236bce0503d0a720e6490">imunano33::Filter::Filter</a></div><div class="ttdeci">Filter(const num_t gyroFavoring)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> filter.hpp:68</div></div>
 <div class="ttc" id="aa00047_html_a9994a7507942f1cf1081db2173e8cf9e"><div class="ttname"><a href="a00047.html#a9994a7507942f1cf1081db2173e8cf9e">imunano33::Filter::Filter</a></div><div class="ttdeci">Filter(const Filter &amp;other)=default</div><div class="ttdoc">Copy constructor.</div></div>
-<div class="ttc" id="aa00047_html_a9b4cc11753a1b0e97e868643e9f7c7a3"><div class="ttname"><a href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">imunano33::Filter::setRotQ</a></div><div class="ttdeci">void setRotQ(const Quaternion &amp;q)</div><div class="ttdoc">Sets rotation quaternion for the filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:262</div></div>
+<div class="ttc" id="aa00047_html_a9997038da8c8e4756bc3263883f024ed"><div class="ttname"><a href="a00047.html#a9997038da8c8e4756bc3263883f024ed">imunano33::Filter::updateGyro</a></div><div class="ttdeci">void updateGyro(const Vector3D &amp;gyro, const num_t time)</div><div class="ttdoc">Updates filter with gyro data.</div><div class="ttdef"><b>Definition:</b> filter.hpp:136</div></div>
+<div class="ttc" id="aa00047_html_a9b4cc11753a1b0e97e868643e9f7c7a3"><div class="ttname"><a href="a00047.html#a9b4cc11753a1b0e97e868643e9f7c7a3">imunano33::Filter::setRotQ</a></div><div class="ttdeci">void setRotQ(const Quaternion &amp;q)</div><div class="ttdoc">Sets rotation quaternion for the filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:259</div></div>
 <div class="ttc" id="aa00047_html_aa746ffcc312b4e8b2b8d203ba251b07d"><div class="ttname"><a href="a00047.html#aa746ffcc312b4e8b2b8d203ba251b07d">imunano33::Filter::Filter</a></div><div class="ttdeci">Filter(Filter &amp;&amp;)=default</div><div class="ttdoc">Move constructor.</div></div>
 <div class="ttc" id="aa00047_html_acbe6664382a02845aaa7dde8d79f69db"><div class="ttname"><a href="a00047.html#acbe6664382a02845aaa7dde8d79f69db">imunano33::Filter::Filter</a></div><div class="ttdeci">Filter(const num_t gyroFavoring, const Quaternion &amp;initialQ)</div><div class="ttdoc">Constructor.</div><div class="ttdef"><b>Definition:</b> filter.hpp:92</div></div>
-<div class="ttc" id="aa00047_html_ad961237f4331643fc193a4b4925a710a"><div class="ttname"><a href="a00047.html#ad961237f4331643fc193a4b4925a710a">imunano33::Filter::getRotQ</a></div><div class="ttdeci">Quaternion getRotQ() const</div><div class="ttdoc">Gets rotation quaternion of the complementary filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:245</div></div>
-<div class="ttc" id="aa00055_html_a275d6f6f86a246a233ce9cc76277e3ed"><div class="ttname"><a href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">imunano33::MathUtil::clamp</a></div><div class="ttdeci">static T clamp(const T &amp;num, const T &amp;lo, const T &amp;hi)</div><div class="ttdoc">Restricts num between lo and hi.</div><div class="ttdef"><b>Definition:</b> mathutil.hpp:136</div></div>
-<div class="ttc" id="aa00055_html_a83d2720176393835d9ab6fd7fedf25d1"><div class="ttname"><a href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">imunano33::MathUtil::nearZero</a></div><div class="ttdeci">static bool nearZero(const num_t num)</div><div class="ttdoc">Determines if number is near zero with given precision.</div><div class="ttdef"><b>Definition:</b> mathutil.hpp:46</div></div>
+<div class="ttc" id="aa00047_html_ad961237f4331643fc193a4b4925a710a"><div class="ttname"><a href="a00047.html#ad961237f4331643fc193a4b4925a710a">imunano33::Filter::getRotQ</a></div><div class="ttdeci">Quaternion getRotQ() const</div><div class="ttdoc">Gets rotation quaternion of the complementary filter.</div><div class="ttdef"><b>Definition:</b> filter.hpp:242</div></div>
+<div class="ttc" id="aa00055_html_a275d6f6f86a246a233ce9cc76277e3ed"><div class="ttname"><a href="a00055.html#a275d6f6f86a246a233ce9cc76277e3ed">imunano33::MathUtil::clamp</a></div><div class="ttdeci">static T clamp(const T &amp;num, const T &amp;lo, const T &amp;hi)</div><div class="ttdoc">Restricts num between lo and hi.</div><div class="ttdef"><b>Definition:</b> mathutil.hpp:139</div></div>
+<div class="ttc" id="aa00055_html_a83d2720176393835d9ab6fd7fedf25d1"><div class="ttname"><a href="a00055.html#a83d2720176393835d9ab6fd7fedf25d1">imunano33::MathUtil::nearZero</a></div><div class="ttdeci">static bool nearZero(const num_t num)</div><div class="ttdoc">Determines if number is near zero with given precision.</div><div class="ttdef"><b>Definition:</b> mathutil.hpp:48</div></div>
 <div class="ttc" id="aa00059_html"><div class="ttname"><a href="a00059.html">imunano33::Quaternion</a></div><div class="ttdoc">A simple quaternion class for rotations.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:40</div></div>
 <div class="ttc" id="aa00059_html_a197de297a2bce57da2b6565669c3824b"><div class="ttname"><a href="a00059.html#a197de297a2bce57da2b6565669c3824b">imunano33::Quaternion::unit</a></div><div class="ttdeci">Quaternion unit() const</div><div class="ttdoc">Gets equivalent unit quaternion.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:161</div></div>
 <div class="ttc" id="aa00059_html_a535e4fc80a24138706eaaa3926f66f1a"><div class="ttname"><a href="a00059.html#a535e4fc80a24138706eaaa3926f66f1a">imunano33::Quaternion::conj</a></div><div class="ttdeci">Quaternion conj() const</div><div class="ttdoc">Gets the quaternion conjugate.</div><div class="ttdef"><b>Definition:</b> quaternion.hpp:124</div></div>

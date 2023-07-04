@@ -21,5 +21,7 @@ var a00051 =
     [ "update", "a00051.html#a87e42163dcda1f1edadddea8567a91c4", null ],
     [ "updateClimate", "a00051.html#a5bfd5a31ebc91730ed33e9b6eef5d25e", null ],
     [ "updateIMU", "a00051.html#ad0cdf23b65e33a193774464b1a099df7", null ],
+    [ "updateIMUAccel", "a00051.html#a2ecea68ab3607cac39ccd0c036ba84fa", null ],
+    [ "updateIMUGyro", "a00051.html#a244acf313bda06633392deab0dfdeda6", null ],
     [ "zeroIMU", "a00051.html#a0e7d03823a31a1265257054e825130d9", null ]
 ];
