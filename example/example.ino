@@ -71,6 +71,8 @@ BLECharacteristic imuChr{ "2A69", BLENotify, 32 };
 void setup() {
   DEFAULT_SERIAL.begin(115200);
 
+  while (!DEFAULT_SERIAL)
+    ;
   while (!BARO.begin())
     ;
   while (!IMU.begin())
@@ -101,11 +103,6 @@ void setup() {
 }
 
 void loop() {
-  // uncomment the three lines below if the MAC address print above does not work
-  // #ifdef USE_BLUETOOTH
-  //   DEFAULT_SERIAL.println(BLE.address());
-  // #endif
-
   // get current time
   float curTime = millis() / 1000.0;
   readIMU(curTime);
