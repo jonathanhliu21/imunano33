@@ -348,6 +348,49 @@ int main() {
 }
 ```
 
+If the accelerometer values and gyroscope values are sampled separately, then the imunano33::IMUNano33::updateIMUAccel() and imunano33::IMUNano33::updateIMUGyro() methods can be used to update both values on their own:
+
+```cpp
+#include <imunano33/imunano33.hpp>
+
+svector::Vector3D readGyro() {
+  // ...
+  // returns <roll, pitch, yaw>
+}
+
+svector::Vector3D readAcc() {
+  // ...
+}
+
+double getCurTime() {
+  // ...
+  // returns time, in seconds
+}
+
+int main() {
+  imunano33::IMUNano33 proc;
+
+  double prevTime = getCurTime();
+  
+  while (true) {
+    svector::Vector3D gyro = readGyro();
+    svector::Vector3D acc = readAcc();
+    svector::Vector3D curTime = getCurTime();
+
+    // This is the same as calling proc.updateIMU() in this case
+    // because they are sampled at the same time. If the accelerometer
+    // and gyro are sampled at different times, each method should
+    // be called separately at those times.
+    proc.updateIMUGyro(gyro, curTime - prevTime);
+    proc.updateIMUAccel(acc);
+    
+    prevTime = curTime;
+  }
+}
+```
+
+@note imunano33::IMUNano33::updateIMUAccel() and imunano33::IMUNano33::updateIMUGyro() are *not* commutative. imunano33::IMUNano33::updateIMUGyro() *sets* the latest known orientation, while imunano33::IMUNano33::updateIMUAccel() *corrects* the latest known orientation. If imunano33::IMUNano33::updateIMUGyro() is called first, then it rotates the Arduino first and sets the new orientation. Then, this new orientation is corrected with the imunano33::IMUNano33::updateIMUAccel() call. If imunano33::IMUNano33::updateIMUAccel() is called first, then it corrects the *previous* orientation, and then the Arduino is rotated to a *new*, *uncorrected* orientation with imunano33::IMUNano33::updateIMUGyro(). imunano33::IMUNano33::updateIMU() calls imunano33::IMUNano33::updateIMUGyro() first, and then it corrects the orientation with imunano33::IMUNano33::updateIMUAccel().
+
 To get the current rotation quaternion, use imunano33::IMUNano33::getRotQ().
 
 ```cpp
