@@ -7,14 +7,14 @@
  * communication is experimental and currently untested.
  *
  * Climate data is sent in the follwing form on the serial monitor:
- * "C<temperature in C>,<humidity in %>,<pressure in kPa>".
+ * "C:<temperature in C>,<humidity in %>,<pressure in kPa>".
  * On BLE, it is sent on the 2A6E characteristic in the form:
  * "<temperature in C>,<humidity in %>,<pressure in kPa>".
  * It is important to note that these values are integers which are
  * 10 times their actual value, so there is one digit of precision.
  *
  * Quaternion/orientation data is sent in the following form on the serial monitor:
- * "Q<w>,<x>,<y>,<z>"
+ * "Q:<w>,<x>,<y>,<z>"
  * and like the following on BLE, on the 2A69 characteristic:
  * "<w>,<x>,<y>,<z>".
  * It is important to note that these values are integers which are

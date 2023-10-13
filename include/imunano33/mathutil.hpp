@@ -130,6 +130,8 @@ public:
    * If num < lo, returns lo, if num > hi, returns hi, otherwise returns num. If
    * lo > hi, then behavior is undefined.
    *
+   * @tparam T Number type being clamped.
+   *
    * @param num Number to clamp
    * @param lo Lower bound
    * @param hi Upper bound

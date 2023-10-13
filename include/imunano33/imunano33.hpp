@@ -315,7 +315,7 @@ public:
    * Check that this temperature measurement is valid with climateDataExists()
    * first.
    *
-   * Specify the unit in the template argument.
+   * @tparam U Temperature unit.
    *
    * @returns Temperature in given unit.
    */
@@ -329,7 +329,7 @@ public:
    * Check that this pressure measurement is valid with climateDataExists()
    * first.
    *
-   * Specify the unit in the template argument.
+   * @tparam U Pressure unit.
    *
    * @returns Pressure in given unit.
    */
