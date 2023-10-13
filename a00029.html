@@ -99,9 +99,6 @@ $(document).ready(function(){initNavTree('a00029.html',''); initResizable(); });
 <div class="title">simplevectors.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-
-<p>Vector math utility file.  
-<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;array&gt;</code><br />
 <code>#include &lt;cmath&gt;</code><br />
@@ -116,7 +113,7 @@ Include dependency graph for simplevectors.hpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00030.png" border="0" usemap="#a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hpp" alt=""/></div>
 <map name="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hpp" id="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hpp">
-<area shape="rect" title="Vector math utility file." alt="" coords="297,5,524,61"/>
+<area shape="rect" title=" " alt="" coords="297,5,524,61"/>
 <area shape="rect" title=" " alt="" coords="5,109,91,136"/>
 <area shape="rect" title=" " alt="" coords="115,109,171,136"/>
 <area shape="rect" title=" " alt="" coords="195,109,258,136"/>
@@ -133,7 +130,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00031.png" border="0" usemap="#a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hppdep" alt=""/></div>
 <map name="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hppdep" id="a_2home_2runner_2work_2imunano33_2imunano33_2include_2imunano33_2simplevectors_8hppdep">
-<area shape="rect" title="Vector math utility file." alt="" coords="153,5,380,61"/>
+<area shape="rect" title=" " alt="" coords="153,5,380,61"/>
 <area shape="rect" href="a00017.html" title="File containing the imunano33::Filter class." alt="" coords="79,213,305,269"/>
 <area shape="rect" href="a00020.html" title="Contains the imunano33::IMUNano33 class." alt="" coords="279,317,505,373"/>
 <area shape="rect" href="a00023.html" title="File containing the imunano33::MathUtil class." alt="" coords="28,109,255,165"/>
@@ -287,9 +284,7 @@ Functions</h2></td></tr>
 <tr class="memdesc:acab526cf22ef6bcd0d6df4d0736575a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compares inequality of two vectors.  <a href="a00029.html#acab526cf22ef6bcd0d6df4d0736575a0">More...</a><br /></td></tr>
 <tr class="separator:acab526cf22ef6bcd0d6df4d0736575a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Vector math utility file. </p>
-</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a0bce35f558c2b5bf5b39d311bc00aa1c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bce35f558c2b5bf5b39d311bc00aa1c">&#9670;&nbsp;</a></span>AngleDir</h2>
 
@@ -511,6 +506,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 
 <p>Calculates the dot product of two vectors. </p>
 <dl class="section note"><dt>Note</dt><dd>The dimensions of the two vectors must be the same.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>First vector. </td></tr>
@@ -586,6 +588,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 </div><div class="memdoc">
 
 <p>Determines whether a vector is a zero vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>Whether the given vector is a zero vector. </dd></dl>
 
 </div>
@@ -617,6 +626,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 </div><div class="memdoc">
 
 <p>Gets the magnitude of the vector. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The vector to get magnitude of.</td></tr>
@@ -647,6 +663,13 @@ template&lt;std::size_t D, typename T &gt; </div>
 
 <p>Creates a vector from an initializer list. </p>
 <p>The initializer list should represent the components of the vector in each dimension. If the size of the initializer list is greater than the number of dimensions given, then the vector only initializes with the first D elements in the list, where D is the number of dimensions. If the size of the initializer list is less than the number of dimensions given, then the vector fills the rest of the dimensions with the value 0.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">args</td><td>the initializer list.</td></tr>
@@ -676,6 +699,13 @@ template&lt;std::size_t D, typename T &gt; </div>
 </div><div class="memdoc">
 
 <p>Creates a vector from an std::array. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">array</td><td>An array.</td></tr>
@@ -707,6 +737,13 @@ template&lt;std::size_t D, typename T &gt; </div>
 <p>Creates a vector from a std::vetor. </p>
 <p>If the given std::vector has fewer elements than the specified dimensions, then this function will fill up the first elements of the vector with those in the given std::vector. The rest of the elements would be 0.</p>
 <p>If the given std::vector has more elements than the specified dimensions, then the resulting vector would ignore the numbers in those dimensions.</p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type. </td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">vector</td><td>A std::vector.</td></tr>
@@ -746,6 +783,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 <p>Normalizes a vector. </p>
 <p>Finds the unit vector with the same direction angle as the current vector.</p>
 <dl class="section note"><dt>Note</dt><dd>This method will result in undefined behavior if the vector is a zero vector (if the magnitude equals zero).</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">v</td><td>The vector to normalize.</td></tr>
@@ -796,6 +840,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd>
 <dd>
 The dimensions of the two vectors must be the same.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
@@ -846,6 +897,14 @@ template&lt;typename T , typename T2 , std::size_t D&gt; </div>
 <p>Scalar multiplication. </p>
 <p>Performs scalar multiplication and returns a new vector representing the product.</p>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type. </td></tr>
+    <tr><td class="paramname">T2</td><td>Scalar multiplication type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
@@ -898,6 +957,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd>
 <dd>
 The dimensions of the two vectors must be the same.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
@@ -950,6 +1016,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd>
 <dd>
 The dimensions of the two vectors must be the same.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
@@ -1000,6 +1073,14 @@ template&lt;typename T , typename T2 , std::size_t D&gt; </div>
 <p>Scalar division. </p>
 <p>Performs scalar division and returns a new vector representing the quotient.</p>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type. </td></tr>
+    <tr><td class="paramname">T2</td><td>Scalar division type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
@@ -1051,6 +1132,13 @@ template&lt;typename T , std::size_t D&gt; </div>
 <dl class="section note"><dt>Note</dt><dd>This method is only used if SVECTOR_USE_CLASS_OPERATORS is not defined. Otherwise, the operators in <a class="el" href="a00063.html" title="A base vector representation.">svector::Vector</a> are used.</dd>
 <dd>
 The dimensions of the two vectors must be the same.</dd></dl>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">D</td><td>The number of dimensions. </td></tr>
+    <tr><td class="paramname">T</td><td>Vector type.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">lhs</td><td>The first vector. </td></tr>
