@@ -96,6 +96,9 @@ void setup() {
   BLE.advertise();  // make it seen to others
 
   DEFAULT_SERIAL.println(BLE.address());  // print MAC address
+
+  pinMode(13, OUTPUT);
+  digitalWrite(13, LOW);
 #endif
 
   prevTimeIMU = millis() / 1000.0;
@@ -129,6 +132,8 @@ void loop() {
 #ifdef USE_BLUETOOTH
   BLEDevice central = BLE.central();
   if (central) {
+    digitalWrite(13, HIGH);
+    proc.zeroIMU();
     while (central.connected()) {
       float curTime = millis() / 1000.0;
       // read IMU data and process
@@ -149,6 +154,7 @@ void loop() {
         prevTimeClimate = curTime;
       }
     }
+    digitalWrite(13, LOW);
   }
 #endif
 
