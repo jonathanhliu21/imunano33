@@ -3,7 +3,7 @@ name: Documentation Fix
 about: Make documentation more clear/fix something wrong in documentation
 title: ''
 labels: documentation
-assignees: jonyboi396825
+assignees: jonathanhliu21
 
 ---
 

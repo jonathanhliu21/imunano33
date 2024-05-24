@@ -17,8 +17,8 @@ This library can also be used with an Arduino connected to an MPU-9250 or MPU-60
 
 ## Links
 
-* Source Code: https://github.com/jonyboi396825/imunano33
-* Documentation: https://jonyboi396825.github.io/imunano33/index.html
+* Source Code: https://github.com/jonathanhliu21/imunano33
+* Documentation: https://jonathanhliu21.github.io/imunano33/index.html
 
 # Installation
 
@@ -164,7 +164,7 @@ The main class to use is the imunano33::IMUNano33 class. It provides independent
 
 This library comes with some utility classes for math, namely svector::Vector3D, from my third-party vectors library, and imunano33::Quaternion, which is used for rotations.
 
-The usage of the third-party vectors library can be found at the simplevectors [documentation page](https://jonyboi396825.github.io/simplevectors/a00123.html). The basic usage methods of the quaternion class can be found at the class link: imunano33::Quaternion. It should mainly be used for rotations, whose code can be found below:
+The usage of the third-party vectors library can be found at the simplevectors [documentation page](https://jonathanhliu21.github.io/simplevectors/a00123.html). The basic usage methods of the quaternion class can be found at the class link: imunano33::Quaternion. It should mainly be used for rotations, whose code can be found below:
 
 ```cpp
 #include <cmath>

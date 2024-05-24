@@ -14,8 +14,8 @@ This library can also be used with an Arduino connected to an MPU-9250 or MPU-60
 
 ## Links
 
-* Source Code: https://github.com/jonyboi396825/imunano33
-* Documentation: https://jonyboi396825.github.io/imunano33/index.html
+* Source Code: https://github.com/jonathanhliu21/imunano33
+* Documentation: https://jonathanhliu21.github.io/imunano33/index.html
 
 ## License
 
